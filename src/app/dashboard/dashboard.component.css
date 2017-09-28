@@ -11,7 +11,6 @@ a:focus {
 }
 
 .square-service-block a {
-    /* background-color: #e74c3c; */
     display: block;
     padding: 60px 20px;
     text-align: center;
@@ -20,11 +19,6 @@ a:focus {
 
 .square-service-block {
     border-radius: 5px;
-}
-
-.square-service-block a:hover {
-    /* background-color: rgba(231, 76, 60, 0.8); */
-    /* border-radius: 5px; */
 }
 
 .ssb-icon {
@@ -54,3 +48,8 @@ h2.ssb-title {
 .btn-weather:hover {
     background-color: #9b1bb1;
 }
+.dash{
+  height: 800px;
+  padding-top: 30px;
+}
+
