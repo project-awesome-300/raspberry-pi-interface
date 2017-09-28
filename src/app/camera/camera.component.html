@@ -8,10 +8,14 @@
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-xs-6 col">
-        <div id="cam-loading" *ngIf="!_cameraReady">
+      <div class="col-xs-6 col" #camera>
+        <div id="cam-loading" *ngIf="!cameraReady">
           <img src="../../assets/images/loading.gif">
         </div>
+        <!-- <div *ngIf="cameraReady"  class="camera-view">  -->
+        <ack-webcam [(ref)]="webcam" [options]="options" (onSuccess)="onSuccess($event)" (onError)="onError($event)" style="width:100%;height:100%"
+          *ngIf="cameraReady" class="camera-view"></ack-webcam>
+        <!-- </div> -->
       </div>
       <div class="col-xs-6 col">blurb here</div>
     </div>

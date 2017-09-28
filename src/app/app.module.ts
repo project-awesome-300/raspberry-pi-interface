@@ -1,3 +1,4 @@
+import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,7 +17,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
-    CameraComponent
+    CameraComponent,
+    WebCamComponent
   ],
   imports: [
     BrowserModule,
