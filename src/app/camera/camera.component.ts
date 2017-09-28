@@ -1,13 +1,13 @@
 import { Observable } from 'rxjs/Rx';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
-import { Component, ElementRef, OnInit, Renderer, ViewChild } from '@angular/core';
+import { Component, DoCheck, ElementRef, OnChanges, OnInit, Renderer, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-camera',
   templateUrl: './camera.component.html',
   styleUrls: ['./camera.component.css']
 })
-export class CameraComponent implements OnInit {
+export class CameraComponent implements OnInit, DoCheck {
 
   @ViewChild(WebCamComponent) webCam: WebCamComponent;
   @ViewChild('camera') cameraBox: ElementRef;
@@ -45,8 +45,16 @@ export class CameraComponent implements OnInit {
 
   ngAfterViewInit() {
     //set the dimensions of the camera box
+    this.setCameraDimensions()
+  }
+
+  setCameraDimensions() {
     this.options.width = this.cameraBox.nativeElement.offsetWidth - 40;
     this.options.height = this.cameraBox.nativeElement.offsetHeight;
   }
 
+
+  public ngDoCheck(): void {
+    this.setCameraDimensions();
+  }
 }
