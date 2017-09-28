@@ -16,13 +16,14 @@ i {
 
 #cam-loading>img{
     width: 100%;
+    border-radius: 5px;
 }
 .col{
     padding: 20px;
 }
 
 .camera {
-    height: 800px;
+    /* height: 800px; */
     /* display: block;
     position: relative; */
 }
