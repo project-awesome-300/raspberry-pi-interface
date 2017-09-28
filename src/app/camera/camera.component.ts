@@ -1,6 +1,5 @@
 import { Observable } from 'rxjs/Rx';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
-import { log } from 'util';
 import { Component, ElementRef, OnInit, Renderer, ViewChild } from '@angular/core';
 
 @Component({
@@ -48,7 +47,6 @@ export class CameraComponent implements OnInit {
     //set the dimensions of the camera box
     this.options.width = this.cameraBox.nativeElement.offsetWidth - 40;
     this.options.height = this.cameraBox.nativeElement.offsetHeight;
-    // console.log(this.webCam.getVideoElm());
   }
 
 }
