@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./camera.component.css']
 })
 export class CameraComponent implements OnInit {
-
+  background = "../assets/images/background/sligo.jpg";
   constructor() { }
 
   ngOnInit() {

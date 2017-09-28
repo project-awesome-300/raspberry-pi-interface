@@ -10,3 +10,24 @@ i {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.navbar{
+    margin-bottom: 0;
+}
+
+.camera {
+    height: 800px;
+    display: block;
+    position: relative;
+}
+
+.camera:after{
+    content: "";
+    background-image: url("../../assets/images/background/sligo.jpg");
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+}
