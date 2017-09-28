@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CameraComponent implements OnInit {
   background = "../assets/images/background/sligo.jpg";
+  private _cameraReady = false;
   constructor() { }
 
   ngOnInit() {

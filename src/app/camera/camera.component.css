@@ -14,13 +14,20 @@ i {
     margin-bottom: 0;
 }
 
-.camera {
-    height: 800px;
-    display: block;
-    position: relative;
+#cam-loading>img{
+    width: 100%;
+}
+.col{
+    padding: 20px;
 }
 
-.camera:after{
+.camera {
+    height: 800px;
+    /* display: block;
+    position: relative; */
+}
+
+/* .camera:after{
     content: "";
     background-image: url("../../assets/images/background/sligo.jpg");
     opacity: 0.5;
@@ -30,4 +37,4 @@ i {
     right: 0;
     position: absolute;
     z-index: -1;   
-}
+} */
