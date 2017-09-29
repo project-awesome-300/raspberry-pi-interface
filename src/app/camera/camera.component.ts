@@ -16,6 +16,7 @@ export class CameraComponent implements OnInit, DoCheck {
   public cameraReady = false;
   public webcam;
   public options: any;
+  public hasPhoto = false;
   constructor(private element: ElementRef, private _renderer: Renderer) {
     //init the camera
     this.options = {
