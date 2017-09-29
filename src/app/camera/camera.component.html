@@ -13,10 +13,13 @@
           <img src="../../assets/images/loading.gif">
         </div>
         <div *ngIf="cameraReady" [@fade]>
-          <i *ngIf="hasPhoto" class="fa fa-trash-o fa-5x danger cam-btn" aria-hidden="true"></i>
-          <i class="fa fa-camera-retro fa-5x success cam-btn" aria-hidden="true"></i>
+          <i *ngIf="hasPhoto" class="fa fa-trash-o fa-5x danger cam-btn" aria-hidden="true"  (click)="hasPhoto = !hasPhoto"></i>
+          <i class="fa fa-camera-retro fa-5x success cam-btn" aria-hidden="true" (click)="takePhoto()"></i>
           <ack-webcam [(ref)]="webcam" [options]="options" (onSuccess)="onSuccess($event)" (onError)="onError($event)" style="width:100%;height:100%"
-            *ngIf="cameraReady" class="camera-view"></ack-webcam>
+            *ngIf="!hasPhoto" class="camera-view" [hidden]="hasPhoto"></ack-webcam>
+        </div>
+        <div *ngIf="hasPhoto">
+          <img [src]="base64" [style.width.px]="imageWidth" >
         </div>
       </div>
       <div class="col-xs-6 col">
@@ -24,6 +27,7 @@
           <div class="panel-heading">
             <h1>Salli Photo Booth</h1>
           </div>
+          
           <div class="panel-body">
             <h4>
               <p>Welcome to the Salli Photo booth</p>

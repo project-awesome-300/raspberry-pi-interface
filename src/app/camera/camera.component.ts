@@ -9,25 +9,10 @@ import { fadeAnimation } from '../_animations/fade-animation';
   templateUrl: './camera.component.html',
   animations: [
     fadeAnimation
-    // trigger(
-    //   'fade',
-    //   [
-    //     transition(
-    //     ':enter', [
-    //       style({opacity: 0}),
-    //       animate('500ms', style({'opacity': 1}))
-    //     ]
-    //   ),
-    //   transition(
-    //     ':leave', [
-    //       style({'opacity': 1}),
-    //       animate('500ms', style({'opacity': 0}))
-    //     ]
-    //   )]
-    // )
+
   ],
   styleUrls: ['./camera.component.css'],
-  
+
 })
 export class CameraComponent implements OnInit, DoCheck {
 
@@ -39,6 +24,11 @@ export class CameraComponent implements OnInit, DoCheck {
   public webcam;
   public options: any;
   public hasPhoto = false;
+  public base64;
+  public captured = false;
+  public imageHeight: number;
+  public imageWidth: number;
+
   constructor(private element: ElementRef, private _renderer: Renderer) {
     //init the camera
     this.options = {
@@ -47,7 +37,6 @@ export class CameraComponent implements OnInit, DoCheck {
       fallbackQuality: 200,
       fallbackSrc: 'fallback/jscam_canvas_only.swf'
     };
-
     //waiting for camera to start up before enabling the view
     // this.loadCameraDisplay().subscribe(() => { this.cameraReady = true; });
   }
@@ -73,6 +62,8 @@ export class CameraComponent implements OnInit, DoCheck {
   }
 
   setCameraDimensions() {
+    this.imageWidth = this.cameraBox.nativeElement.offsetWidth - 40;
+    this.imageHeight = this.cameraBox.nativeElement.offsetHeight;
     this.options.width = this.cameraBox.nativeElement.offsetWidth - 40;
     this.options.height = this.cameraBox.nativeElement.offsetHeight;
   }
@@ -81,5 +72,18 @@ export class CameraComponent implements OnInit, DoCheck {
   public ngDoCheck(): void {
     //updating dimensions from view resize
     this.setCameraDimensions();
+  }
+
+  takePhoto() {
+    console.log("taking photo");
+    return this.webcam.getBase64()
+      .then(base => {
+        this.base64 = base;
+        this.webcam.resizeVideo()
+        this.hasPhoto = true;
+        // setTimeout(() => this.webcam.resizeVideo(), 0)
+      })
+      .catch(e => console.error(e))
+    //    setTimeout(()=>this.webcam.onResize(), 0)
   }
 }
