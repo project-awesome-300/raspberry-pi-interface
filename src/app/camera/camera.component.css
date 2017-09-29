@@ -15,6 +15,10 @@ i {
     margin-bottom: 0;
 }
 
+.navbar-right {
+    margin-right: 15px;
+}
+
 #cam-loading>img {
     width: 100%;
     border-radius: 5px;
@@ -26,8 +30,5 @@ i {
 }
 
 .success {
-    float: right
-}
-.cam-btn{
-    cursor: pointer;
+    float: right;
 }

@@ -12,11 +12,11 @@
         <div id="cam-loading" *ngIf="!cameraReady">
           <img src="../../assets/images/loading.gif">
         </div>
-        <ack-webcam [(ref)]="webcam" [options]="options" (onSuccess)="onSuccess($event)" (onError)="onError($event)" style="width:100%;height:100%"
-          *ngIf="cameraReady" class="camera-view"></ack-webcam>
-        <div>
+        <div *ngIf="cameraReady" [@fade]>
           <i *ngIf="hasPhoto" class="fa fa-trash-o fa-5x danger cam-btn" aria-hidden="true"></i>
           <i class="fa fa-camera-retro fa-5x success cam-btn" aria-hidden="true"></i>
+          <ack-webcam [(ref)]="webcam" [options]="options" (onSuccess)="onSuccess($event)" (onError)="onError($event)" style="width:100%;height:100%"
+            *ngIf="cameraReady" class="camera-view"></ack-webcam>
         </div>
       </div>
       <div class="col-xs-6 col">
@@ -24,21 +24,22 @@
           <div class="panel-heading">
             <h1>Salli Photo Booth</h1>
           </div>
-          <div class="panel-body"><h4>
-            <p>Welcome to the Salli Photo booth</p>
-            <p>Here you can do something something something</p>
-            <p>Spicy jalapeno pork belly andouille cupim short ribs, chuck sirloin kielbasa sausage boudin drumstick rump. Meatball
-              porchetta chuck, alcatra pork chop strip steak kevin tail sirloin leberkas. Brisket flank filet mignon shank
-              jowl pork sirloin salami kevin doner spare ribs alcatra. Ground round shank cupim fatback, tri-tip meatball
-              porchetta. Turkey chicken kielbasa short ribs ham hock sirloin shankle venison beef pork loin ham t-bone ribeye.
-              Hamburger shoulder ribeye andouille shank turducken picanha rump sausage tenderloin ground round. Chuck jerky
-              drumstick t-bone, swine sausage tri-tip kielbasa bresaola bacon turducken tail.</p>
-            <ul>
-              <li>Thing 1</li>
-              <li>Thing 2</li>
-              <li>Thing 3</li>
-            </ul>
-          </h4>
+          <div class="panel-body">
+            <h4>
+              <p>Welcome to the Salli Photo booth</p>
+              <p>Here you can do something something something</p>
+              <p>Spicy jalapeno pork belly andouille cupim short ribs, chuck sirloin kielbasa sausage boudin drumstick rump.
+                Meatball porchetta chuck, alcatra pork chop strip steak kevin tail sirloin leberkas. Brisket flank filet
+                mignon shank jowl pork sirloin salami kevin doner spare ribs alcatra. Ground round shank cupim fatback, tri-tip
+                meatball porchetta. Turkey chicken kielbasa short ribs ham hock sirloin shankle venison beef pork loin ham
+                t-bone ribeye. Hamburger shoulder ribeye andouille shank turducken picanha rump sausage tenderloin ground
+                round. Chuck jerky drumstick t-bone, swine sausage tri-tip kielbasa bresaola bacon turducken tail.</p>
+              <ul>
+                <li>Thing 1</li>
+                <li>Thing 2</li>
+                <li>Thing 3</li>
+              </ul>
+            </h4>
           </div>
         </div>
       </div>

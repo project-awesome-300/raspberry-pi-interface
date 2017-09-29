@@ -1,11 +1,33 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Observable } from 'rxjs/Rx';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Component, DoCheck, ElementRef, OnChanges, OnInit, Renderer, SimpleChanges, ViewChild } from '@angular/core';
+import { fadeAnimation } from '../_animations/fade-animation';
 
 @Component({
   selector: 'app-camera',
   templateUrl: './camera.component.html',
-  styleUrls: ['./camera.component.css']
+  animations: [
+    fadeAnimation
+    // trigger(
+    //   'fade',
+    //   [
+    //     transition(
+    //     ':enter', [
+    //       style({opacity: 0}),
+    //       animate('500ms', style({'opacity': 1}))
+    //     ]
+    //   ),
+    //   transition(
+    //     ':leave', [
+    //       style({'opacity': 1}),
+    //       animate('500ms', style({'opacity': 0}))
+    //     ]
+    //   )]
+    // )
+  ],
+  styleUrls: ['./camera.component.css'],
+  
 })
 export class CameraComponent implements OnInit, DoCheck {
 
@@ -27,10 +49,11 @@ export class CameraComponent implements OnInit, DoCheck {
     };
 
     //waiting for camera to start up before enabling the view
-    this.loadCameraDisplay().subscribe(() => { this.cameraReady = true; });
+    // this.loadCameraDisplay().subscribe(() => { this.cameraReady = true; });
   }
 
   ngOnInit() {
+    this.cameraReady = true;
   }
 
   loadCameraDisplay() {
@@ -56,6 +79,7 @@ export class CameraComponent implements OnInit, DoCheck {
 
 
   public ngDoCheck(): void {
+    //updating dimensions from view resize
     this.setCameraDimensions();
   }
 }
