@@ -3,13 +3,17 @@ import { Observable } from 'rxjs/Rx';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Component, DoCheck, ElementRef, OnChanges, OnInit, Renderer, SimpleChanges, ViewChild } from '@angular/core';
 import { fadeAnimation } from '../_animations/fade-animation';
+import { flashAnimation } from '../_animations/flash-animation';
+import { flipAnimation } from '../_animations/flip-animation';
+
 
 @Component({
   selector: 'app-camera',
   templateUrl: './camera.component.html',
   animations: [
-    fadeAnimation
-
+    fadeAnimation,
+    flashAnimation,
+    flipAnimation
   ],
   styleUrls: ['./camera.component.css'],
 
@@ -28,6 +32,7 @@ export class CameraComponent implements OnInit, DoCheck {
   public captured = false;
   public imageHeight: number;
   public imageWidth: number;
+  public flip = "inactive";
 
   constructor(private element: ElementRef, private _renderer: Renderer) {
     //init the camera
@@ -75,15 +80,27 @@ export class CameraComponent implements OnInit, DoCheck {
   }
 
   takePhoto() {
-    console.log("taking photo");
-    return this.webcam.getBase64()
-      .then(base => {
-        this.base64 = base;
-        this.webcam.resizeVideo()
-        this.hasPhoto = true;
-        // setTimeout(() => this.webcam.resizeVideo(), 0)
-      })
-      .catch(e => console.error(e))
-    //    setTimeout(()=>this.webcam.onResize(), 0)
+    if (!this.hasPhoto) {
+      this.flipButtons();
+      console.log("taking photo");
+      return this.webcam.getBase64()
+        .then(base => {
+          this.base64 = base;
+          this.webcam.resizeVideo()
+          this.hasPhoto = true;
+          // setTimeout(() => this.webcam.resizeVideo(), 0)
+        })
+        .catch(e => console.error(e))
+      //    setTimeout(()=>this.webcam.onResize(), 0)
+    }
+  }
+
+  flipButtons() {
+    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
+  }
+
+  discardPhoto() {
+    this.flipButtons();
+    this.hasPhoto = !this.hasPhoto;
   }
 }
