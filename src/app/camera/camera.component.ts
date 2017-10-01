@@ -4,7 +4,8 @@ import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Component, DoCheck, ElementRef, OnChanges, OnInit, Renderer, SimpleChanges, ViewChild } from '@angular/core';
 import { fadeAnimation } from '../_animations/fade-animation';
 import { flipAnimation } from '../_animations/flip-animation';
-
+import { Photo } from '../../models/photo';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-camera',
@@ -31,6 +32,7 @@ export class CameraComponent implements OnInit, DoCheck {
   public imageHeight: number;
   public imageWidth: number;
   public flip = "inactive";
+  private _photo: Photo;
 
   constructor(private element: ElementRef, private _renderer: Renderer) {
     //init the camera
@@ -100,5 +102,13 @@ export class CameraComponent implements OnInit, DoCheck {
   discardPhoto() {
     this.flipButtons();
     this.hasPhoto = !this.hasPhoto;
+  }
+
+  uploadPhoto(){
+    this._photo = new Photo();
+    this._photo.base64 = this.base64;
+    this._photo.lat = 2342;
+    this._photo.lng = 354643;
+    this._photo.date = moment();
   }
 }
