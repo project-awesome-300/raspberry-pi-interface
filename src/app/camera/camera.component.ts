@@ -3,7 +3,6 @@ import { Observable } from 'rxjs/Rx';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Component, DoCheck, ElementRef, OnChanges, OnInit, Renderer, SimpleChanges, ViewChild } from '@angular/core';
 import { fadeAnimation } from '../_animations/fade-animation';
-import { flashAnimation } from '../_animations/flash-animation';
 import { flipAnimation } from '../_animations/flip-animation';
 
 
@@ -12,7 +11,6 @@ import { flipAnimation } from '../_animations/flip-animation';
   templateUrl: './camera.component.html',
   animations: [
     fadeAnimation,
-    flashAnimation,
     flipAnimation
   ],
   styleUrls: ['./camera.component.css'],
