@@ -1,9 +1,10 @@
+import { CameraServerService } from '../providers/camera-server.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CameraComponent } from './camera/camera.component';
@@ -24,9 +25,12 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    CameraServerService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

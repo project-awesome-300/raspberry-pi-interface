@@ -1,3 +1,5 @@
+import { resetFakeAsyncZone } from '@angular/core/testing';
+import { CameraServerService } from '../../providers/camera-server.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Observable } from 'rxjs/Rx';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
@@ -34,7 +36,7 @@ export class CameraComponent implements OnInit, DoCheck {
   public flip = "inactive";
   private _photo: Photo;
 
-  constructor(private element: ElementRef, private _renderer: Renderer) {
+  constructor(private _cameraServer: CameraServerService) {
     //init the camera
     this.options = {
       audio: true,
@@ -104,11 +106,39 @@ export class CameraComponent implements OnInit, DoCheck {
     this.hasPhoto = !this.hasPhoto;
   }
 
-  uploadPhoto(){
+  uploadPhoto() {
     this._photo = new Photo();
     this._photo.base64 = this.base64;
     this._photo.lat = 2342;
     this._photo.lng = 354643;
     this._photo.date = moment();
+
+    this._cameraServer.postImageToServer(this._photo).subscribe(result => {
+      console.log(result);
+    })
   }
+
+  genPostData() {
+    this.webcam.captureAsFormData({ fileName: 'file.jpg' })
+      .then((formData) => {
+        this._cameraServer.postImageToServer2(formData).subscribe(result => {
+          console.log(result);
+        })
+      })
+      .catch(e => console.error(e))
+  }
+
+  //a pretend process that would post the webcam photo taken
+  // postFormData(formData) {
+  //   const config = {
+  //     method: "post",
+  //     url: "http://www.aviorsciences.com/",
+  //     body: formData
+  //   }
+
+  //   const request = new Request(config)
+
+  //   return this.http.request(request)
+  // }
+
 }
