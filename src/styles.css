@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+.success {
+    color: #3e8f3e;
+}
+
+.danger {
+    color: #b92c28
+}
+
+.default {
+    color: #337ab7;
+}
+
+.info {
+    color: #2aabd2
+}
