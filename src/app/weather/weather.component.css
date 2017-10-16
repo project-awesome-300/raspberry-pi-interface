@@ -1,0 +1,20 @@
+.navbar-info {
+    background-color: #c123de;
+}
+
+a {
+    color: #fff;
+}
+
+i {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-right {
+    margin-right: 15px;
+}

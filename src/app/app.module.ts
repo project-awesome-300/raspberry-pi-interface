@@ -8,11 +8,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CameraComponent } from './camera/camera.component';
+import { WeatherComponent } from './weather/weather.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'camera', component: CameraComponent }  
+  { path: 'camera', component: CameraComponent },
+  { path: 'weather', component: WeatherComponent }  
 ];
 
 @NgModule({
@@ -20,7 +23,8 @@ const routes: Routes = [
     AppComponent,
     DashboardComponent,
     CameraComponent,
-    WebCamComponent
+    WebCamComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
