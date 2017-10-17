@@ -1,4 +1,5 @@
 import { CameraServerService } from '../providers/camera-server.service';
+import { BussService } from './buss/buss.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -8,11 +9,13 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CameraComponent } from './camera/camera.component';
+import { BussComponent } from './buss/buss.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'camera', component: CameraComponent }  
+  { path: 'camera', component: CameraComponent },
+  { path: 'buss', component: BussComponent }    
 ];
 
 @NgModule({
@@ -20,7 +23,8 @@ const routes: Routes = [
     AppComponent,
     DashboardComponent,
     CameraComponent,
-    WebCamComponent
+    WebCamComponent,
+    BussComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +34,7 @@ const routes: Routes = [
   ],
   providers: [
     CameraServerService,
+    BussService
   ],
   bootstrap: [AppComponent]
 })
