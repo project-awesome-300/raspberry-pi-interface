@@ -1,4 +1,5 @@
 import { CameraServerService } from '../providers/camera-server.service';
+import { WeatherService } from '../providers/weather.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,14 +10,24 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CameraComponent } from './camera/camera.component';
 import { WeatherComponent } from './weather/weather.component';
+import { CurrentWeatherComponent } from './current-weather/current-weather.component';
+import { ForecastComponent } from './forecast/forecast.component';
+
+
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'camera', component: CameraComponent },
-  { path: 'weather', component: WeatherComponent }  
+  { path: 'weather', component: WeatherComponent } ,
+  { path: 'current', component: CurrentWeatherComponent },
+  { path: 'forecast', component: ForecastComponent } 
 ];
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +35,9 @@ const routes: Routes = [
     DashboardComponent,
     CameraComponent,
     WebCamComponent,
-    WeatherComponent
+    WeatherComponent,
+    CurrentWeatherComponent,
+    ForecastComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +47,9 @@ const routes: Routes = [
   ],
   providers: [
     CameraServerService,
+    WeatherService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
