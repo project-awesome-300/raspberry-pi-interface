@@ -8,16 +8,24 @@
   </nav> 
  </div> 
 
- <div>{{title}}</div>
+ <div></div>
 
+ <div>
+    <button (click)="getBussTimetbles()">Get Timtables</button>
 
-<div *ngFor="let bussInfo of data.results">
+    <div *ngFor="let bussInfo of Data.results"> 
+      
+     <p>Arrival Time: {{bussInfo.arrivaldatetime}}</p> 
+     <p>Due Time: {{bussInfo.duetime}}</p> 
+     <p>Dep Date Time: {{bussInfo.departuredatetime}}</p> 
+     <p>Dep due time: {{bussInfo.departureduetime}}</p> 
+     <p>shed Arrival date time: {{bussInfo.scheduledarrivaldatetime}}</p> 
+     <p>Shed Departure dateTime: {{bussInfo.scheduleddeparturedatetime}}</p> 
+     <p>Destination: {{bussInfo.destination}}</p> 
+     <p>Orign: {{bussInfo.origin}}</p>
+     <p>Local Origin: {{bussInfo.originlocalized}}</p> 
+     <p>Timestamp: {{bussInfo.sourcetimestamp}}</p> 
+      <p>------------------------------------------------------</p>
 
-<p>{{bussInfo.arrivaldatetime}}</p>
-<p>{{bussInfo.duetime}}</p>
-<p>{{bussInfo.departuredatetime}}</p>
-<p>{{bussInfo.departureduetime}}</p>
-
- </div>
-
+  </div>
 

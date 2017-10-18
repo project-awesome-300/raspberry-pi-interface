@@ -9,39 +9,20 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./buss.component.css']
 })
 export class BussComponent implements OnInit {
-title='app works';
-private ApiUrl = 'https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=7602&format=json';
-
-data: any= {};
-
-constructor(private http:Http){
-  console.log('wotking....')
-
-  this.getData();
-  this.getBussTimetbles();
-
-}
-//getting api data
-getData(){
-  return this.http.get(this.ApiUrl)
-  .map((res:Response)=> res.json)
-}
-
-getBussTimetbles(){
-  this.getData().subscribe(data => {
-    console.log(data)
-    this.data=data;
-  })
-}
-
-
-
-/*
   constructor(private _busService: BussService){
     
-   } */
+   }  
+  Data = {};
+
+  getBussTimetbles() {
+    this._busService.getData().subscribe(data => this.Data = data);
+    console.log(this.Data) 
+  }
+
 
   ngOnInit() {
   }
 
 }
+
+
