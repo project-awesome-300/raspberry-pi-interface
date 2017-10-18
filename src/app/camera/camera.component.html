@@ -8,36 +8,16 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 camera" #camera>
-        <!-- <div id="cam-loading" *ngIf="!cameraReady">
-          <img src="../../assets/images/loading.gif">
-        </div> -->
-        <div *ngIf="cameraReady" [@fade]>
-          <!-- Menu buttons -->
-          <!-- <div class="row">
-            <div class="col-xs-2 left">
-              <i class="fa fa-trash fa-5x danger cam-btn" aria-hidden="true" (click)="discardPhoto()"></i>
-            </div>
-            <div class="col-xs-8 middle">
-              <div class="tp-box" [@flipState]="flip" (click)="takePhoto()">
-                <i class="fa fa-camera-retro fa-5x info cam-btn tp-box__side tp-box__front" aria-hidden="true"></i>
-                <i class="fa fa-check-square fa-5x info cam-btn tp-box__side tp-box__back" aria-hidden="true"></i>
-              </div>
-            </div>
-            <div class="col-xs-2 right">
-              <i class="fa fa-cloud-upload fa-5x success cam-btn" aria-hidden="true" (click)="genPostData()"></i>
-            </div>
-          </div> -->
-          <!-- Camera -->
-          <div class="camera-area">
-            <span><i class="action-btn fa fa-trash danger" (click)="discardPhoto()"></i></span>
-            <span id="save-btn"><i class="action-btn fa fa-check-circle-o success " id="save-btn" aria-hidden="true"></i></span>
-            <div class="camera-content">
-              <ack-webcam [(ref)]="webcam" [options]="options" (onSuccess)="onSuccess($event)" (onError)="onError($event)" style="width:100%;height:100%"
-                *ngIf="!hasPhoto" class="camera-view" [hidden]="hasPhoto"></ack-webcam>
-              <!-- Camera Still -->
-              <div *ngIf="hasPhoto">
-                <img [src]="base64" [style.width.px]="imageWidth">
-              </div>
+        <!-- Camera -->
+        <div class="camera-area" *ngIf="cameraReady" [@fade]>
+          <span id="canx-btn"><i class="action-btn fa fa-ban danger" (click)="discardPhoto()"></i></span>
+          <span id="save-btn"><i class="action-btn fa fa-check success faa-tada animated" id="save-btn" aria-hidden="true"></i></span>
+          <div class="camera-content">
+            <ack-webcam [(ref)]="webcam" [options]="options" (onSuccess)="onSuccess($event)" (onError)="onError($event)" style="width:100%;height:100%"
+              *ngIf="!hasPhoto" class="camera-view" [hidden]="hasPhoto"></ack-webcam>
+            <!-- Camera Still -->
+            <div *ngIf="hasPhoto" id="stillImage">
+              <img [src]="base64" [style.height.px]="imageHeight">
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import { log } from 'util';
 import { resetFakeAsyncZone } from '@angular/core/testing';
 import { CameraServerService } from '../../providers/camera-server.service';
 import { animate, style, transition, trigger } from '@angular/animations';

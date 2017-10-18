@@ -2,7 +2,7 @@
     background-color: #5bc0de;
 }
 
-.navbar {
+.navbar, #stillImage, .camera-content {
     text-align: center;
 }
 
@@ -35,7 +35,7 @@ i {
 
 .camera {
     padding: 5px;
-    height: 650px;
+    height: 600px;
 }
 
 .right {
@@ -53,17 +53,21 @@ i {
 
 .action-btn {
     position: absolute;
-    font-size: 10em;
+    top: 45%;
+    font-size: 4em;
     z-index: 999;
 }
 
 #canx-btn {
-    float: left;
+    position: absolute;
+    top: 45%;
+    left: 15%;
 }
 
 #save-btn {
     float: right;
-    margin-right: 200px;
+    /* margin-right: 100px; */
+    right: 15%;
 }
 
 .camera-area {
