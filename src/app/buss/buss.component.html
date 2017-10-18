@@ -8,6 +8,16 @@
   </nav> 
  </div> 
 
- <div>Buss Info</div>
+ <div>{{title}}</div>
+
+
+<div *ngFor="let bussInfo of data.results">
+
+<p>{{bussInfo.arrivaldatetime}}</p>
+<p>{{bussInfo.duetime}}</p>
+<p>{{bussInfo.departuredatetime}}</p>
+<p>{{bussInfo.departureduetime}}</p>
+
+ </div>
 
 
