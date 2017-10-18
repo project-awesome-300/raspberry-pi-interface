@@ -54,7 +54,7 @@ i {
 .action-btn {
     position: absolute;
     top: 45%;
-    font-size: 4em;
+    font-size: 8em;
     z-index: 999;
 }
 
@@ -72,4 +72,13 @@ i {
 
 .camera-area {
     position: relative;
+}
+.countdown{
+    font-family: KBREINDEERGAMES;
+    font-size: 15em;
+    position: absolute;
+    z-index: 999;
+    left: 45%;
+    top: 30%;
+    /* color: #fff; */
 }

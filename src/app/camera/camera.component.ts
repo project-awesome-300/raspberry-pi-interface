@@ -25,7 +25,6 @@ export class CameraComponent implements OnInit, DoCheck {
   @ViewChild(WebCamComponent) webCam: WebCamComponent;
   @ViewChild('camera') cameraBox: ElementRef;
 
-  background = "../assets/images/background/sligo.jpg";
   public cameraReady = false;
   public webcam;
   public options: any;
@@ -36,6 +35,9 @@ export class CameraComponent implements OnInit, DoCheck {
   public imageWidth: number;
   public flip = "inactive";
   private _photo: Photo;
+  private _countingDown = false;
+  private _countDownIndicator: number;
+  private _timer: any;
 
   constructor(private _cameraServer: CameraServerService) {
     //init the camera
@@ -45,8 +47,23 @@ export class CameraComponent implements OnInit, DoCheck {
       fallbackQuality: 200,
       fallbackSrc: 'fallback/jscam_canvas_only.swf'
     };
+    this._countDownIndicator = 5;
     //waiting for camera to start up before enabling the view
     // this.loadCameraDisplay().subscribe(() => { this.cameraReady = true; });
+  }
+
+
+  public get countDownIndicator(): number {
+    if (this._countDownIndicator === 1) {
+      clearInterval(this._timer);
+      this._snap();
+    }
+    return this._countDownIndicator;
+  }
+
+  public set countDownIndicator(value: number) {
+    this._countDownIndicator = value;
+
   }
 
   ngOnInit() {
@@ -82,20 +99,28 @@ export class CameraComponent implements OnInit, DoCheck {
     this.setCameraDimensions();
   }
 
-  takePhoto() {
+  beginCountdown(): void {
     if (!this.hasPhoto) {
-      this.flipButtons();
-      console.log("taking photo");
-      return this.webcam.getBase64()
-        .then(base => {
-          this.base64 = base;
-          this.webcam.resizeVideo()
-          this.hasPhoto = true;
-          // setTimeout(() => this.webcam.resizeVideo(), 0)
-        })
-        .catch(e => console.error(e))
-      //    setTimeout(()=>this.webcam.onResize(), 0)
+      // this.flipButtons();
+      this._countingDown = true;
+      let counter = 5;
+      this._timer = setInterval(() => {
+        this.countDownIndicator--;
+      }, 1000);
     }
+  }
+
+  private _snap(): void {
+    console.log("taking photo");
+    return this.webcam.getBase64()
+      .then(base => {
+        this.base64 = base;
+        this.webcam.resizeVideo()
+        this.hasPhoto = true;
+        this._countingDown = false;
+        this._countDownIndicator = 5;
+      })
+      .catch(e => console.error(e))
   }
 
   flipButtons() {
