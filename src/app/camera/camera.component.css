@@ -2,7 +2,9 @@
     background-color: #5bc0de;
 }
 
-.navbar, #stillImage, .camera-content {
+.navbar,
+#stillImage,
+.camera-content {
     text-align: center;
 }
 
@@ -67,19 +69,18 @@ i {
 
 #save-btn {
     float: right;
-    /* margin-right: 100px; */
     right: 15%;
 }
 
 .camera-area {
     position: relative;
 }
-.countdown{
+
+.countdown {
     font-family: KBREINDEERGAMES;
     font-size: 15em;
     position: absolute;
     z-index: 999;
     left: 45%;
     top: 30%;
-    /* color: #fff; */
 }
