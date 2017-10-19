@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Forecast } from '../../models/forecast';
 import { WeatherService } from '../../providers/weather.service';
+import { GroupByPipe } from '../../pipes/group-by.pipe';
 
 @Component({
   selector: 'app-forecast',
@@ -19,13 +20,16 @@ export class ForecastComponent implements OnInit {
  this.ws.forecastWeather(lat, lon).subscribe(
       (data) =>{
         console.log(data);
-        for(let i=0; i<data.list.length;i= i+8){
+
+        for(let i=0; i<data.list.length;i++){
           const forecastWeather = new Forecast(data.city.name,
                                                 data.list[i].main.temp_min,
                                                 data.list[i].main.temp_min,
                                                 data.list[i].dt_txt,
                                                 data.list[i].weather[0].icon);
           console.log(forecastWeather);
+          
+          
           this.myForecast.push(forecastWeather);
         }
         console.log(this.myForecast);
@@ -34,6 +38,8 @@ export class ForecastComponent implements OnInit {
                                       
     )
   }
+
+  
     
   }
 
