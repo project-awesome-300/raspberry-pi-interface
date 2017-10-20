@@ -8,11 +8,17 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CameraComponent } from './camera/camera.component';
+import { FoodComponent } from './food/food.component';
+import { AgmCoreModule } from '@agm/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'camera', component: CameraComponent }  
+  { path: 'camera', component: CameraComponent },
+  { path: 'food', component: FoodComponent } ,
+  { path: 'map', component: MapComponent }     
 ];
 
 @NgModule({
@@ -20,13 +26,22 @@ const routes: Routes = [
     AppComponent,
     DashboardComponent,
     CameraComponent,
-    WebCamComponent
+    WebCamComponent,
+    FoodComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    HttpModule
+    HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyDJMY9xOvFrEeUbPe2HmjAscYkw1tqYYrM",
+      libraries: ["places"]
+    }),
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CameraServerService,

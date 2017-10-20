@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  background = "../assets/images/background/sligo.jpg";
+  // background = "../assets/images/background/sligo.jpg";
   constructor() { }
 
   ngOnInit() {
