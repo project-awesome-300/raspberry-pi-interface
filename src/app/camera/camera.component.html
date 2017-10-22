@@ -12,7 +12,7 @@
         <div class="camera-area" *ngIf="cameraReady" [@fade]>
           <span class="countdown" *ngIf="_countingDown"><i class="faa-bounce animated" id="save-btn">{{_countDownIndicator}}</i></span>
           <span id="canx-btn" *ngIf="hasPhoto"><i class="action-btn fa fa-ban danger" (click)="discardPhoto()"></i></span>
-          <span id="save-btn" *ngIf="hasPhoto"><i class="action-btn fa fa-check success faa-tada animated" id="save-btn" aria-hidden="true"></i></span>
+          <span id="save-btn" *ngIf="hasPhoto" (click)="showConfirm()"><i class="action-btn fa fa-check success faa-tada animated" id="save-btn" aria-hidden="true"></i></span>
           <div class="camera-content">
             <ack-webcam [(ref)]="webcam" [options]="options" (onSuccess)="onSuccess($event)" (onError)="onError($event)" style="width:100%;height:100%"
               *ngIf="!hasPhoto" class="camera-view" [hidden]="hasPhoto"></ack-webcam>

@@ -7,8 +7,10 @@ import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Component, DoCheck, ElementRef, OnChanges, OnInit, Renderer, SimpleChanges, ViewChild } from '@angular/core';
 import { fadeAnimation } from '../_animations/fade-animation';
 import { flipAnimation } from '../_animations/flip-animation';
-import { Photo } from '../../models/photo';
+import { Photo } from '../../models/photo.model';
 import * as moment from 'moment';
+import { ConfirmEmailComponent } from '../confirm-email/confirm-email.component';
+import { DialogService } from "ng2-bootstrap-modal";
 
 @Component({
   selector: 'app-camera',
@@ -39,7 +41,7 @@ export class CameraComponent implements OnInit, DoCheck {
   private _countDownIndicator: number;
   private _timer: any;
 
-  constructor(private _cameraServer: CameraServerService) {
+  constructor(private _cameraServer: CameraServerService, private dialogService: DialogService) {
     //init the camera
     this.options = {
       audio: true,
@@ -157,17 +159,20 @@ export class CameraComponent implements OnInit, DoCheck {
       .catch(e => console.error(e))
   }
 
-  //a pretend process that would post the webcam photo taken
-  // postFormData(formData) {
-  //   const config = {
-  //     method: "post",
-  //     url: "http://www.aviorsciences.com/",
-  //     body: formData
-  //   }
+  showConfirm() {
+    let disposable = this.dialogService.addDialog(ConfirmEmailComponent, {
+      title: 'Something something title',
+      email: 'Confirm message'
+    }).subscribe((isConfirmed) => {
+      alert(isConfirmed)
+      //We get dialog result
 
-  //   const request = new Request(config)
-
-  //   return this.http.request(request)
-  // }
+    });
+    //We can close dialog calling disposable.unsubscribe();
+    //If dialog was not closed manually close it by timeout
+    // setTimeout(()=>{
+    //     disposable.unsubscribe();
+    // },10000);
+  }
 
 }

@@ -8,6 +8,9 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CameraComponent } from './camera/camera.component';
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -20,16 +23,22 @@ const routes: Routes = [
     AppComponent,
     DashboardComponent,
     CameraComponent,
-    WebCamComponent
+    WebCamComponent,
+    ConfirmEmailComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    HttpModule
+    HttpModule,
+    BootstrapModalModule
   ],
   providers: [
     CameraServerService,
+  ],
+  entryComponents: [
+    ConfirmEmailComponent
   ],
   bootstrap: [AppComponent]
 })
