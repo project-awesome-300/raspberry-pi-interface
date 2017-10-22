@@ -1,27 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogComponent, DialogService } from "ng2-bootstrap-modal";
+import { OpenEmailModal, CloseEmailModal } from '../../models/photo-email.model';
 
-export interface ConfirmModel {
-  title: string;
-  email: string;
-}
 
 @Component({
   selector: 'confirm',
   templateUrl: './confirm-email.component.html',
   styleUrls: ['./confirm-email.component.css']
 })
-export class ConfirmEmailComponent extends DialogComponent<ConfirmModel, string> implements ConfirmModel {
-
+export class ConfirmEmailComponent extends DialogComponent<OpenEmailModal, CloseEmailModal> {
+  //these variavbles are implied from the parent dialog component
   title: string;
-  email: string;
+  message: string;
+
+  private _email: string;
+
   constructor(dialogService: DialogService) {
     super(dialogService);
   }
   confirm() {
-    // we set dialog result as true on click on confirm button, 
-    // then we can get dialog result from caller code 
-    this.result = this.email;
+    this.result = {
+      email: this._email,
+      submit: true
+    }
+    this.close();
+  }
+
+  dismiss() {
+    this.result = {
+      email: "",
+      submit: false
+    }
     this.close();
   }
 

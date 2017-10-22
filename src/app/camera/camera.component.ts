@@ -11,6 +11,7 @@ import { Photo } from '../../models/photo.model';
 import * as moment from 'moment';
 import { ConfirmEmailComponent } from '../confirm-email/confirm-email.component';
 import { DialogService } from "ng2-bootstrap-modal";
+import { CloseEmailModal } from '../../models/photo-email.model';
 
 @Component({
   selector: 'app-camera',
@@ -95,7 +96,6 @@ export class CameraComponent implements OnInit, DoCheck {
     this.imageHeight = h;
     this.options.width = w;
     this.options.height = h;
-    console.log(this.imageHeight);
   }
 
 
@@ -160,19 +160,14 @@ export class CameraComponent implements OnInit, DoCheck {
   }
 
   showConfirm() {
-    let disposable = this.dialogService.addDialog(ConfirmEmailComponent, {
+    this.dialogService.addDialog(ConfirmEmailComponent, {
       title: 'Something something title',
-      email: 'Confirm message'
-    }).subscribe((isConfirmed) => {
-      alert(isConfirmed)
-      //We get dialog result
-
+      message: 'Confirm message'
+    }).subscribe((result: CloseEmailModal) => {
+      console.log(result);
+      alert(result.email)
     });
-    //We can close dialog calling disposable.unsubscribe();
-    //If dialog was not closed manually close it by timeout
-    // setTimeout(()=>{
-    //     disposable.unsubscribe();
-    // },10000);
+    
   }
 
 }
