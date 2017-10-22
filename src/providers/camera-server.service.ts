@@ -1,4 +1,4 @@
-import { Photo } from '../models/photo';
+import { Photo } from '../models/photo.model';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 
