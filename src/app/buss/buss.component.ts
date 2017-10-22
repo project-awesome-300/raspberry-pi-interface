@@ -19,8 +19,8 @@ export class BussComponent implements OnInit {
     console.log(this.Data) 
   }
 
-
   ngOnInit() {
+    this.getBussTimetbles();
   }
 
 }

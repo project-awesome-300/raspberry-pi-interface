@@ -1,31 +1,47 @@
-<div class="Buss"> 
-  <nav class="navbar navbar-info"> 
-    <div class="container-fluid"> 
-      <div class="navbar-header"> 
-        <a [routerLink]="['/dashboard']"><i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i></a> 
-      </div> 
-    </div> 
-  </nav> 
- </div> 
+<div class="Buss">
+  <nav class="navbar navbar-info">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a [routerLink]="['/dashboard']"><i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </nav>
+</div>
 
- <div></div>
-
- <div>
-    <button (click)="getBussTimetbles()">Get Timtables</button>
-
-    <div *ngFor="let bussInfo of Data.results"> 
-      
-     <p>Arrival Time: {{bussInfo.arrivaldatetime}}</p> 
-     <p>Due Time: {{bussInfo.duetime}}</p> 
-     <p>Dep Date Time: {{bussInfo.departuredatetime}}</p> 
-     <p>Dep due time: {{bussInfo.departureduetime}}</p> 
-     <p>shed Arrival date time: {{bussInfo.scheduledarrivaldatetime}}</p> 
-     <p>Shed Departure dateTime: {{bussInfo.scheduleddeparturedatetime}}</p> 
-     <p>Destination: {{bussInfo.destination}}</p> 
-     <p>Orign: {{bussInfo.origin}}</p>
-     <p>Local Origin: {{bussInfo.originlocalized}}</p> 
-     <p>Timestamp: {{bussInfo.sourcetimestamp}}</p> 
-      <p>------------------------------------------------------</p>
-
+<div class="container">
+  <div class="heading">  <Header>
+        <h1>Sligo Bus Timtables
+        <button type="button" (click)="getBussTimetbles()" class="btn btn-warning">Refresh Timetables
+          <i class="glyphicon glyphicon-refresh"></i></button> </h1>
+    </Header>
+    </div>
+    <div class="panel-body">
+    <h4>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Arrival DateTime</th>
+              <th>Due Time</th>
+              <th>Origin</th>
+              <th>Destination</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let bussInfo of Data.results | slice:0:5">
+            <tr>
+              <td>{{bussInfo.arrivaldatetime}}</td>
+              <td>{{bussInfo.duetime}} mints</td>  
+              <td>{{bussInfo.origin}}</td>
+              <td>{{bussInfo.destination}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </h4>
   </div>
+  </div>
+<!--end -->
+
+
 

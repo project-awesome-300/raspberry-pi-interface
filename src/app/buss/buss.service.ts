@@ -11,17 +11,17 @@ export class BussService {
   ) {}
 
   getData() {
-    return this.http.get(`https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=7602&format=json`)
+  
+   return this.http.get(`https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=555081&format=json`)
     .map((res:Response) => res.json());
   }
 
-
-  /*http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML_WithStationType?StationType=D 
-  http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML 
-  
+  /*
   https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=7602&format=json
-  */
+  http://www.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=555081
+   http://www.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=542901
 
+  */
 
 }
 
