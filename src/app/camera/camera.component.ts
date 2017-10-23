@@ -12,6 +12,7 @@ import * as moment from 'moment';
 import { ConfirmEmailComponent } from '../confirm-email/confirm-email.component';
 import { DialogService } from "ng2-bootstrap-modal";
 import { CloseEmailModal } from '../../models/photo-email.model';
+import { AppService } from '../../providers/app.service';
 
 @Component({
   selector: 'app-camera',
@@ -42,7 +43,7 @@ export class CameraComponent implements OnInit, DoCheck {
   private _countDownIndicator: number;
   private _timer: any;
 
-  constructor(private _cameraServer: CameraServerService, private dialogService: DialogService) {
+  constructor(private _cameraServer: CameraServerService, private _dialogService: DialogService, private _app: AppService) {
     //init the camera
     this.options = {
       audio: true,
@@ -73,9 +74,9 @@ export class CameraComponent implements OnInit, DoCheck {
     this.cameraReady = true;
   }
 
-  loadCameraDisplay() {
-    return Observable.fromPromise(new Promise(resolve => setTimeout(resolve, 3000)));
-  }
+  // loadCameraDisplay() {
+  //   return Observable.fromPromise(new Promise(resolve => setTimeout(resolve, 3000)));
+  // }
 
   onSuccess(stream: any) {
   };
@@ -137,37 +138,39 @@ export class CameraComponent implements OnInit, DoCheck {
     this.hasPhoto = !this.hasPhoto;
   }
 
-  uploadPhoto() {
+  uploadPhoto(email: string) {
     this._photo = new Photo();
     this._photo.base64 = this.base64;
     this._photo.lat = 2342;
     this._photo.lng = 354643;
     this._photo.date = moment();
+    this._photo.email = email;
 
     this._cameraServer.postImageToServer(this._photo).subscribe(result => {
       console.log(result);
     })
   }
 
-  genPostData() {
-    this.webcam.captureAsFormData({ fileName: 'file.jpg' })
-      .then((formData) => {
-        this._cameraServer.postImageToServer2(formData).subscribe(result => {
-          console.log(result);
-        })
-      })
-      .catch(e => console.error(e))
-  }
+  // genPostData() {
+  //   this.webcam.captureAsFormData({ fileName: 'file.jpg' })
+  //     .then((formData) => {
+  //       this._cameraServer.postImageToServer2(formData).subscribe(result => {
+  //         console.log(result);
+  //       })
+  //     })
+  //     .catch(e => console.error(e))
+  // }
 
-  showConfirm() {
-    this.dialogService.addDialog(ConfirmEmailComponent, {
-      title: 'Something something title',
-      message: 'Confirm message'
+  submitPhoto() {
+    this._dialogService.addDialog(ConfirmEmailComponent, {
+      title: 'Submit your photo',
+      message: `If you want to tag yourself in a this photo, enter your email address in the box below. Clicking Upload will save this photo on our website, which you can view at any time on ${this._app.webAddress}`
     }).subscribe((result: CloseEmailModal) => {
-      console.log(result);
-      alert(result.email)
+      if (result.submit) {
+        this.uploadPhoto(result.email);
+      }
     });
-    
+
   }
 
 }

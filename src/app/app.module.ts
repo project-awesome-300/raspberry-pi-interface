@@ -11,6 +11,7 @@ import { CameraComponent } from './camera/camera.component';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { FormsModule } from '@angular/forms';
+import { AppService } from '../providers/app.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -36,6 +37,7 @@ const routes: Routes = [
   ],
   providers: [
     CameraServerService,
+    AppService
   ],
   entryComponents: [
     ConfirmEmailComponent

@@ -1,7 +1,7 @@
 import * as moment from 'moment';
 
 export class Photo{
-    private _name: string;
+    private _email: string;
     private _lat: number;
     private _lng: number;
     private _location: string;
@@ -13,12 +13,12 @@ export class Photo{
 
     }
 
-	public get name(): string {
-		return this._name;
+	public get email(): string {
+		return this._email;
 	}
 
-	public set name(value: string) {
-        this._name = value;
+	public set email(value: string) {
+        this._email = value;
 	}
 
 	public get lat(): number {
