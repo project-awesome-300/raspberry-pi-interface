@@ -13,6 +13,7 @@ import { ConfirmEmailComponent } from '../confirm-email/confirm-email.component'
 import { DialogService } from "ng2-bootstrap-modal";
 import { CloseEmailModal } from '../../models/photo-email.model';
 import { AppService } from '../../providers/app.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-camera',
@@ -42,6 +43,7 @@ export class CameraComponent implements OnInit, DoCheck {
   private _countingDown = false;
   private _countDownIndicator: number;
   private _timer: any;
+  private _busy: Subscription;
 
   constructor(private _cameraServer: CameraServerService, private _dialogService: DialogService, private _app: AppService) {
     //init the camera
@@ -74,9 +76,9 @@ export class CameraComponent implements OnInit, DoCheck {
     this.cameraReady = true;
   }
 
-  // loadCameraDisplay() {
-  //   return Observable.fromPromise(new Promise(resolve => setTimeout(resolve, 3000)));
-  // }
+  loadCameraDisplay() {
+    this._busy =  Observable.fromPromise(new Promise(resolve => setTimeout(resolve, 100000))).subscribe();
+  }
 
   onSuccess(stream: any) {
   };
@@ -139,6 +141,7 @@ export class CameraComponent implements OnInit, DoCheck {
   }
 
   uploadPhoto(email: string) {
+    //add css spinner and remove
     this._photo = new Photo();
     this._photo.base64 = this.base64;
     this._photo.lat = 2342;
@@ -148,7 +151,7 @@ export class CameraComponent implements OnInit, DoCheck {
 
     this._cameraServer.postImageToServer(this._photo).subscribe(result => {
       console.log(result);
-    })
+    });
   }
 
   // genPostData() {
@@ -167,7 +170,8 @@ export class CameraComponent implements OnInit, DoCheck {
       message: `If you want to tag yourself in a this photo, enter your email address in the box below. Clicking Upload will save this photo on our website, which you can view at any time on ${this._app.webAddress}`
     }).subscribe((result: CloseEmailModal) => {
       if (result.submit) {
-        this.uploadPhoto(result.email);
+        this.loadCameraDisplay();
+        // this.uploadPhoto(result.email);
       }
     });
 
