@@ -74,4 +74,4 @@ export class FoodComponent implements OnInit {
       });
     }
   }
-
+}
