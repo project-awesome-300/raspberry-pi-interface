@@ -23,4 +23,3 @@ describe('FoodComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-asda
