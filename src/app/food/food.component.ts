@@ -1,7 +1,7 @@
-import { ElementRef, NgZone, OnInit, Component,ViewChild } from '@angular/core';
+import { ElementRef, NgZone, OnInit, Component, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
-import { MapsAPILoader } from '@agm/core';
+import { MapsAPILoader, AgmMap } from '@agm/core';
 
 @Component({
   selector: 'app-food',
@@ -18,12 +18,15 @@ export class FoodComponent implements OnInit {
   @ViewChild("search") //viechild decorator get access to the input element
   public searchElementRef: ElementRef; //decorate the variable to the search input 
 
+  @ViewChild('map') //viechild decorator get access to the input element
+  public map: AgmMap;
+
   constructor(
     //inject dependencies
-    
+
     private mapsAPILoader: MapsAPILoader,//load google places api 
     private ngZone: NgZone
-  ) {}
+  ) { }
 
   ngOnInit() {
     //set google maps initial values
@@ -39,19 +42,53 @@ export class FoodComponent implements OnInit {
 
     //use method mapsAPILoader to load google places api
     this.mapsAPILoader.load().then(() => {
+
+      const map = this.map;
+
+      const service = new google.maps.places.PlacesService(map);
+      service.nearbySearch({
+        location: { lat: -33.867, lng: 151.195 },
+        radius: 500,
+        types: ['store']
+      }, function (results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            // createMarker(results[i]);
+            const place = results[i];
+            var placeLoc = place.geometry.location;
+            var marker = new google.maps.Marker({
+              map: map,
+              position: place.geometry.location
+            });
+
+            //google.maps.event.addListener(marker, 'click', function() {
+            //  infowindow.setContent(place.name);
+            //  infowindow.open(map, this);
+            //});
+          }
+        }
+      });
+
+      //});
+
+
+
+
+
+
       let autocomplete = new google.maps.places.Autocomplete(
         this.searchElementRef.nativeElement, {
-        types: ["address"]
-      });
+          types: ["address"]
+        });
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //run method store data from gmp including updating
           //get the place result
-          let place: google.maps.places.PlaceResult = 
-          autocomplete.getPlace();
+          let place: google.maps.places.PlaceResult =
+            autocomplete.getPlace();
 
           //verify result
-          if (place.geometry === undefined || 
+          if (place.geometry === undefined ||
             place.geometry === null) {
             return;
           }
@@ -62,6 +99,8 @@ export class FoodComponent implements OnInit {
           this.zoom = 12;
         });
       });
+
+
     });
   }
 

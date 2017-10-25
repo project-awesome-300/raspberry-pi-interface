@@ -13,7 +13,7 @@ function initMap() {
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
-    location: pyrmont,
+    location: pyrmont,z
     radius: 500,
     types: ['store']
   }, callback);
