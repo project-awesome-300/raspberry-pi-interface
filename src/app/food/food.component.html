@@ -10,13 +10,22 @@
   </nav>
   <div class="container">
     <div class="row">
+      <!-- <div class="col-xs-6 col">
+        <div class="panel panel-info"> -->
+      <!-- <div class="panel-heading">
+          <h1>Salli Photo Booth</h1>
+          </div> -->
+      <!-- 
+          <div class="panel-body">
+           
+          </div> -->
       <div class="container">
         <h1>Your favourite places in town</h1>
         <div class="form-group">
           <input placeholder="search for restaurants" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
             #search [formControl]="searchControl">
         </div>
-        <agm-map #map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+        <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
           <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
         </agm-map>
         <!-- </div>
