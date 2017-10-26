@@ -63,7 +63,7 @@ i {
 
 #canx-btn {
     position: absolute;
-    top: 45%;
+    top: 35%;
     left: 15%;
     font-size: .7em;
 }
@@ -83,5 +83,6 @@ i {
     position: absolute;
     z-index: 999;
     left: 45%;
-    top: 30%;
+    top: 20%;
+    color: #fff
 }

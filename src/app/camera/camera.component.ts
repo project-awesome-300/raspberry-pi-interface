@@ -110,9 +110,9 @@ export class CameraComponent implements OnInit, DoCheck {
       // this.flipButtons();
       this._countingDown = true;
       let counter = 5;
-      this._timer = setInterval(() => {
-        this.countDownIndicator--;
-      }, 1000);
+      // this._timer = setInterval(() => {
+      //   this.countDownIndicator--;
+      // }, 1000);
     }
   }
 
