@@ -23,7 +23,7 @@ export class FoodComponent implements OnInit {
 
   constructor(
     //inject dependencies
-
+  
     private mapsAPILoader: MapsAPILoader,//load google places api 
     private ngZone: NgZone
   ) { }
@@ -70,11 +70,8 @@ export class FoodComponent implements OnInit {
       });
 
       //});
-
-
-
-
-
+      
+//---------------------------------------------------------------------------------------------
 
       let autocomplete = new google.maps.places.Autocomplete(
         this.searchElementRef.nativeElement, {
