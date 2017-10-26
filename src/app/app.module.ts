@@ -12,7 +12,6 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { FormsModule } from '@angular/forms';
 import { AppService } from '../providers/app.service';
-import { BusyModule } from 'angular2-busy';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -34,8 +33,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     HttpModule,
-    BootstrapModalModule,
-    BusyModule
+    BootstrapModalModule
   ],
   providers: [
     CameraServerService,

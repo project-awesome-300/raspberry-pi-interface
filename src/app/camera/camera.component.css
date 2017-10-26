@@ -1,5 +1,6 @@
 .navbar-info {
     background-color: #5bc0de;
+    font-size: 10px;
 }
 
 .navbar,
@@ -37,7 +38,7 @@ i {
 
 .camera {
     padding: 5px;
-    height: 600px;
+    height: 100px;
 }
 
 .right {
@@ -55,19 +56,20 @@ i {
 
 .action-btn {
     position: absolute;
-    top: 45%;
+    top: 35%;
     font-size: 8em;
     z-index: 999;
 }
 
 #canx-btn {
     position: absolute;
-    top: 45%;
+    top: 35%;
     left: 15%;
     font-size: .7em;
 }
 
 #save-btn {
+    top: 35%;
     float: right;
     right: 15%;
 }
@@ -81,6 +83,7 @@ i {
     font-size: 15em;
     position: absolute;
     z-index: 999;
-    left: 45%;
-    top: 30%;
+    left: 40%;
+    top: 20%;
+    color: #fff
 }
