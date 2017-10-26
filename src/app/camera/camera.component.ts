@@ -1,5 +1,3 @@
-import { log } from 'util';
-import { resetFakeAsyncZone } from '@angular/core/testing';
 import { CameraServerService } from '../../providers/camera-server.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Observable } from 'rxjs/Rx';
@@ -11,7 +9,7 @@ import { Photo } from '../../models/photo.model';
 import * as moment from 'moment';
 import { ConfirmEmailComponent } from '../confirm-email/confirm-email.component';
 import { DialogService } from "ng2-bootstrap-modal";
-import { CloseEmailModal } from '../../models/photo-email.model';
+import { CloseEmailModal }   from '../../models/photo-email.model';
 import { AppService } from '../../providers/app.service';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -148,7 +146,6 @@ export class CameraComponent implements OnInit, DoCheck {
     this._photo.lng = 354643;
     this._photo.date = moment();
     this._photo.email = email;
-
     this._cameraServer.postImageToServer(this._photo).subscribe(result => {
       console.log(result);
     });
