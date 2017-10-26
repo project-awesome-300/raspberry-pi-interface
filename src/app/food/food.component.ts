@@ -19,7 +19,7 @@ export class FoodComponent implements OnInit {
   public searchElementRef: ElementRef; //decorate the variable to the search input 
 
   @ViewChild('map') //viechild decorator get access to the input element
-  public map: AgmMap;
+  public myMap: AgmMap;
 
   constructor(
     //inject dependencies
@@ -43,9 +43,9 @@ export class FoodComponent implements OnInit {
     //use method mapsAPILoader to load google places api
     this.mapsAPILoader.load().then(() => {
 
-      const map = this.map;
+      // const map = this.map;
 
-      const service = new google.maps.places.PlacesService(map);
+      const service = new google.maps.places.PlacesService(this.myMap);
       service.nearbySearch({
         location: { lat: -33.867, lng: 151.195 },
         radius: 500,
@@ -57,14 +57,14 @@ export class FoodComponent implements OnInit {
             const place = results[i];
             var placeLoc = place.geometry.location;
             var marker = new google.maps.Marker({
-              map: map,
+              // map: map,
               position: place.geometry.location
             });
 
-            //google.maps.event.addListener(marker, 'click', function() {
+            // google.maps.event.addListener(marker, 'click', function() {
             //  infowindow.setContent(place.name);
             //  infowindow.open(map, this);
-            //});
+            // });
           }
         }
       });
