@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CameraComponent } from './camera/camera.component';
 import { BussComponent } from './buss/buss.component';
+import { AgmCoreModule } from '@agm/core'; 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'; 
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -30,7 +33,14 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    HttpModule
+    HttpModule,
+    AgmCoreModule.forRoot({ 
+      apiKey: "AIzaSyDL_h4Q3HL5CwDFJrGOzztLY5tBbcldPuk", 
+      libraries: ["places"] 
+    }), 
+    BrowserModule, 
+    FormsModule, 
+    ReactiveFormsModule 
   ],
   providers: [
     CameraServerService,

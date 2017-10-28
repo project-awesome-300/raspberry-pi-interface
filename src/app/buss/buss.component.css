@@ -34,3 +34,7 @@ h1{
     color: #D08620;
     font-size: 30px;
 }
+agm-map { 
+    height: 400px; 
+    width: 500px;
+  }
