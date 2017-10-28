@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { DialogComponent, DialogService } from "ng2-bootstrap-modal";
 import { OpenEmailModal, CloseEmailModal } from '../../models/photo-email.model';
-
 
 
 @Component({
@@ -9,7 +8,10 @@ import { OpenEmailModal, CloseEmailModal } from '../../models/photo-email.model'
   templateUrl: './confirm-email.component.html',
   styleUrls: ['./confirm-email.component.css']
 })
+
 export class ConfirmEmailComponent extends DialogComponent<OpenEmailModal, CloseEmailModal> implements OnInit {
+
+@ViewChild('email') el:ElementRef;
 
   //these variavbles are implied from the parent dialog component
   title: string;
@@ -17,12 +19,15 @@ export class ConfirmEmailComponent extends DialogComponent<OpenEmailModal, Close
   private _webAddress: string;
   private _email: string;
 
+
   constructor(dialogService: DialogService) {
     super(dialogService);
 
   }
 
   ngOnInit(): void {
+    console.log("Focus");
+    this.el.nativeElement.focus();
   }
   confirm() {
     this.result = {
