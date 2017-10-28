@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { DialogComponent, DialogService } from "ng2-bootstrap-modal";
-import { OpenEmailModal, CloseEmailModal } from '../../models/modals.model';
+import { OpenEmailModal, CloseEmailModal } from '../../../models/modals.model';
 
 
 @Component({

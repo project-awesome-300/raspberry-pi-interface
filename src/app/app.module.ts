@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CameraComponent } from './camera/camera.component';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
-import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
+import { ConfirmEmailComponent } from './modals/confirm-email/confirm-email.component';
 import { FormsModule } from '@angular/forms';
 import { AppService } from '../providers/app.service';
+import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -24,7 +25,8 @@ const routes: Routes = [
     DashboardComponent,
     CameraComponent,
     WebCamComponent,
-    ConfirmEmailComponent
+    ConfirmEmailComponent,
+    GenericModalComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ const routes: Routes = [
     AppService
   ],
   entryComponents: [
-    ConfirmEmailComponent
+    ConfirmEmailComponent,
+    GenericModalComponent
   ],
   bootstrap: [AppComponent]
 })
