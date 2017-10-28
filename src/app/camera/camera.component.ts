@@ -151,7 +151,7 @@ export class CameraComponent implements OnInit, DoCheck {
 
   showSuccessDialog() {
     this._dialogService.addDialog(GenericModalComponent, {
-      html: `<div class="center"><p class="awesome">Awesome!</p><img src="assets/images/smiley-thumbs-up.png" width="350px"></div><div><h3>Your photo is on it's way to our server<br />Check it out on ${this._app.webAddress}</h3></div>`,
+      html: `<div class="center"><p class="awesome">Awesome!</p><img src="assets/images/smiley-thumbs-up.png" width="300px"></div><div><p>Your photo is on it's way to our server<br />Check it out on ${this._app.webAddress}</p></div>`,
       time: 5000
     }).subscribe((result: GenericModalClose) => {
       if (result.isClosed)
