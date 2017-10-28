@@ -6,11 +6,13 @@ import { fadeAnimation } from '../_animations/fade-animation';
 import { flipAnimation } from '../_animations/flip-animation';
 import { Photo } from '../../models/photo.model';
 import * as moment from 'moment';
-import { ConfirmEmailComponent } from '../confirm-email/confirm-email.component';
+import { ConfirmEmailComponent } from '../modals/confirm-email/confirm-email.component';
 import { DialogService } from "ng2-bootstrap-modal";
-import { CloseEmailModal } from '../../models/modals.model';
+import { CloseEmailModal, GenericModalClose } from '../../models/modals.model';
 import { AppService } from '../../providers/app.service';
 import { Subscription } from 'rxjs/Subscription';
+import { GenericModalComponent } from '../modals/generic-modal/generic-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-camera',
@@ -42,7 +44,7 @@ export class CameraComponent implements OnInit, DoCheck {
   private _timer: any;
   private _busy: Subscription;
 
-  constructor(private _dialogService: DialogService, private _app: AppService) {
+  constructor(private _dialogService: DialogService, private _app: AppService, private _router: Router) {
     //init the camera
     this.options = {
       audio: true,
@@ -134,11 +136,18 @@ export class CameraComponent implements OnInit, DoCheck {
   uploadPhoto(email: string) {
     this._photo = new Photo();
     this._photo.base64 = this.base64;
-    this._photo.lat = 2342;
+    this._photo.lat = this._app.lat;
     this._photo.lng = 354643;
     this._photo.date = moment();
     this._photo.email = email;
     console.log("Sending Photo");
+    this._dialogService.addDialog(GenericModalComponent, {
+      html: `<div class="center"><img src="assets/images/smiley-thumbs-up.png" width="350px"></div><div><h3>Awesome! Your photo is on it's way to our server<br />Check it out on${this._app.webAddress}</h3></div>`,
+      time: 5000
+    }).subscribe((result: GenericModalClose) => {
+      if (result.isClosed)
+        this._router.navigateByUrl('/');
+    })
   }
 
   submitPhoto() {
