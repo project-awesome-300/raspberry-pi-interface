@@ -1,4 +1,3 @@
-import { CameraServerService } from '../providers/camera-server.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -36,7 +35,6 @@ const routes: Routes = [
     BootstrapModalModule
   ],
   providers: [
-    CameraServerService,
     AppService
   ],
   entryComponents: [

@@ -1,4 +1,3 @@
-import { CameraServerService } from '../../providers/camera-server.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Observable } from 'rxjs/Rx';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
@@ -9,7 +8,7 @@ import { Photo } from '../../models/photo.model';
 import * as moment from 'moment';
 import { ConfirmEmailComponent } from '../confirm-email/confirm-email.component';
 import { DialogService } from "ng2-bootstrap-modal";
-import { CloseEmailModal }   from '../../models/photo-email.model';
+import { CloseEmailModal } from '../../models/modals.model';
 import { AppService } from '../../providers/app.service';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -43,7 +42,7 @@ export class CameraComponent implements OnInit, DoCheck {
   private _timer: any;
   private _busy: Subscription;
 
-  constructor(private _cameraServer: CameraServerService, private _dialogService: DialogService, private _app: AppService) {
+  constructor(private _dialogService: DialogService, private _app: AppService) {
     //init the camera
     this.options = {
       audio: true,
@@ -67,15 +66,10 @@ export class CameraComponent implements OnInit, DoCheck {
 
   public set countDownIndicator(value: number) {
     this._countDownIndicator = value;
-
   }
 
   ngOnInit() {
     this.cameraReady = true;
-  }
-
-  loadCameraDisplay() {
-    this._busy =  Observable.fromPromise(new Promise(resolve => setTimeout(resolve, 100000))).subscribe();
   }
 
   onSuccess(stream: any) {
@@ -90,7 +84,7 @@ export class CameraComponent implements OnInit, DoCheck {
     this.setCameraDimensions()
   }
 
-  setCameraDimensions() {
+  setCameraDimensions(): void {
     let h = (window.screen.availHeight) - 50;
     let w = this.cameraBox.nativeElement.offsetWidth;
     this.imageWidth = w;
@@ -117,7 +111,6 @@ export class CameraComponent implements OnInit, DoCheck {
   }
 
   private _snap(): void {
-    console.log("taking photo");
     return this.webcam.getBase64()
       .then(base => {
         this.base64 = base;
@@ -129,37 +122,24 @@ export class CameraComponent implements OnInit, DoCheck {
       .catch(e => console.error(e))
   }
 
-  flipButtons() {
+  flipButtons(): void {
     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
 
-  discardPhoto() {
+  discardPhoto(): void {
     this.flipButtons();
     this.hasPhoto = !this.hasPhoto;
   }
 
   uploadPhoto(email: string) {
-    //add css spinner and remove
     this._photo = new Photo();
     this._photo.base64 = this.base64;
     this._photo.lat = 2342;
     this._photo.lng = 354643;
     this._photo.date = moment();
     this._photo.email = email;
-    this._cameraServer.postImageToServer(this._photo).subscribe(result => {
-      console.log(result);
-    });
+    console.log("Sending Photo");
   }
-
-  // genPostData() {
-  //   this.webcam.captureAsFormData({ fileName: 'file.jpg' })
-  //     .then((formData) => {
-  //       this._cameraServer.postImageToServer2(formData).subscribe(result => {
-  //         console.log(result);
-  //       })
-  //     })
-  //     .catch(e => console.error(e))
-  // }
 
   submitPhoto() {
     this._dialogService.addDialog(ConfirmEmailComponent, {
@@ -167,8 +147,7 @@ export class CameraComponent implements OnInit, DoCheck {
       message: `If you want to tag yourself in a this photo, enter your email address in the box below. Clicking Upload will save this photo on our website, which you can view at any time on ${this._app.webAddress}`
     }).subscribe((result: CloseEmailModal) => {
       if (result.submit) {
-        this.loadCameraDisplay();
-        // this.uploadPhoto(result.email);
+        this.uploadPhoto(result.email);
       }
     });
 
