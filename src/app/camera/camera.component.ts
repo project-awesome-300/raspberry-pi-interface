@@ -142,7 +142,7 @@ export class CameraComponent implements OnInit, DoCheck {
     this._photo.email = email;
     console.log("Sending Photo");
     this._dialogService.addDialog(GenericModalComponent, {
-      html: `<div><img src="assets/images/smiley-thumbs-up.png"></div><div><h2>Awesome! Your photo is on it's way to our server. Check it out on<br/>${this._app.webAddress}</h2></div>`,
+      html: `<div class="center"><img src="assets/images/smiley-thumbs-up.png" width="350px"></div><div><h3>Awesome! Your photo is on it's way to our server<br />Check it out on${this._app.webAddress}</h3></div>`,
       time: 5000
     }).subscribe((result: GenericModalClose) => {
       if (result.isClosed)
