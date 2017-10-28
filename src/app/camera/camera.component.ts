@@ -53,8 +53,6 @@ export class CameraComponent implements OnInit, DoCheck {
       fallbackSrc: 'fallback/jscam_canvas_only.swf'
     };
     this._countDownIndicator = 5;
-    //waiting for camera to start up before enabling the view
-    // this.loadCameraDisplay().subscribe(() => { this.cameraReady = true; });
   }
 
 
@@ -116,7 +114,7 @@ export class CameraComponent implements OnInit, DoCheck {
     return this.webcam.getBase64()
       .then(base => {
         this.base64 = base;
-        this.webcam.resizeVideo()
+        this.webcam.resizeVideo();
         this.hasPhoto = true;
         this._countingDown = false;
         this._countDownIndicator = 5;
@@ -124,12 +122,7 @@ export class CameraComponent implements OnInit, DoCheck {
       .catch(e => console.error(e))
   }
 
-  flipButtons(): void {
-    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
-  }
-
   discardPhoto(): void {
-    this.flipButtons();
     this.hasPhoto = !this.hasPhoto;
   }
 
@@ -140,14 +133,9 @@ export class CameraComponent implements OnInit, DoCheck {
     this._photo.lng = 354643;
     this._photo.date = moment();
     this._photo.email = email;
-    console.log("Sending Photo");
-    this._dialogService.addDialog(GenericModalComponent, {
-      html: `<div class="center"><img src="assets/images/smiley-thumbs-up.png" width="350px"></div><div><h3>Awesome! Your photo is on it's way to our server<br />Check it out on${this._app.webAddress}</h3></div>`,
-      time: 5000
-    }).subscribe((result: GenericModalClose) => {
-      if (result.isClosed)
-        this._router.navigateByUrl('/');
-    })
+
+    // send image using service here
+    this.showSuccessDialog();
   }
 
   submitPhoto() {
@@ -159,7 +147,16 @@ export class CameraComponent implements OnInit, DoCheck {
         this.uploadPhoto(result.email);
       }
     });
+  }
 
+  showSuccessDialog() {
+    this._dialogService.addDialog(GenericModalComponent, {
+      html: `<div class="center"><p class="awesome">Awesome!</p><img src="assets/images/smiley-thumbs-up.png" width="350px"></div><div><h3>Your photo is on it's way to our server<br />Check it out on ${this._app.webAddress}</h3></div>`,
+      time: 5000
+    }).subscribe((result: GenericModalClose) => {
+      if (result.isClosed)
+        this._router.navigateByUrl('/');
+    });
   }
 
 }
