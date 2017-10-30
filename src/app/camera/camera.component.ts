@@ -7,7 +7,7 @@ import { flipAnimation } from '../_animations/flip-animation';
 import { Photo } from '../../models/photo.model';
 import * as moment from 'moment';
 import { ConfirmEmailComponent } from '../modals/confirm-email/confirm-email.component';
-import { DialogService } from "ng2-bootstrap-modal";
+import { DialogService } from 'ng2-bootstrap-modal';
 import { CloseEmailModal, GenericModalClose } from '../../models/modals.model';
 import { AppService } from '../../providers/app.service';
 import { Subscription } from 'rxjs/Subscription';
@@ -37,7 +37,7 @@ export class CameraComponent implements OnInit, DoCheck {
   public captured = false;
   public imageHeight: number;
   public imageWidth: number;
-  public flip = "inactive";
+  public flip = 'inactive';
   private _photo: Photo;
   private _countingDown = false;
   private _countDownIndicator: number;
@@ -45,7 +45,7 @@ export class CameraComponent implements OnInit, DoCheck {
   private _busy: Subscription;
 
   constructor(private _dialogService: DialogService, private _app: AppService, private _router: Router) {
-    //init the camera
+    // init the camera
     this.options = {
       audio: true,
       video: true,
@@ -53,16 +53,13 @@ export class CameraComponent implements OnInit, DoCheck {
       fallbackSrc: 'fallback/jscam_canvas_only.swf'
     };
     this._countDownIndicator = 5;
-    //waiting for camera to start up before enabling the view
-    // this.loadCameraDisplay().subscribe(() => { this.cameraReady = true; });
   }
 
+  public get countingDown(): boolean {
+    return this._countingDown;
+  }
 
   public get countDownIndicator(): number {
-    if (this._countDownIndicator === 1) {
-      clearInterval(this._timer);
-      this._snap();
-    }
     return this._countDownIndicator;
   }
 
@@ -107,6 +104,10 @@ export class CameraComponent implements OnInit, DoCheck {
       this._countingDown = true;
       let counter = 5;
       this._timer = setInterval(() => {
+        if (this.countDownIndicator === 1) {
+          clearInterval(this._timer);
+          this._snap();
+        }
         this.countDownIndicator--;
       }, 1000);
     }
@@ -116,20 +117,15 @@ export class CameraComponent implements OnInit, DoCheck {
     return this.webcam.getBase64()
       .then(base => {
         this.base64 = base;
-        this.webcam.resizeVideo()
+        this.webcam.resizeVideo();
         this.hasPhoto = true;
         this._countingDown = false;
-        this._countDownIndicator = 5;
+        this.countDownIndicator = 5;
       })
       .catch(e => console.error(e))
   }
 
-  flipButtons(): void {
-    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
-  }
-
   discardPhoto(): void {
-    this.flipButtons();
     this.hasPhoto = !this.hasPhoto;
   }
 
@@ -140,14 +136,9 @@ export class CameraComponent implements OnInit, DoCheck {
     this._photo.lng = 354643;
     this._photo.date = moment();
     this._photo.email = email;
-    console.log("Sending Photo");
-    this._dialogService.addDialog(GenericModalComponent, {
-      html: `<div class="center"><img src="assets/images/smiley-thumbs-up.png" width="350px"></div><div><h3>Awesome! Your photo is on it's way to our server<br />Check it out on${this._app.webAddress}</h3></div>`,
-      time: 5000
-    }).subscribe((result: GenericModalClose) => {
-      if (result.isClosed)
-        this._router.navigateByUrl('/');
-    })
+
+    // send image using service here
+    this.showSuccessDialog();
   }
 
   submitPhoto() {
@@ -159,7 +150,16 @@ export class CameraComponent implements OnInit, DoCheck {
         this.uploadPhoto(result.email);
       }
     });
+  }
 
+  showSuccessDialog() {
+    this._dialogService.addDialog(GenericModalComponent, {
+      html: `<div class="center"><p class="awesome">Awesome!</p><img src="assets/images/smiley-thumbs-up.png" width="300px"></div><div><p>Your photo is on it's way to our server<br />Check it out on ${this._app.webAddress}</p></div>`,
+      time: 5000
+    }).subscribe((result: GenericModalClose) => {
+      if (result.isClosed)
+        this._router.navigateByUrl('/');
+    });
   }
 
 }

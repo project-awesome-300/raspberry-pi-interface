@@ -68,6 +68,7 @@ i {
 }
 
 #save-btn {
+    position: absolute;
     top: 35%;
     float: right;
     right: 15%;
