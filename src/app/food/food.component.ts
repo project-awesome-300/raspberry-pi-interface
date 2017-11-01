@@ -37,7 +37,7 @@ export class FoodComponent implements OnInit {
 
     //set current position
     this.setCurrentPosition();
-
+   
     //use method mapsAPILoader to load google places api
     this.mapsAPILoader.load().then(() => {
 
@@ -99,8 +99,45 @@ export class FoodComponent implements OnInit {
     });
   }
 
-  onMapReady(map){
-    map.console.log();
+
+  onMapLoad(map){
+    console.log(map);
+
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+      this.zoom = 12;
+   
+
+
+    console.log({ lat: this.latitude, lng:this.longitude });
+    const service = new google.maps.places.PlacesService(map);
+      service.nearbySearch({
+        location: { lat: this.latitude, lng:this.longitude },
+        radius: 5000,
+        types: ['restaurant']
+      }, function (results, status) {
+        console.log(results);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            // createMarker(results[i]);
+            const place = results[i];
+            var placeLoc = place.geometry.location;
+            var marker = new google.maps.Marker({
+               map: map,
+              position: place.geometry.location
+            });
+
+            // google.maps.event.addListener(marker, 'click', function() {
+            //  infowindow.setContent(place.name);
+            //  infowindow.open(map, this);
+            // });
+          }
+        }
+      });
+
+    });
+    
   }
 
   private setCurrentPosition() {
