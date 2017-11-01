@@ -22,11 +22,11 @@
       <div class="container">
         <h1>Your favourite places in town</h1>
         <div class="form-group">
-          <input placeholder="search for restaurants" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
-            #search [formControl]="searchControl">
+          <!-- <input placeholder="search for restaurants" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+            #search [formControl]="searchControl"> -->
         </div>
         <agm-map #myMap [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+          <agm-marker [latitude]="latitude" [longitude]="longitude" (mapReady)="onMapReady($event)" ></agm-marker>
         </agm-map>
         <!-- </div>
         </div> -->

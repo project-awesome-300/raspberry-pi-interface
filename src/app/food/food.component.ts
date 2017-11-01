@@ -18,8 +18,6 @@ export class FoodComponent implements OnInit {
   @ViewChild("search") //viechild decorator get access to the input element
   public searchElementRef: ElementRef; //decorate the variable to the search input 
 
-  @ViewChild('map') //viechild decorator get access to the input element
-  public myMap: AgmMap;
 
   constructor(
     //inject dependencies
@@ -45,29 +43,29 @@ export class FoodComponent implements OnInit {
 
       // const map = this.map;
 
-      const service = new google.maps.places.PlacesService(this.myMap);
-      service.nearbySearch({
-        location: { lat: -33.867, lng: 151.195 },
-        radius: 500,
-        types: ['store']
-      }, function (results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            // createMarker(results[i]);
-            const place = results[i];
-            var placeLoc = place.geometry.location;
-            var marker = new google.maps.Marker({
-              // map: map,
-              position: place.geometry.location
-            });
+      // const service = new google.maps.places.PlacesService();
+      // service.nearbySearch({
+      //   location: { lat: -33.867, lng: 151.195 },
+      //   radius: 500,
+      //   types: ['store']
+      // }, function (results, status) {
+      //   if (status === google.maps.places.PlacesServiceStatus.OK) {
+      //     for (var i = 0; i < results.length; i++) {
+      //       // createMarker(results[i]);
+      //       const place = results[i];
+      //       var placeLoc = place.geometry.location;
+      //       var marker = new google.maps.Marker({
+      //         // map: map,
+      //         position: place.geometry.location
+      //       });
 
-            // google.maps.event.addListener(marker, 'click', function() {
-            //  infowindow.setContent(place.name);
-            //  infowindow.open(map, this);
-            // });
-          }
-        }
-      });
+      //       // google.maps.event.addListener(marker, 'click', function() {
+      //       //  infowindow.setContent(place.name);
+      //       //  infowindow.open(map, this);
+      //       // });
+      //     }
+      //   }
+      // });
 
       //});
       
@@ -99,6 +97,10 @@ export class FoodComponent implements OnInit {
 
 
     });
+  }
+
+  onMapReady(map){
+    map.console.log();
   }
 
   private setCurrentPosition() {
