@@ -92,16 +92,14 @@ export class FoodComponent implements OnInit {
               position: place.geometry.location
             });
 
-            // google.maps.event.addListener(marker, 'click', function() {
-            //  infowindow.setContent(place.name);
-            //  infowindow.open(map, this);
-            // });
+            google.maps.event.addListener(marker, 'click', function() {
+             infowindow.setContent(place.name);
+             infowindow.open(map, this);
+            });
           }
         }
       });
-
     });
-    
   }
 
   private setCurrentPosition() {
