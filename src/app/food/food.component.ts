@@ -1,4 +1,4 @@
-import { ElementRef, NgZone, OnInit, Component,ViewChild } from '@angular/core';
+import { ElementRef, NgZone, OnInit, Component, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
@@ -22,7 +22,7 @@ export class FoodComponent implements OnInit {
     //inject dependencies
     private mapsAPILoader: MapsAPILoader,//load google places api 
     private ngZone: NgZone
-  ) {}
+  ) { }
 
   ngOnInit() {
     //set google maps initial values
@@ -40,17 +40,17 @@ export class FoodComponent implements OnInit {
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(
         this.searchElementRef.nativeElement, {
-        types: ["address"]
-      });
+          types: ["address"]
+        });
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //run method store data from gmp including updating
           //get the place result
-          let place: google.maps.places.PlaceResult = 
-          autocomplete.getPlace();
+          let place: google.maps.places.PlaceResult =
+            autocomplete.getPlace();
 
           //verify result
-          if (place.geometry === undefined || 
+          if (place.geometry === undefined ||
             place.geometry === null) {
             return;
           }
@@ -64,20 +64,20 @@ export class FoodComponent implements OnInit {
     });
   }
 
-  onMapLoad(map){
+  onMapLoad(map) {
     console.log(map);
 
     navigator.geolocation.getCurrentPosition((position) => {
       this.latitude = position.coords.latitude;
       this.longitude = position.coords.longitude;
       this.zoom = 12;
-   
 
 
-    console.log({ lat: this.latitude, lng:this.longitude });
-    const service = new google.maps.places.PlacesService(map);
+
+      console.log({ lat: this.latitude, lng: this.longitude });
+      const service = new google.maps.places.PlacesService(map);
       service.nearbySearch({
-        location: { lat: this.latitude, lng:this.longitude },
+        location: { lat: this.latitude, lng: this.longitude },
         radius: 5000,
         types: ['restaurant']
       }, function (results, status) {
@@ -88,17 +88,20 @@ export class FoodComponent implements OnInit {
             const place = results[i];
             var placeLoc = place.geometry.location;
             var marker = new google.maps.Marker({
-               map: map,
+              map: map,
               position: place.geometry.location
             });
-
-            google.maps.event.addListener(marker, 'click', function() {
-             infowindow.setContent(place.name);
-             infowindow.open(map, this);
+            var infowindow = new google.maps.InfoWindow({
             });
-          }
+
+            google.maps.event.addListener(marker, 'click', function () {
+              infowindow.setContent(place.name);
+             // infowindow.setContent(place.opening_hours);
+              infowindow.open(map, this);
+            });
+          } 
         }
-      });
+        });
     });
   }
 

@@ -25,9 +25,15 @@
           <input placeholder="search for restaurants" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
             #search [formControl]="searchControl">
         </div>
-        <agm-map (mapReady)="onMapLoad($event)" 
-         [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+        <agm-map 
+        (mapReady)="onMapLoad($event)" 
+        [latitude]="latitude" [longitude]="longitude" 
+        [scrollwheel]="false" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude">
+              <agm-info-window [disableAutoPan]="true">
+                       <strong>You are here!</strong>
+             </agm-info-window>
+          </agm-marker>
         </agm-map>
         <!-- </div>
         </div> -->
