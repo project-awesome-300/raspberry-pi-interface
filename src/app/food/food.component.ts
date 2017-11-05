@@ -72,8 +72,6 @@ export class FoodComponent implements OnInit {
       this.longitude = position.coords.longitude;
       this.zoom = 12;
 
-
-
       console.log({ lat: this.latitude, lng: this.longitude });
       const service = new google.maps.places.PlacesService(map);
       service.nearbySearch({
@@ -96,7 +94,7 @@ export class FoodComponent implements OnInit {
 
             google.maps.event.addListener(marker, 'click', function () {
               infowindow.setContent(place.name);
-             // infowindow.setContent(place.opening_hours);
+              // infowindow.setContent(place.opening_hours);
               infowindow.open(map, this);
             });
           } 
