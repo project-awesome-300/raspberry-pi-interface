@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
         </div>
-        <div class="mapRestaurants" style="width:50%; margin-left:18cm; margin-right:0cm; ">
+        <div class="mapRestaurants" >
           <agm-map (mapReady)="onMapLoad($event)" 
           [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
             <agm-marker [latitude]="latitude" [longitude]="longitude">
@@ -26,14 +26,16 @@
             </agm-marker>
           </agm-map>
         </div>
-        <div class="listRestaurants" style="width:50%; margin-left:0cm; margin-right:18cm;">
+        <div class="listRestaurants">
            <table class="table">
               <tr>
                   <th>List of restaurants</th>
               </tr>
+
               <!-- <agm-map (mapReady)="onMapLoad($event)" > -->
-              <tr *ngFor='let i of results'>
-                  <td>{{[i].name}}</td>
+              <tr *ngFor='let i of result'>
+              
+                  <td>{{i.name}}</td>
               </tr>
             <!-- </agm-map> -->
               </table>
