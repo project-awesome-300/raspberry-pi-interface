@@ -40,19 +40,18 @@ body {
 
 .widget {
     border: 6px solid hsla(0,0%,100%,.1);
-    box-shadow: 1px 1px 15px rgba(0,0,0,.2);
+    box-shadow: 1px 1px 15px rgba(0,0,0,0.1);
     display: block;
     /* width: 400px; */
-    margin: 20px;
-
-    background: radial-gradient(50% 50%,hsla(0,0%,100%,.5),#c123de);
+    margin: 10px;
+    background: radial-gradient(50% 50%,hsla(0,0%,100%,.2),#BD74CC);
     background-color: #C687D3;
     color: white;
     font-family: sans-serif;
     font-size: 8px;
     /* display: inline-block; */
     border-radius: 25px;
-    padding: 10px;
+    padding: 2px;
 }
 
 .widget:hover {
@@ -63,7 +62,7 @@ h2{
     font-size: 16px;
 }
 .container {
-    background: radial-gradient(50% 50%,hsla(0,0%,100%,.5),#c123de);
+    background: radial-gradient(50% 50%,hsla(0,0%,100%,.1),rgba(207, 105, 228, 0.89));
     background-color: #003663;
     color: white;
     height: 100%;
@@ -107,12 +106,15 @@ i {
 
 /* scrollable */
 /* The heart of the matter */
-.testimonial-group {
+/* .testimonial-group {
     /* overflow-x: auto; */
-    white-space: nowrap;
+    /*white-space: nowrap;
   }
   .testimonial-group >.col-xs-4 {
     display: inline-block;
     float: none;
-  }
+  } */
   
+p{
+    font-size: 14px;
+}
