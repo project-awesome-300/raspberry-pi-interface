@@ -26,7 +26,7 @@ export class ForecastComponent implements OnInit {
         console.log('this is data');
         console.log(data);
 
-        for (let i = 0; i < data.list.length; i++) {
+        for (let i = 0; i < data.list.length; i+=1) {
           /*           const forecastWeather = new Forecast(data.city.name,
                       data.list[i].main.temp_max,
                       data.list[i].main.temp_min,
