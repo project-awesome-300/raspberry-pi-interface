@@ -7,13 +7,13 @@ export const fadeAnimation = trigger(
         transition(
             ':enter', [
                 style({ opacity: 0 }),
-                animate('1000ms', style({ 'opacity': 1 }))
+                animate('2000ms', style({ 'opacity': 1 }))
             ]
         ),
         transition(
             ':leave', [
                 style({ 'opacity': 1 }),
-                animate('1000ms', style({ 'opacity': 0 }))
+                animate('2000ms', style({ 'opacity': 0 }))
             ]
         )]
 )

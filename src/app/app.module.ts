@@ -1,4 +1,3 @@
-import { CameraServerService } from '../providers/camera-server.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -8,11 +7,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CameraComponent } from './camera/camera.component';
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { ConfirmEmailComponent } from './modals/confirm-email/confirm-email.component';
+import { FormsModule } from '@angular/forms';
+import { AppService } from '../providers/app.service';
+import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'camera', component: CameraComponent }  
+  { path: 'camera', component: CameraComponent }
 ];
 
 @NgModule({
@@ -20,16 +24,24 @@ const routes: Routes = [
     AppComponent,
     DashboardComponent,
     CameraComponent,
-    WebCamComponent
+    WebCamComponent,
+    ConfirmEmailComponent,
+    GenericModalComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    HttpModule
+    HttpModule,
+    BootstrapModalModule
   ],
   providers: [
-    CameraServerService,
+    AppService
+  ],
+  entryComponents: [
+    ConfirmEmailComponent,
+    GenericModalComponent
   ],
   bootstrap: [AppComponent]
 })

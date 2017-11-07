@@ -1,6 +1,10 @@
+/* * {
+    cursor: none;
+} */
+
 .success {
     color: #3e8f3e;
-}
+}   
 
 .danger {
     color: #b92c28
@@ -12,4 +16,20 @@
 
 .info {
     color: #2aabd2
+}
+
+@font-face {
+    font-family: "KBREINDEERGAMES";
+    src: url("./assets/fonts/KBREINDEERGAMES.ttf");
+}
+
+.navbar-info {
+    font-size: 10px;
+}
+.center{
+    text-align: center
+}
+.awesome{
+    font-family: KBREINDEERGAMES;
+    font-size: 60px;
 }
