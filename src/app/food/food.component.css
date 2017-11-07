@@ -1,0 +1,40 @@
+.mapRestaurants
+{
+  position:absolute;
+  top:25%;
+  left:50%;
+  width:60%;
+}
+.listRestaurants{
+position:absolute;
+top:25%;
+left:0%;
+width:40%;
+margin-left: 8%;
+}
+
+.mapRestaurants agm-map {
+    height: 400px;
+    width: 600px;
+  }
+.header{
+  text-align: center;
+}
+.fa-arrow-left
+{
+  color: white;
+}
+.navbar-info{
+  background-color: greenyellow;
+}
+
+table{
+  width:50%;
+  border:0;
+  border-collapse: collapse;
+}
+td{
+  min-width: 280px;
+}
+
+

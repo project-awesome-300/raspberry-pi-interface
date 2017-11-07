@@ -8,6 +8,10 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CameraComponent } from './camera/camera.component';
+import { FoodComponent } from './food/food.component';
+import { AgmCoreModule } from '@agm/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MapComponent } from './map/map.component';
 import { WeatherComponent } from './weather/weather.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { ForecastComponent } from './forecast/forecast.component';
@@ -27,6 +31,8 @@ const routes: Routes = [
   { path: 'weather', component: WeatherComponent } ,
   { path: 'current', component: CurrentWeatherComponent },
   { path: 'forecast', component: ForecastComponent } 
+  { path: 'food', component: FoodComponent } ,
+  { path: 'map', component: MapComponent }     
 ];
 
 
@@ -45,6 +51,8 @@ const routes: Routes = [
     WebCamComponent,
     ConfirmEmailComponent,
     GenericModalComponent
+    FoodComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +60,13 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyDL_h4Q3HL5CwDFJrGOzztLY5tBbcldPuk",
+      libraries: ["places"]
+    }),
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
     BootstrapModalModule
   ],
   providers: [

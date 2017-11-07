@@ -1,0 +1,47 @@
+<div class="food">
+  <nav class="navbar navbar-info">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a [routerLink]="['/dashboard']">
+          <i class="fa fa-arrow-left fa-4x" aria-hidden="true"> </i>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="header">
+        <h1>Your favourite places in town</h1>
+      </div>
+      <div class="form-group">
+      </div>
+      <div class="mapRestaurants">
+        <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude">
+            <agm-info-window [disableAutoPan]="true">
+              <strong>You are here!</strong>
+            </agm-info-window>
+          </agm-marker>
+        </agm-map>
+      </div>
+      <div class="listRestaurants">
+        <table class="table">
+          <div *ngIf='loadFinished'>
+            <thead>
+            <tr>
+              <th scope="row">List of restaurants</th>
+            </tr>
+            </thead>
+            <tr *ngFor='let i of result'>
+              <tbody>
+                  <!--<button (click)="onClickMe()"><td>{{i.name}}</td></button>-->
+              <td>{{i.name}}</td>
+                  <td>Data: {{i.opening_hours}}</td>
+              </tbody>
+            </tr>
+          </div>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
