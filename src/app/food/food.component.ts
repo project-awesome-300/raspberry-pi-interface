@@ -47,23 +47,28 @@ export class FoodComponent implements OnInit {
           for (var i = 0; i < results.length; i++) {
             const place = results[i];
             var placeLoc = place.geometry.location;
+            
             var marker = new google.maps.Marker({
               map: map,
               position: place.geometry.location,
               icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+              
             });
             var infowindow = new google.maps.InfoWindow({
             });
             google.maps.event.addListener(marker, 'click', function () {
-              infowindow.setContent(place.name + 
-                "  " + place.photos["0"].html_attributions 
-                + " " + place.opening_hours["0"]
-              +' '+ place.rating
-            +place.formatted_address);
+            //   infowindow.setContent(place.name + 
+            //     "  " + place.photos["0"].html_attributions 
+            //     + " " + place.opening_hours["0"]
+            //   +' '+ place.rating
+            // +place.price_level);
+            
              // infowindow.setValues(place.opening_hours);
-               infowindow.open(map, this);
+             infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+             'Place ID: ' + place.place_id + '<br>' +
+             place.formatted_address + '</div>');
+              infowindow.open(map, this);
             });
-            //google.maps.places.PlaceResult
           } 
         }
         });
