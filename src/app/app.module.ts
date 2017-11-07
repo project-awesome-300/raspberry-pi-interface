@@ -36,7 +36,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     HttpModule,
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyCHaM0wvlQNc6oX7nSdItg-ehZFMjZSIyg",
+      apiKey: "AIzaSyDL_h4Q3HL5CwDFJrGOzztLY5tBbcldPuk",
       libraries: ["places"]
     }),
     BrowserModule,
