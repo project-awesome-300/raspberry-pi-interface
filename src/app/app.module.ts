@@ -12,6 +12,7 @@ import { CameraComponent } from './camera/camera.component';
 import { WeatherComponent } from './weather/weather.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { ForecastComponent } from './forecast/forecast.component';
+import { CapitalizePipe } from '../pipes/capitalise.pipe';
 
 
 
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'camera', component: CameraComponent },
-  { path: 'weather', component: WeatherComponent } ,
+  { path: 'weather', component: ForecastComponent } ,
   { path: 'current', component: CurrentWeatherComponent },
   { path: 'forecast', component: ForecastComponent } 
 ];
@@ -37,7 +38,8 @@ const routes: Routes = [
     WebCamComponent,
     WeatherComponent,
     CurrentWeatherComponent,
-    ForecastComponent
+    ForecastComponent,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,

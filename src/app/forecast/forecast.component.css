@@ -43,7 +43,7 @@ body {
     box-shadow: 1px 1px 15px rgba(0,0,0,0.1);
     display: block;
     /* width: 400px; */
-    margin: 10px;
+    margin: 5px;
     background: radial-gradient(50% 50%,hsla(0,0%,100%,.2),#BD74CC);
     background-color: #C687D3;
     color: white;

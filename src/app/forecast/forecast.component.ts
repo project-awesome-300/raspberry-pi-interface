@@ -5,6 +5,7 @@ import { WeatherService } from '../../providers/weather.service';
 import { GroupByPipe } from '../../pipes/group-by.pipe';
 import * as _ from 'lodash';
 import * as moment from 'moment';
+import { CapitalizePipe } from '../../pipes/capitalise.pipe';
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',

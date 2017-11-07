@@ -3,8 +3,6 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <a [routerLink]="['/dashboard']"><i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i></a>
-        <a [routerLink]="['/current']">Current weather</a>
-        <a [routerLink]="['/forecast']">5 day forecast</a>
       </div>
     </div>
   </nav>
@@ -49,7 +47,7 @@
           <div class="icon col-3">
             <img src="http://openweathermap.org/img/w/{{ days[0].icon }}.png">
           </div>
-          <p class="temp col-6">{{days[0].desc}}</p>
+          <p class="temp col-6">{{days[0].desc | capitalize}}</p>
         </div>
         <div class="col-6">
           <h2 class="col-4">{{days[0].wind }}m/s</h2>
