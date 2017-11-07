@@ -1,4 +1,3 @@
-import { CameraServerService } from '../providers/camera-server.service';
 import { WeatherService } from '../providers/weather.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
@@ -42,7 +41,7 @@ const routes: Routes = [
     WebCamComponent,
     WeatherComponent,
     CurrentWeatherComponent,
-    ForecastComponent
+    ForecastComponent,
     WebCamComponent,
     ConfirmEmailComponent,
     GenericModalComponent
@@ -56,8 +55,7 @@ const routes: Routes = [
     BootstrapModalModule
   ],
   providers: [
-    CameraServerService,
-    WeatherService
+    WeatherService,
     AppService
   ],
   entryComponents: [
