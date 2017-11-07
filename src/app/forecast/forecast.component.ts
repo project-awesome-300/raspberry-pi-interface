@@ -5,6 +5,7 @@ import { WeatherService } from '../../providers/weather.service';
 import { GroupByPipe } from '../../pipes/group-by.pipe';
 import * as _ from 'lodash';
 import * as moment from 'moment';
+import { CapitalizePipe } from '../../pipes/capitalise.pipe';
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
@@ -32,23 +33,43 @@ export class ForecastComponent implements OnInit {
                       data.list[i].main.temp_min,
                       data.list[i].dt_txt,
                       data.list[i].weather[0].icon); */
+          // const forecastWeather = {
+          //   cityName: data.city.name,
+          //   maxTemp: data.list[i].main.temp_max,
+          //   minTemp: data.list[i].main.temp_min,
+          //   date: data.list[i].dt_txt,
+          //   icon: data.list[i].weather[0].icon
+          // };
           const forecastWeather = {
             cityName: data.city.name,
             maxTemp: data.list[i].main.temp_max,
             minTemp: data.list[i].main.temp_min,
             date: data.list[i].dt_txt,
-            icon: data.list[i].weather[0].icon
+            icon: data.list[i].weather[0].icon,
+            desc: data.list[i].weather[0].description,
+            wind: data.list[i].wind.speed,
+            clouds: data.list[i].clouds.all
           };
           console.log('this is forecast weather');
           console.log(forecastWeather);
           this.myForecast.push(forecastWeather);
 
+
+          //working part ==============
           this.fullDays = _.groupBy(this.myForecast, function (row) {
             // return row.date;
+          
             return moment(row.date).format("DDMMYYYY")
+           
 
-          });
-
+          }
+        
+      )
+      console.log("this.fullDays")
+      console.log(this.fullDays)
+      _.orderBy('date','asc');
+      console.log(this.fullDays)
+//=============================
 
           //           this.fullDays = _.chain(_.map(this.days, "days"))
           //           //.flattenDeep()

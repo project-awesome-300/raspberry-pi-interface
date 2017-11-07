@@ -4,7 +4,7 @@
 <div>
     <img src="http://openweathermap.org/img/w/{{ myWeather.icon }}.png">
 </div>
-<h3>{{ myWeather.weatherKind }}</h3>
+<h3>{{ myWeather.weatherKind | capitalize }}</h3>
 <h4>Max: {{ myWeather.tempMax }}&deg;</h4>
 <h4>Min: {{ myWeather.tempMin }}&deg;</h4>
 </div>

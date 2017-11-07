@@ -15,6 +15,7 @@ import { MapComponent } from './map/map.component';
 import { WeatherComponent } from './weather/weather.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { ForecastComponent } from './forecast/forecast.component';
+import { CapitalizePipe } from '../pipes/capitalise.pipe';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { ConfirmEmailComponent } from './modals/confirm-email/confirm-email.component';
 import { AppService } from '../providers/app.service';
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'camera', component: CameraComponent },
-  { path: 'weather', component: WeatherComponent },
+  { path: 'weather', component: ForecastComponent } ,
   { path: 'current', component: CurrentWeatherComponent },
   { path: 'forecast', component: ForecastComponent },
   { path: 'food', component: FoodComponent },
@@ -52,6 +53,7 @@ const routes: Routes = [
     GenericModalComponent,
     FoodComponent,
     MapComponent
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,

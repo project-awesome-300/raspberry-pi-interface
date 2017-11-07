@@ -3,8 +3,6 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <a [routerLink]="['/dashboard']"><i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i></a>
-        <a [routerLink]="['/current']">Current weather</a>
-        <a [routerLink]="['/forecast']">5 day forecast</a>
       </div>
     </div>
   </nav>
@@ -15,7 +13,12 @@
 <!-- <h1>{{data.city.name}}</h1> -->
 <!--<pre>{{ myForecast | json}}</pre> -->
 <!-- <div  *ngFor="let dayWeather of myForecast" class="row weatherRow container widget">-->
-<div class="testimonial-group">
+
+
+
+
+
+<!-- <div class="testimonial-group">
   <div *ngFor="let days of generateArray(fullDays)" class="row col-xs-4">
     <div class="widget">
       <h2>{{days[0].date | date: 'EEEE MMMM d'}}</h2>
@@ -28,6 +31,30 @@
         <h2 class="temp col-3">{{dayWeather.minTemp}}&deg;</h2>
       </section>
 
+    </div>
+  </div>
+</div> -->
+<div>
+  <div class="col-xs-4">
+    <app-current-weather class="widget"></app-current-weather>
+  </div>
+  <div class="col-xs-8">
+    <div *ngFor="let days of generateArray(fullDays)">
+      <div class="widget row">
+        <div class="col-6">
+          <h2>{{days[0].date | date: 'EEEE MMMM d'}}</h2>
+
+          <div class="icon col-3">
+            <img src="http://openweathermap.org/img/w/{{ days[0].icon }}.png">
+          </div>
+          <p class="temp col-6">{{days[0].desc | capitalize}}</p>
+        </div>
+        <div class="col-6">
+          <h2 class="col-4">{{days[0].wind }}m/s</h2>
+          <h2 class="col-4">{{days[0].maxTemp}}&deg;</h2>
+          <h2 class="col-4">{{days[0].clouds}}%</h2>
+        </div>
+      </div>
     </div>
   </div>
 </div>
