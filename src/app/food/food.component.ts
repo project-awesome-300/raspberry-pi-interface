@@ -51,8 +51,7 @@ export class FoodComponent implements OnInit {
             var marker = new google.maps.Marker({
               map: map,
               position: place.geometry.location,
-              icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-              
+              icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"  
             });
             var infowindow = new google.maps.InfoWindow({
             });
@@ -78,7 +77,6 @@ export class FoodComponent implements OnInit {
   public onClickMe() {
     this.nothing = 'You are my hero!';
     console.log('You are my hero! ----> ');
-
   }
 
   private setCurrentPosition() {
@@ -90,5 +88,4 @@ export class FoodComponent implements OnInit {
       });
     }
   }
-
 }
