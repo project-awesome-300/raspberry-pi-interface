@@ -52,7 +52,7 @@ const routes: Routes = [
     ConfirmEmailComponent,
     GenericModalComponent,
     FoodComponent,
-    MapComponent
+    MapComponent,
     CapitalizePipe
   ],
   imports: [
