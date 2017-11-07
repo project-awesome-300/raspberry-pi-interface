@@ -17,7 +17,6 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 import { ForecastComponent } from './forecast/forecast.component';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { ConfirmEmailComponent } from './modals/confirm-email/confirm-email.component';
-import { FormsModule } from '@angular/forms';
 import { AppService } from '../providers/app.service';
 import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
 
@@ -28,11 +27,11 @@ const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'camera', component: CameraComponent },
-  { path: 'weather', component: WeatherComponent } ,
+  { path: 'weather', component: WeatherComponent },
   { path: 'current', component: CurrentWeatherComponent },
-  { path: 'forecast', component: ForecastComponent } 
-  { path: 'food', component: FoodComponent } ,
-  { path: 'map', component: MapComponent }     
+  { path: 'forecast', component: ForecastComponent },
+  { path: 'food', component: FoodComponent },
+  { path: 'map', component: MapComponent }
 ];
 
 
@@ -50,7 +49,7 @@ const routes: Routes = [
     ForecastComponent,
     WebCamComponent,
     ConfirmEmailComponent,
-    GenericModalComponent
+    GenericModalComponent,
     FoodComponent,
     MapComponent
   ],
@@ -66,7 +65,7 @@ const routes: Routes = [
     }),
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     BootstrapModalModule
   ],
   providers: [
