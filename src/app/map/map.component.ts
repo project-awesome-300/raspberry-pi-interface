@@ -1,21 +1,24 @@
-import { Component, ElementRef, NgZone, OnInit, ViewChild, } from '@angular/core';
+import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
-import { DirectionsMapDirective } from '../map/google-map.directive';
+import { DirectionsMapDirective } from '../googlemap/google-map.directive';
 //import {GoogleMapsAPIWrapper} from 'angular2-google-maps/core/services/google-maps-api-wrapper';
 import { } from '@types/googlemaps';
+
+
+declare var google: any;
+declare var jQuery: any;
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
+ // providers : [ 'GoogleMapsAPIWrapper' ]
 })
 
-declare var google: any;
-declare var jQuery: any;
-
 export class MapComponent implements OnInit {
+  
   public latitude: number;
   public longitude: number;
   //public searchControl: FormControl;
@@ -74,7 +77,8 @@ export class MapComponent implements OnInit {
         this.pickupInputElementRef.nativeElement, {
           types: ["address"]
         });
-      let autocompleteOutput = new google.maps.places.Autocomplete(this.pickupOutputElementRef.nativeElement, {
+      let autocompleteOutput = new google.maps.places.Autocomplete(
+        this.pickupOutputElementRef.nativeElement, {
         types: ["address"]
       });
       this.setupPlaceChangedListener(autocompleteInput, 'ORG');
@@ -95,10 +99,12 @@ export class MapComponent implements OnInit {
           return;
         }
         if (mode === 'ORG') {
-          this.vc.origin = { longitude: place.geometry.location.lng(), latitude: place.geometry.location.lat() };
+          this.vc.origin = { longitude: place.geometry.location.lng(), 
+                            latitude: place.geometry.location.lat() };
           this.vc.originPlaceId = place.place_id;
         } else {
-          this.vc.destination = { longitude: place.geometry.location.lng(), latitude: place.geometry.location.lat() }; // its a example aleatory position
+          this.vc.destination = { longitude: place.geometry.location.lng(), 
+                                  latitude: place.geometry.location.lat() }; // its a example aleatory position
           this.vc.destinationPlaceId = place.place_id;
         }
         if (this.vc.directionsDisplay === undefined) {

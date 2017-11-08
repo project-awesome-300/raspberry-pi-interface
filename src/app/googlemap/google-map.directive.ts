@@ -1,9 +1,12 @@
 import {GoogleMapsAPIWrapper}  from 'angular2-google-maps/core';
 import { Directive,  Input, Output } from '@angular/core';
  
- 
 declare var google: any;
+
 @Directive({
+    selector: 'app-googlemap'
+  
+  
 })
 
 export class DirectionsMapDirective {
