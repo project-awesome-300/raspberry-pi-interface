@@ -12,7 +12,7 @@ import { FoodComponent } from './food/food.component';
 import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MapComponent } from './map/map.component';
-// import { DirectionsMapDirective } from './map/google-map.directive';
+import { DirectionsMapDirective } from './map/google-map.directive';
 
 
 const routes: Routes = [
@@ -30,8 +30,8 @@ const routes: Routes = [
     CameraComponent,
     WebCamComponent,
     FoodComponent,
-    MapComponent
-    // DirectionsMapDirective
+    MapComponent,
+    DirectionsMapDirective
   ],
   imports: [
     BrowserModule,
