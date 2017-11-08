@@ -11,14 +11,10 @@
   <div class="container">
     <div class="row">
       <div class="container">
-        <div class="form-group">
-            <input autocorrect="off" autocapitalize="off" spellcheck="off"
-             type="text" class="form-control"
-            #input [formControl]="destinationInput">
-          <input placeholder="Search for places around you" autocorrect="off" 
-          autocapitalize="off" spellcheck="off" type="text" class="form-control"
-            #output [formControl]="destinationOutput">
-        </div>
+          <div class="form-group">
+              <input placeholder="Enter source location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #pickupInput [formControl]="destinationInput">
+              <input placeholder="Enter destination" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #pickupOutput [formControl]="destinationOutput" >
+            </div>
         <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
           <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
         </agm-map>

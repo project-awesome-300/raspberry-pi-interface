@@ -13,6 +13,7 @@ import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MapComponent } from './map/map.component';
 import { DirectionsMapDirective } from './googlemap/google-map.directive';
+import { GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
   ],
   providers: [
     CameraServerService,
+    GoogleMapsAPIWrapper
   ],
   bootstrap: [AppComponent]
 })

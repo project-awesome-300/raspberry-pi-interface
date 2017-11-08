@@ -1,11 +1,11 @@
-import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, ElementRef, NgZone,NgModule,
+   OnInit, ViewChild, Directive, Input } from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { } from 'googlemaps';
-import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import { AgmCoreModule, MapsAPILoader} from '@agm/core';
 import { DirectionsMapDirective } from '../googlemap/google-map.directive';
-//import {GoogleMapsAPIWrapper} from 'angular2-google-maps/core/services/google-maps-api-wrapper';
+import {GoogleMapsAPIWrapper} from 'angular2-google-maps/core/services/google-maps-api-wrapper';
 import { } from '@types/googlemaps';
-
 
 declare var google: any;
 declare var jQuery: any;
@@ -13,8 +13,8 @@ declare var jQuery: any;
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
- // providers : [ 'GoogleMapsAPIWrapper' ]
+  styleUrls: ['./map.component.css'],
+  providers : [GoogleMapsAPIWrapper]
 })
 
 export class MapComponent implements OnInit {
@@ -30,13 +30,13 @@ export class MapComponent implements OnInit {
   public estimatedTime: any;
   public estimatedDistance: any;
 
-  @ViewChild("pickupInput")///viechild decorator get access to the input element
+  @ViewChild('pickupInput')///viechild decorator get access to the input element
   public pickupInputElementRef: ElementRef;//decorate the variable to the search input 
 
-  @ViewChild("pickupOutput")
+  @ViewChild('pickupOutput')
   public pickupOutputElementRef: ElementRef;
 
-  @ViewChild("scrollMe")
+  @ViewChild('scrollMe')
   private scrollContainer: ElementRef;
 
   @ViewChild(DirectionsMapDirective)
@@ -51,7 +51,7 @@ export class MapComponent implements OnInit {
   constructor(
     private mapsAPILoader: MapsAPILoader,//load google places api 
     private ngZone: NgZone,
-    //  private gmapsApi: GoogleMapsAPIWrapper,
+    private gmapsApi: GoogleMapsAPIWrapper,
     private _elementRef: ElementRef
   ) { }
 
@@ -70,7 +70,7 @@ export class MapComponent implements OnInit {
 
     //set current position
     this.setCurrentPosition();
-
+//console.log(this.pickupInputElementRef);
     //use method mapsAPILoader to load google places api
     this.mapsAPILoader.load().then(() => {
       let autocompleteInput = new google.maps.places.Autocomplete(
