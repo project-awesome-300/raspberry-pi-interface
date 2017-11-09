@@ -3,7 +3,7 @@ import { Component, ElementRef, NgZone,NgModule,
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { } from 'googlemaps';
 import { AgmCoreModule, MapsAPILoader} from '@agm/core';
-import { DirectionsMapDirective } from '../googlemap/google-map.directive';
+import { DirectionsMapDirective } from '../directionsMap/directionsMapDirective.component';
 import {GoogleMapsAPIWrapper} from 'angular2-google-maps/core/services/google-maps-api-wrapper';
 import { } from '@types/googlemaps';
 
@@ -18,7 +18,6 @@ declare var jQuery: any;
 })
 
 export class MapComponent implements OnInit {
-  
   public latitude: number;
   public longitude: number;
   //public searchControl: FormControl;
