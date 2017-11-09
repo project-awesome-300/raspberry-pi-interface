@@ -1,5 +1,5 @@
 import { CameraServerService } from '../providers/camera-server.service';
-import { BussService } from './buss/buss.service';
+import { BussService } from '../providers/buss.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Routes, RouterModule } from '@angular/router';

@@ -7,45 +7,42 @@
     </div>
   </nav>
 </div>
-<!-- <div id="map"></div> -->
 
 
-<div class="container"> 
- 
-      <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom"> 
-        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker> 
-    <agm-marker [latitude]="latitude1" [longitude]="longitude1"></agm-marker>
-      </agm-map> 
- 
-</div> 
+<div class="container">
+  <div class="heading">
+    <Header>
+      <h1>Sligo (MacDiarmada) Timtables</h1>
+    </Header>
+  </div>
+  <div class="panel-body">
+    <h4>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Origin</th>
+              <th>Destination</th>
+              <th>Departure</th>
+              <th>Estimated Arrival</th>
+              <th>Route</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let bussInfo of buss">
+            <tr>
+              <td>{{bussInfo.Origin}}</td>
+              <td>{{bussInfo.Destination}}</td>
+              <td>{{bussInfo.DepartureTime}}</td>
+              <td>{{bussInfo.ArrivalTime}}</td>
+              <td>{{bussInfo.Route}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-
-
-
-<!-- 
-      <agm-map #map [latitude]="latitude"
-       [longitude]="longitude"
-       [disableDefaultUI]=false
-       [zoomControl]="false"
-       [scrollwheel]="false"
-       [zoom]="zoom"> 
-
-        <agm-marker 
-        *ngFor="let m of Markers; let i=index"
-        (markerClick)="ClickedMarker(m, i)"
-        [latitude]="m.latitude1" 
-        [longitude]="m.longitude1"
-        [markerDraggable]="m.draggable"
-        (dragEnd)="markerDragEnd(m,$event)">
-      <agm-info-window>
-  <strong>{{m.name}}</strong>
-</agm-info-window>
-      </agm-marker> 
-        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker> 
-      </agm-map> 
-
--->
-
+    </h4>
+  </div>
+</div>
 
 
 
@@ -53,15 +50,7 @@
 
 
 
-
-
-
-
-
-
-
-
-<!--old API
+<!--old working API
 <div class="container">
   <div class="heading">  <Header>
         <h1>Sligo Bus Timtables
