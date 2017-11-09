@@ -74,11 +74,13 @@ export class FoodComponent implements OnInit {
     });
   }
 
-  public onClickMe() {
-    this.nothing = 'You are my hero!';
-    console.log('You are my hero! ----> ');
-  }
-
+  // public onClickMe() {
+  //   this.nothing = 'You are my hero!';
+  //   console.log('You are my hero! ----> ');
+  // // }
+  // update(input:any) {
+  //     this.result = input;
+  // }
   private setCurrentPosition() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
