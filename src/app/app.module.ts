@@ -11,7 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CameraComponent } from './camera/camera.component';
 import { BussComponent } from './buss/buss.component';
 import { AgmCoreModule } from '@agm/core'; 
-import { ReactiveFormsModule, FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [

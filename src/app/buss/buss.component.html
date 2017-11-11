@@ -8,44 +8,60 @@
   </nav>
 </div>
 
-
 <div class="container">
   <div class="heading">
     <Header>
-      <h1>Sligo (MacDiarmada) Timtables</h1>
+      <h1>S1 Sligo Town Service</h1>
     </Header>
+    <h2>Monday To Saturday (except public holidays)</h2>
   </div>
   <div class="panel-body">
     <h4>
       <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table ">
           <thead>
             <tr>
-              <th>Origin</th>
-              <th>Destination</th>
-              <th>Departure</th>
-              <th>Estimated Arrival</th>
-              <th>Route</th>
+              <th></th>
+              <th></th>
+              <th>SX</th>
+              <th>SX</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <!--    <th>**</th> -->
+              <th>TM</th>
+              <th>TM</th>
+              <th>until</th>
+              <th></th>
+              <th></th>
+              <th>last</th>
             </tr>
           </thead>
           <tbody *ngFor="let bussInfo of buss">
             <tr>
               <td>{{bussInfo.Origin}}</td>
-              <td>{{bussInfo.Destination}}</td>
-              <td>{{bussInfo.DepartureTime}}</td>
-              <td>{{bussInfo.ArrivalTime}}</td>
-              <td>{{bussInfo.Route}}</td>
+              <td>{{bussInfo.Name}}</td>
+              <td>{{bussInfo.FirstBus}}</td>
+              <td>{{bussInfo.SecondBus}}</td>
+              <td>{{bussInfo.ThirdBus}}</td>
+              <td>{{bussInfo.FourthBus}}</td>
+              <td>{{bussInfo.FifthBus}}</td>
+              <!--   <td>{{bussInfo.Blank}}</td> -->
+              <td>{{bussInfo.SixthBus}}</td>
+              <td>{{bussInfo.SeventhBus}}</td>
+              <td id="blank">{{bussInfo.Blankk}}</td> 
+              <td>{{bussInfo.ThirdLast}}</td>
+              <td>{{bussInfo.SecLast}}</td>
+              <td>{{bussInfo.Last}}</td>
             </tr>
           </tbody>
         </table>
       </div>
-
     </h4>
   </div>
+  <p>SX= Does not Operates on saturdays </p>
+  <p> TM = Then after every 30 minutes until last</p>
 </div>
-
-
-
 
 
 
@@ -80,7 +96,6 @@
           </tbody>
         </table>
       </div>
-  
     </h4>
   </div>
   </div> -->
