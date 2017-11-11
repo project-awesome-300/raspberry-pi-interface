@@ -3,6 +3,7 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <a [routerLink]="['/dashboard']"><i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i></a>
+        <a id="sbus" [routerLink]="['/sundaybuss']">Sunday Bus</a> 
       </div>
     </div>
   </nav>
@@ -31,10 +32,9 @@
               <!--    <th>**</th> -->
               <th>TM</th>
               <th>TM</th>
-              <th>until</th>
               <th></th>
               <th></th>
-              <th>last</th>
+              <th></th>
             </tr>
           </thead>
           <tbody *ngFor="let bussInfo of buss">
@@ -49,7 +49,6 @@
               <!--   <td>{{bussInfo.Blank}}</td> -->
               <td>{{bussInfo.SixthBus}}</td>
               <td>{{bussInfo.SeventhBus}}</td>
-              <td id="blank">{{bussInfo.Blankk}}</td> 
               <td>{{bussInfo.ThirdLast}}</td>
               <td>{{bussInfo.SecLast}}</td>
               <td>{{bussInfo.Last}}</td>

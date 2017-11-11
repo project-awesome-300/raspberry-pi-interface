@@ -4,9 +4,6 @@
 a {
     color: #fff;
 }
-a #sbus{
-    color: black;
-}
 i {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -15,21 +12,22 @@ i {
  td{
     color: #DDB27A;
 }
+
+
+ td{
+    color: #DDB27A;
+}
 .container {
     border-radius: 10px;
    /* border: 1px solid #B19675; */
     background-color: #ecf0f5;
-    height: 955px;
+    height: 930px;
 } 
 th{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border-bottom: 1px solid #B1926F;
     font-size: 12px;
   
-}
-button
-{
-  float: right;
 }
 
 h1{
@@ -48,9 +46,6 @@ h2{
     text-align: center;
 }
 
-td #blank{
-    color: black;
-}
 p{
     margin-right: 10px;
   margin-bottom: 0px;

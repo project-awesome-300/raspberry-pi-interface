@@ -12,13 +12,15 @@ import { CameraComponent } from './camera/camera.component';
 import { BussComponent } from './buss/buss.component';
 import { AgmCoreModule } from '@agm/core'; 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SundayBussComponent } from './sunday-buss/sunday-buss.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'camera', component: CameraComponent },
-  { path: 'buss', component: BussComponent }    
+  { path: 'buss', component: BussComponent },
+  { path: 'sundaybuss', component: SundayBussComponent },
 ];
 
 @NgModule({
@@ -27,7 +29,8 @@ const routes: Routes = [
     DashboardComponent,
     CameraComponent,
     WebCamComponent,
-    BussComponent
+    BussComponent,
+    SundayBussComponent
   ],
   imports: [
     BrowserModule,

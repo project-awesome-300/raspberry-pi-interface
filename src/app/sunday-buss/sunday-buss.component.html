@@ -1,0 +1,40 @@
+<div class="SundayBuss">
+  <nav class="navbar navbar-info">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a [routerLink]="['/buss']"><i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+  <div class="heading">
+    <Header>
+      <h1>S1 Sligo Town Service</h1>
+    </Header>
+    <h2>SUNDAY (and public holidays)</h2>
+  </div>
+  <div class="panel-body">
+    <h4>
+      <div class="table-responsive">
+        <table class="table ">
+          <tbody *ngFor="let bussInfo of sundaybuss">
+            <tr>
+              <td>{{bussInfo.Origin}}</td>
+              <td>{{bussInfo.Name}}</td>
+              <td>{{bussInfo.FirstBus}}</td>
+              <td>{{bussInfo.SecondBus}}</td>
+              <td>{{bussInfo.ThirdBus}}</td>
+              <td>{{bussInfo.FourthBus}}</td>
+              <td>{{bussInfo.FifthBus}}</td>
+              <td>{{bussInfo.SixthBus}}</td>
+              <td>{{bussInfo.SeventhBus}}</td>
+              <td>{{bussInfo.Last}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </h4>
+  </div>
+</div>
