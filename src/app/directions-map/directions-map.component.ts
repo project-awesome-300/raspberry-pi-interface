@@ -32,8 +32,8 @@ export class DirectionsMapComponent implements OnInit {
       }
 
       var directionsService = new google.maps.DirectionsService;
-      var latLngA = new google.maps.LatLng({ lat: this.origin.latitude, lng: this.origin.longitude });
-      var latLngB = new google.maps.LatLng({ lat: this.destination.latitude, lng: this.destination.longitude });
+      //var latLngA = new google.maps.LatLng({ lat: this.origin.latitude, lng: this.origin.longitude });
+    //  var latLngB = new google.maps.LatLng({ lat: this.destination.latitude, lng: this.destination.longitude });
       this.directionsDisplay.setMap(map);
       this.directionsDisplay.setOptions({
         polylineOptions: {
@@ -53,7 +53,7 @@ export class DirectionsMapComponent implements OnInit {
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
           map.setZoom(30);
-          console.log(this.getcomputeDistance(latLngA, latLngB));
+         // console.log(this.getcomputeDistance(latLngA, latLngB));
           var point = response.routes[0].legs[0];
           this.estimatedTime = point.duration.text;
           this.estimatedDistance = point.distance.text;
