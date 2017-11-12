@@ -12,8 +12,8 @@ import { FoodComponent } from './food/food.component';
 import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MapComponent } from './map/map.component';
-import { DirectionsMapDirective } from './directionsMap/directionsMapDirective.component';
 import { GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
+import { DirectionsMapComponent } from './directions-map/directions-map.component';
 
 
 const routes: Routes = [
@@ -32,7 +32,7 @@ const routes: Routes = [
     WebCamComponent,
     FoodComponent,
     MapComponent,
-    DirectionsMapDirective
+    DirectionsMapComponent
   ],
   imports: [
     BrowserModule,

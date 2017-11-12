@@ -1,14 +1,21 @@
+import { Component, OnInit } from '@angular/core';
 import { GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
 import { Directive, Input, Output } from '@angular/core';
 
-declare var google: any;
-
-@Directive({
-  selector: 'app-googlemap',
+@Component({
+  selector: 'app-directions-map',
+  templateUrl: './directions-map.component.html',
+  styleUrls: ['./directions-map.component.css'],
   providers: [GoogleMapsAPIWrapper],
 })
+export class DirectionsMapComponent implements OnInit {
+  constructor(
+    private gmapsApi: GoogleMapsAPIWrapper
+  ) { }
 
-export class DirectionsMapDirective {
+  ngOnInit() {
+  }
+
   @Input() origin: any;
   @Input() destination: any;
   @Input() originPlaceId: any;
@@ -18,7 +25,6 @@ export class DirectionsMapDirective {
   @Input() estimatedTime: any;
   @Input() estimatedDistance: any;
 
-  constructor(private gmapsApi: GoogleMapsAPIWrapper) { }
   updateDirections() {
     this.gmapsApi.getNativeMap().then(map => {
       if (!this.originPlaceId || !this.destinationPlaceId) {
@@ -41,7 +47,7 @@ export class DirectionsMapDirective {
         origin: { placeId: this.originPlaceId },
         destination: { placeId: this.destinationPlaceId },
         avoidHighways: true,
-        travelMode: google.maps.DirectionsTravelMode.DRIVING
+        //travelMode: google.maps.DirectionsTravelMode.DRIVING
         //travelMode: 'DRIVING'
       }, function (response: any, status: any) {
         if (status === 'OK') {
@@ -64,4 +70,5 @@ export class DirectionsMapDirective {
   private getcomputeDistance(latLngA: any, latLngB: any) {
     return (google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB) / 1000).toFixed(2);
   }
+
 }
