@@ -6,13 +6,14 @@
           <i class="fa fa-arrow-left fa-4x" aria-hidden="true"> </i>
         </a>
       </div>
+      <div class="header">
+        <h1>Your favourite places in town</h1>
+      </div>
     </div>
   </nav>
   <div class="container">
     <div class="row">
-      <div class="header">
-        <h1>Your favourite places in town</h1>
-      </div>
+
       <div class="form-group">
       </div>
       <div class="mapRestaurants">
@@ -24,20 +25,20 @@
             <!-- <agm-info-window-content><ng-content></ng-content></agm-info-window-content> -->
           </agm-marker>
         </agm-map>
-     
+
       </div>
       <div class="listRestaurants">
         <table class="table">
           <div *ngIf='loadFinished'>
             <thead>
-            <tr>
-              <th scope="row">List of restaurants</th>
-            </tr>
+              <tr>
+                <th scope="row">List of restaurants</th>
+              </tr>
             </thead>
             <tr *ngFor='let i of result'>
               <tbody>
-              <td>{{i.name}}</td>
-                  <td>Data: {{i.opening_hours}}</td>
+                <td>{{i.name}}</td>
+                <td>Data: {{i.opening_hours}}</td>
               </tbody>
             </tr>
           </div>
