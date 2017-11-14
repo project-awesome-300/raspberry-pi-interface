@@ -52,6 +52,7 @@ body {
     /* display: inline-block; */
     border-radius: 25px;
     padding: 2px;
+    
 }
 
 .widget:hover {
@@ -83,7 +84,7 @@ h2{
 /* menu styling */
 
 .navbar-info {
-    background-color: #c123de;
+    background-color: #C687D3
 }
 
 a {
@@ -117,4 +118,32 @@ i {
   
 p{
     font-size: 14px;
+}
+
+.gradient {
+    background-color: #c123de;
+    background-image:
+      linear-gradient(
+        #c123de, #C687D3
+      );
+      border-radius: 25px;
+      padding: 2px;
+      margin: 20px;
+      color: white;
+
+    
+      
+  }
+.row{
+    border: 3px solid hsla(0,0%,100%,.1);
+    margin: 1px;
+}
+
+.current{
+    margin:20px;
+    height: 351px;
+}
+i{
+    margin-left: 20px;
+    margin-top:5px;
 }
