@@ -71,16 +71,7 @@ export class FoodComponent implements OnInit {
             var infowindow = new google.maps.InfoWindow({
             });
             google.maps.event.addListener(marker, 'click', function () {
-              //   infowindow.setContent(place.name + 
-              //     "  " + place.photos["0"].html_attributions 
-              //     + " " + place.opening_hours["0"]
-              //   +' '+ place.rating
-              // +place.price_level);
-
-              // infowindow.setValues(place.opening_hours);
-              infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                'Place ID: ' + place.place_id + '<br>' +
-                place.formatted_address + '</div>');
+              infowindow.setContent('<div><strong>' + place.name + '</strong><br>');
               infowindow.open(map, this);
             });
           }
