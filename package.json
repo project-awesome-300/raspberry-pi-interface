@@ -16,7 +16,7 @@
     "@angular/animations": "^4.4.4",
     "@angular/common": "5.0.1",
     "@angular/compiler": "^4.4.4",
-    "@angular/core": "5/0/1",
+    "@angular/core": "5.0.1",
     "@angular/forms": "^4.4.4",
     "@angular/http": "^4.4.4",
     "@angular/platform-browser": "^4.4.4",
@@ -37,12 +37,12 @@
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
-  "peerDependencies": {
-    "@angular/common": "^2.3.1",
-    "@angular/core": "^2.3.1",
-    "@angular/compiler": "^2.0.0",
+   "peerDependencies": {
+     "@angular/common": "^2.3.1",
+     "@angular/core": "^2.3.1",
+     "@angular/compiler": "^2.0.0",
     "angular/forms": "^2.0.0"
-  },
+   },
   "devDependencies": {
     "@angular/cli": "1.4.2",
     "@angular/compiler-cli": "^4.4.4",

@@ -13,7 +13,6 @@ import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MapComponent } from './map/map.component';
 import { GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
-import { DirectionsMapComponent } from './directions-map/directions-map.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 
 
@@ -33,7 +32,6 @@ const routes: Routes = [
     WebCamComponent,
     FoodComponent,
     MapComponent,
-    DirectionsMapComponent,
     StarRatingComponent
   ],
   imports: [
@@ -50,8 +48,7 @@ const routes: Routes = [
     ReactiveFormsModule
   ],
   providers: [
-    CameraServerService,
-    GoogleMapsAPIWrapper
+    CameraServerService
   ],
   bootstrap: [AppComponent]
 })
