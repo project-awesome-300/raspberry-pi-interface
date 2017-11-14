@@ -20,6 +20,8 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { ConfirmEmailComponent } from './modals/confirm-email/confirm-email.component';
 import { AppService } from '../providers/app.service';
 import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
+import { GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
+import { DirectionsMapComponent } from './directions-map/directions-map.component';
 
 
 
@@ -52,7 +54,7 @@ const routes: Routes = [
     ConfirmEmailComponent,
     GenericModalComponent,
     FoodComponent,
-    MapComponent,
+    DirectionsMapComponent
     CapitalizePipe
   ],
   imports: [
@@ -71,6 +73,8 @@ const routes: Routes = [
     BootstrapModalModule
   ],
   providers: [
+    CameraServerService,
+    GoogleMapsAPIWrapper
     WeatherService,
     AppService
   ],

@@ -3,8 +3,11 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <a [routerLink]="['/dashboard']">
-          <i class="fa fa-arrow-left fa-4x" aria-hidden="true"> </i>
+          <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
         </a>
+      </div>
+      <div class="header">
+        <h1>Looking for places around you?</h1>
       </div>
     </div>
   </nav>
@@ -15,7 +18,7 @@
           <input placeholder="Search for places around you" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
             #search [formControl]="searchControl">
         </div>
-        <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+        <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
           <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
         </agm-map>
       </div>
