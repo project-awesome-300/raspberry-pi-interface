@@ -14,9 +14,9 @@
   "dependencies": {
     "@agm/core": "^1.0.0-beta.2",
     "@angular/animations": "^4.4.4",
-    "@angular/common": "5.0.1",
+    "@angular/common": "^4.4.4",
     "@angular/compiler": "^4.4.4",
-    "@angular/core": "5.0.1",
+    "@angular/core": "^4.4.4",
     "@angular/forms": "^4.4.4",
     "@angular/http": "^4.4.4",
     "@angular/platform-browser": "^4.4.4",
@@ -25,7 +25,6 @@
     "@angular/router": "^4.4.4",
     "@types/google-maps": "^3.2.0",
     "angular2-fontawesome": "^0.9.3",
-    "angular2-google-maps": "^0.17.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "cors": "^2.8.4",
@@ -38,10 +37,10 @@
     "zone.js": "^0.8.14"
   },
    "peerDependencies": {
-     "@angular/common": "^2.3.1",
-     "@angular/core": "^2.3.1",
-     "@angular/compiler": "^2.0.0",
-    "angular/forms": "^2.0.0"
+    "@angular/common": "^4.4.4",
+    "@angular/compiler": "^4.4.4",
+    "@angular/core": "^4.4.4",
+    "@angular/forms": "^4.4.4"
    },
   "devDependencies": {
     "@angular/cli": "1.4.2",
