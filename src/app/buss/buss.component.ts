@@ -1,8 +1,9 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Pipe} from '@angular/core';
 //import { BussService } from '../../providers/buss.service'; 
 import { Http, Response } from '@angular/http';
 import { Buss } from '../../models/buss';
+import * as _ from "lodash";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-buss',
@@ -13,6 +14,10 @@ import { Buss } from '../../models/buss';
 export class BussComponent implements OnInit {
 
   buss: Buss[];
+
+  cuurentTime = (moment().format("hh:mm"));
+
+BusT =['Carton', '(Classibawn Drive)', '7:30', '8:00', '8:30', '9:00', '10:30', ]
 
   constructor() {
     this.buss = [
@@ -25,7 +30,7 @@ export class BussComponent implements OnInit {
       new Buss('Cranmore', '(devins drive)', '7:53', '8:23', '8:53', '9:23', '9:53', '23', '53', '17:23', '17:53', '18:23'),
       new Buss('Cemetery Rd', '(Cemetery Rd)', '7:56', '8:26', '8:56', '9:26', '9:56', '26', '56', '17:26', '17:56', '18:26'),
       new Buss('Cairns Rd', '(Bus Stop)', '7:59', '8:29', '8:59', '9:29', '9:59', '29', '59',  '17:29', '17:59', '18:29'),
-      new Buss('      ', '     ', '  ', '', '', '', '', '', '', '',  '', ''),
+      new Buss(' ', ' ', '  ', '', '', '', '', '', '', '',  '', ''),
       new Buss('Pearse Rd', '(Rd Jctn)', '8:02', '8:32', '9:02', '9:32', '10:02', '32', '02', '17:32', '18:02', '18:32'),
       new Buss('Crozon Park', '(Crozon Crescent)', '8:04', '8:34', '9:04', '9:34', '10:04', '34', '04',  '17:34', '18:04', '18:34'),
       new Buss('Caltragh Rd', '(Pensions Office)', '8:05', '8:35', '9:05', '9:35', '10:05', '35', '05', '17:35', '18:05', '18:35'),
@@ -34,24 +39,23 @@ export class BussComponent implements OnInit {
       new Buss('Sligo Hospital', '(The Mall)', '8:16', '8:46', '9:16', '9:46', '10:16', '46', '16',  '17:46', '18:16', '-'),
       new Buss('I.T.Sligo', '(Stop on campus)', '8:19', '8:49', '9:19', '9:49', '10:19', '49', '19', '17:49', '18:19', '-'),
       new Buss('Bundoran Rd', '(Abbotts)', '8:23', '8:53', '9:23', '9:53', '10:23', '53', '23',  '17:53', '18:23', '-'),
-      new Buss('Carton', '(Classibawn Drive)', '8:29', '8:59', '9:29', '9:59', '10:29', '59', '29', '17:59', '18:29', '-'),
-
-
-
-
-
+      new Buss('Carton', '(Classibawn Drive)', '8:29', '8:59', '9:29', '9:59', '10:29', '59', '29', '17:59', '18:29', '-')
     ]
   }
 
-  ngOnInit() {
 
+ // _.filter(buss, function(o){ return !o.active;});
+/*
+var bus =_.find(buss, function(bus){})
+ */
 
-  };
-
-
-
-
-
+  ngOnInit() {};
+/*
+  this.bus= _.filter(this.buss, (Buss)=>{
+    return moment().isAfter(moment(Buss.istbus), 'second');
+  })
+*/
+  //alert(moment().format("hh:mm")); working
 }
 
 
@@ -59,9 +63,7 @@ export class BussComponent implements OnInit {
 
 
 
-
 /* old working API
- 
   constructor(private _busService: BussService){
     
    }  

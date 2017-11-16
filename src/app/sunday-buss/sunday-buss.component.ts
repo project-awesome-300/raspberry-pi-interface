@@ -32,9 +32,6 @@ export class SundayBussComponent implements OnInit {
       new SundayBuss('Carton', '(Classibawn Drive)', '11:59', '12:59', '13:59', '14:59', '15:59', '16:59', '17:59','-'),
 
 
-
-
-
     ]
   }
 

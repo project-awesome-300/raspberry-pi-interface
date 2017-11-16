@@ -29,12 +29,11 @@
               <th></th>
               <th></th>
               <th></th>
-              <!--    <th>**</th> -->
               <th>TM</th>
               <th>TM</th>
               <th></th>
-              <th></th>
-              <th></th>
+              <th>LT</th>
+              <th>LT</th>
             </tr>
           </thead>
           <tbody *ngFor="let bussInfo of buss">
@@ -46,7 +45,6 @@
               <td>{{bussInfo.ThirdBus}}</td>
               <td>{{bussInfo.FourthBus}}</td>
               <td>{{bussInfo.FifthBus}}</td>
-              <!--   <td>{{bussInfo.Blank}}</td> -->
               <td>{{bussInfo.SixthBus}}</td>
               <td>{{bussInfo.SeventhBus}}</td>
               <td>{{bussInfo.ThirdLast}}</td>
@@ -59,7 +57,8 @@
     </h4>
   </div>
   <p>SX= Does not Operates on saturdays </p>
-  <p> TM = Then after every 30 minutes until last</p>
+  <p> TM = Then after every 30 minutes until LT</p>
+  <p> LT = Last busses at the stops</p>
 </div>
 
 

@@ -3,6 +3,7 @@
 }
 a {
     color: #fff;
+    font-weight: bold;
 }
 a #sbus{
     color: black;
@@ -55,6 +56,3 @@ p{
     margin-right: 10px;
   margin-bottom: 0px;
 }
-
-
-
