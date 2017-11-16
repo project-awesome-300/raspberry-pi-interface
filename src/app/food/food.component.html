@@ -1,31 +1,33 @@
 <div class="food">
+
+  <!-- header -->
   <nav class="navbar navbar-info">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <a [routerLink]="['/dashboard']">
-          <i class="fa fa-arrow-left fa-4x" aria-hidden="true"> </i>
-        </a>
-      </div>
+      <a [routerLink]="['/dashboard']"  id="back">
+        <i class="fa fa-arrow-left fa-4x" aria-hidden="true"> </i>
+      </a>
       <div class="header">
         <h1>Best places in town!</h1>
       </div>
     </div>
   </nav>
+
+  <!-- body -->
   <div class="container">
     <div class="row">
-      <div class="form-group">
-      </div>
+
+      <!-- map -->
       <div class="mapRestaurants">
         <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
           <agm-marker [latitude]="latitude" [longitude]="longitude">
             <agm-info-window [disableAutoPan]="true">
               <strong>You are here!</strong>
             </agm-info-window>
-            <!-- <agm-info-window-content><ng-content></ng-content></agm-info-window-content> -->
           </agm-marker>
         </agm-map>
-
       </div>
+
+      <!-- list of restaurants -->
       <div class="listRestaurants">
         <table class="table">
           <div *ngIf='loadFinished'>
@@ -34,12 +36,15 @@
                 <th scope="row"></th>
               </tr>
             </thead>
-            <tr *ngFor='let i of result'>
-              <tbody>
+            <tr *ngFor='let i of result |limitTo:10'>
+                <!--  -->
+              <tbody >
                 <td>{{i.name}}</td>
-                <td><app-star-rating [rating]='i.rating'></app-star-rating></td>
+                <td>
+                  <app-star-rating [rating]='i.rating'></app-star-rating>
+                </td>
               </tbody>
-            </tr>
+            </tr> 
           </div>
         </table>
       </div>
