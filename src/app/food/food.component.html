@@ -36,8 +36,8 @@
                 <th scope="row"></th>
               </tr>
             </thead>
-            <tr *ngFor='let i of result |limitTo:10'>
-                <!--  -->
+            <tr *ngFor='let i of result '>
+                <!--  |limitTo:10-->
               <tbody >
                 <td>{{i.name}}</td>
                 <td>
