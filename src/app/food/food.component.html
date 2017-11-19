@@ -3,7 +3,7 @@
   <!-- header -->
   <nav class="navbar navbar-info">
     <div class="container-fluid">
-      <a [routerLink]="['/dashboard']"  id="back">
+      <a [routerLink]="['/dashboard']" id="back">
         <i class="fa fa-arrow-left fa-4x" aria-hidden="true"> </i>
       </a>
       <div class="header">
@@ -15,38 +15,39 @@
   <!-- body -->
   <div class="container">
     <div class="row">
+      <div class="col-xs-12"#map>
+        <!-- map -->
+        <div class="mapRestaurants">
+          <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+            <agm-marker [latitude]="latitude" [longitude]="longitude">
+              <agm-info-window [disableAutoPan]="true">
+                <strong>You are here!</strong>
+              </agm-info-window>
+            </agm-marker>
+          </agm-map>
+        </div>
 
-      <!-- map -->
-      <div class="mapRestaurants">
-        <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-          <agm-marker [latitude]="latitude" [longitude]="longitude">
-            <agm-info-window [disableAutoPan]="true">
-              <strong>You are here!</strong>
-            </agm-info-window>
-          </agm-marker>
-        </agm-map>
-      </div>
-
-      <!-- list of restaurants -->
-      <div class="listRestaurants">
-        <table class="table">
-          <div *ngIf='loadFinished'>
-            <thead>
-              <tr>
-                <th scope="row"></th>
-              </tr>
-            </thead>
-            <tr *ngFor='let i of result '>
+        <!-- list of restaurants -->
+        <div class="listRestaurants">
+          <table class="table">
+            <div *ngIf='loadFinished'>
+              <thead>
+                <tr>
+                  <th scope="row"></th>
+                </tr>
+              </thead>
+              <tr *ngFor='let i of result '>
                 <!--  |limitTo:10-->
-              <tbody >
-                <td>{{i.name}}</td>
-                <td>
-                  <app-star-rating [rating]='i.rating'></app-star-rating>
-                </td>
-              </tbody>
-            </tr> 
-          </div>
-        </table>
+                <tbody>
+                  <td>{{i.name}}</td>
+                  <td>
+                    <app-star-rating [rating]='i.rating'></app-star-rating>
+                  </td>
+                </tbody>
+              </tr>
+            </div>
+          </table>
+        </div>
       </div>
     </div>
   </div>
