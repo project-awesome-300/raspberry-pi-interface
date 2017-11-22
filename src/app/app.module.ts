@@ -22,6 +22,7 @@ import { ConfirmEmailComponent } from './modals/confirm-email/confirm-email.comp
 import { AppService } from '../providers/app.service';
 import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
 import { GoogleMapsAPIWrapper } from '@agm/core';
+import { GoogleAnalyticsEventsService } from '../providers/google-analytics-events.service';
 
 
 
@@ -34,7 +35,7 @@ const routes: Routes = [
   { path: 'current', component: CurrentWeatherComponent },
   { path: 'forecast', component: ForecastComponent },
   { path: 'food', component: FoodComponent },
-  { path: 'map', component: MapComponent }
+  { path: 'map', component: MapComponent },
 ];
 
 
@@ -76,7 +77,8 @@ const routes: Routes = [
   providers: [
     GoogleMapsAPIWrapper,
     WeatherService,
-    AppService
+    AppService,
+    GoogleAnalyticsEventsService
   ],
   entryComponents: [
     ConfirmEmailComponent,

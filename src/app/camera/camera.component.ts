@@ -13,6 +13,8 @@ import { AppService } from '../../providers/app.service';
 import { Subscription } from 'rxjs/Subscription';
 import { GenericModalComponent } from '../modals/generic-modal/generic-modal.component';
 import { Router } from '@angular/router';
+import { GoogleAnalyticsEventsService } from '../../providers/google-analytics-events.service';
+import { AnalyticsEvent } from '../../models/AnalyticsEvent';
 
 @Component({
   selector: 'app-camera',
@@ -43,8 +45,12 @@ export class CameraComponent implements OnInit, DoCheck {
   private _countDownIndicator: number;
   private _timer: any;
   private _busy: Subscription;
+  private gaCategory = "camera";
+  private _event: AnalyticsEvent;
 
-  constructor(private _dialogService: DialogService, private _app: AppService, private _router: Router) {
+  constructor(private _dialogService: DialogService, private _app: AppService, private _router: Router,
+    private _googleAnalyticsEventsService: GoogleAnalyticsEventsService) {
+
     // init the camera
     this.options = {
       audio: true,
@@ -69,6 +75,7 @@ export class CameraComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     this.cameraReady = true;
+    this._event = new AnalyticsEvent("camera", "unknown")
   }
 
   onSuccess(stream: any) {
@@ -99,6 +106,7 @@ export class CameraComponent implements OnInit, DoCheck {
   }
 
   beginCountdown(): void {
+    this.logEvent("take-photo");
     if (!this.hasPhoto) {
       // this.flipButtons();
       this._countingDown = true;
@@ -127,18 +135,20 @@ export class CameraComponent implements OnInit, DoCheck {
 
   discardPhoto(): void {
     this.hasPhoto = !this.hasPhoto;
+    this.logEvent("discard-photo");
   }
 
   uploadPhoto(email: string) {
     this._photo = new Photo();
     this._photo.base64 = this.base64;
     this._photo.lat = this._app.lat;
-    this._photo.lng = 354643;
+    this._photo.lng = this._app.lng;
     this._photo.date = moment();
     this._photo.email = email;
 
     // send image using service here
     this.showSuccessDialog();
+    this.logEvent("upload-dialog");
   }
 
   submitPhoto() {
@@ -148,7 +158,9 @@ export class CameraComponent implements OnInit, DoCheck {
     }).subscribe((result: CloseEmailModal) => {
       if (result.submit) {
         this.uploadPhoto(result.email);
+        this.logEvent("upload-confirm ");
       }
+      else this.logEvent("cancel-upload");
     });
   }
 
@@ -160,6 +172,11 @@ export class CameraComponent implements OnInit, DoCheck {
       if (result.isClosed)
         this._router.navigateByUrl('/');
     });
+  }
+
+  logEvent(type: string) {
+    this._event.eventAction = type;
+    this._googleAnalyticsEventsService.emitEvent(this._event);
   }
 
 }

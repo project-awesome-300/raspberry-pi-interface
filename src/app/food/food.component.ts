@@ -2,6 +2,8 @@ import { ElementRef, NgZone, OnInit, Component, ViewChild } from '@angular/core'
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
+import { GoogleAnalyticsEventsService } from '../../providers/google-analytics-events.service';
+import { AnalyticsEvent } from '../../models/AnalyticsEvent';
 
 @Component({
   selector: 'app-food',
@@ -16,12 +18,15 @@ export class FoodComponent implements OnInit {
   public result: any[];
   public loadFinished = false;
   nothing = '';
+  private _event: AnalyticsEvent;
+  
 
-  constructor() { }
+  constructor(private _googleAnalyticsEventsService: GoogleAnalyticsEventsService) { }
 
   ngOnInit() {
     //set current position
     this.setCurrentPosition();
+    this._event = new AnalyticsEvent("food", "unknown")
   }
 
   onMapLoad(map) {
@@ -70,7 +75,9 @@ export class FoodComponent implements OnInit {
             });
             var infowindow = new google.maps.InfoWindow({
             });
+            var self = this;
             google.maps.event.addListener(marker, 'click', function () {
+              self.logEvent("pin-click", place.name)
               infowindow.setContent('<div><strong>' + place.name + '</strong><br>');
               infowindow.open(map, this);
             });
@@ -93,5 +100,11 @@ export class FoodComponent implements OnInit {
         this.zoom = 12;
       });
     }
+  }
+
+  logEvent(type: string, label: string) {
+    this._event.eventAction = type;
+    this._event.eventLabel = label;
+    this._googleAnalyticsEventsService.emitEvent(this._event);
   }
 }
