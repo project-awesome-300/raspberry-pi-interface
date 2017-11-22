@@ -25,6 +25,7 @@ import { GoogleMapsAPIWrapper } from '@agm/core';
 import { GoogleAnalyticsEventsService } from '../providers/google-analytics-events.service';
 import { BussComponent } from './buss/buss.component';
 import { SundayBussComponent } from './sunday-buss/sunday-buss.component';
+import { WeatherService } from '../providers/weather.service';
 
 
 
@@ -38,8 +39,8 @@ const routes: Routes = [
   { path: 'forecast', component: ForecastComponent },
   { path: 'food', component: FoodComponent },
   { path: 'map', component: MapComponent },
-  { path: 'sundaybuss', component: SundayBussComponent },
-  { path: 'buss', component: BussComponent },
+  { path: 'sundaybus', component: SundayBussComponent },
+  { path: 'bus', component: BussComponent },
 ];
 
 
@@ -61,7 +62,7 @@ const routes: Routes = [
     FoodComponent,
     MapComponent,
     StarRatingComponent,
-    CapitalizePipe
+    CapitalizePipe,
     BussComponent,
     SundayBussComponent
   ],
@@ -81,7 +82,7 @@ const routes: Routes = [
     BootstrapModalModule
   ],
   providers: [
-    BussService
+    BussService,
     GoogleMapsAPIWrapper,
     WeatherService,
     AppService,
