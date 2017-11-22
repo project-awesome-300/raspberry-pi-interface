@@ -11,7 +11,8 @@ export class StarRatingComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(): void {
-    this.rating = this.rating * 86 / 5;
+    
+    this.starWidth = this.rating * 86 / 5;
   }
 
 }
