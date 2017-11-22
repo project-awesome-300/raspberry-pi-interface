@@ -37,13 +37,13 @@
                 </tr>
               </thead>
 
-              <tr *ngFor='let i of result | slice:0:15'>
-                <tbody>
+              <tr *ngFor='let i of result | slice:0:13'>
+                <!-- <tbody> -->
                   <td>{{i.name}}</td>
                   <td>
                     <app-star-rating [rating]='i.rating'></app-star-rating>
                   </td>
-                </tbody>
+                <!-- </tbody> -->
               </tr>
             </div>
           </table>
