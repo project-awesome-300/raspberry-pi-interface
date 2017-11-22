@@ -1,0 +1,100 @@
+<div class="Buss">
+  <nav class="navbar navbar-info">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a [routerLink]="['/dashboard']"><i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i></a>
+        <a id="sbus" [routerLink]="['/sundaybuss']">Sunday Bus</a> 
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+  <div class="heading">
+    <Header>
+      <h1>S1 Sligo Town Service</h1>
+    </Header>
+    <h2>Monday To Saturday (except public holidays)</h2>
+  </div>
+  <div class="panel-body">
+    <h4>
+      <div class="table-responsive">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>SX</th>
+              <th>SX</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>TM</th>
+              <th>TM</th>
+              <th></th>
+              <th>LT</th>
+              <th>LT</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let bussInfo of buss">
+            <tr>
+              <td>{{bussInfo.Origin}}</td>
+              <td>{{bussInfo.Name}}</td>
+              <td>{{bussInfo.FirstBus}}</td>
+              <td>{{bussInfo.SecondBus}}</td>
+              <td>{{bussInfo.ThirdBus}}</td>
+              <td>{{bussInfo.FourthBus}}</td>
+              <td>{{bussInfo.FifthBus}}</td>
+              <td>{{bussInfo.SixthBus}}</td>
+              <td>{{bussInfo.SeventhBus}}</td>
+              <td>{{bussInfo.ThirdLast}}</td>
+              <td>{{bussInfo.SecLast}}</td>
+              <td>{{bussInfo.Last}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </h4>
+  </div>
+  <p>SX= Does not Operates on saturdays </p>
+  <p> TM = Then after every 30 minutes until LT</p>
+  <p> LT = Last busses at the stops</p>
+</div>
+
+
+
+
+<!--old working API
+<div class="container">
+  <div class="heading">  <Header>
+        <h1>Sligo Bus Timtables
+        <button type="button" (click)="getBussTimetbles()" class="btn btn-warning">Refresh Timetables
+          <i class="glyphicon glyphicon-refresh"></i></button> </h1>
+    </Header>
+    </div>
+    <div class="panel-body">
+    <h4>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Arrival DateTime</th>
+              <th>Due Time</th>
+              <th>Origin</th>
+              <th>Destination</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let bussInfo of Data.results | slice:0:5">
+            <tr>
+              <td>{{bussInfo.arrivaldatetime}}</td>
+              <td>{{bussInfo.duetime}} mints</td>  
+              <td>{{bussInfo.origin}}</td>
+              <td>{{bussInfo.destination}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </h4>
+  </div>
+  </div> -->
+<!--end -->

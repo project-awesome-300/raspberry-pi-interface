@@ -1,4 +1,4 @@
-import { WeatherService } from '../providers/weather.service';
+import { BussService } from '../providers/buss.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -23,6 +23,8 @@ import { AppService } from '../providers/app.service';
 import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 import { GoogleAnalyticsEventsService } from '../providers/google-analytics-events.service';
+import { BussComponent } from './buss/buss.component';
+import { SundayBussComponent } from './sunday-buss/sunday-buss.component';
 
 
 
@@ -36,6 +38,8 @@ const routes: Routes = [
   { path: 'forecast', component: ForecastComponent },
   { path: 'food', component: FoodComponent },
   { path: 'map', component: MapComponent },
+  { path: 'sundaybuss', component: SundayBussComponent },
+  { path: 'buss', component: BussComponent },
 ];
 
 
@@ -58,6 +62,8 @@ const routes: Routes = [
     MapComponent,
     StarRatingComponent,
     CapitalizePipe
+    BussComponent,
+    SundayBussComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +81,7 @@ const routes: Routes = [
     BootstrapModalModule
   ],
   providers: [
+    BussService
     GoogleMapsAPIWrapper,
     WeatherService,
     AppService,
