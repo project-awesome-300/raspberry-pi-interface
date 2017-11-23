@@ -35,7 +35,7 @@ export class FoodComponent implements OnInit {
     this.setCurrentPosition();
     this._event = new AnalyticsEvent("food", "unknown")
 
-    this.height = (window.screen.availHeight) - 50;
+    this.height = (window.screen.availHeight) - 75;
     this.width = this.mapBox.nativeElement.offsetWidth;
     // 
   }
@@ -60,15 +60,10 @@ export class FoodComponent implements OnInit {
         radius: 5000,
         types: ['restaurant']
       }, (results, status) => {
-        // console.log(results);
-
         results.sort(function (a: google.maps.places.PlaceResult, b: google.maps.places.PlaceResult) {
             return b.rating - a.rating;
         });
-
         this.result = results;
-
-
         this.loadFinished = true;
         console.log(this.result);
         if (status === google.maps.places.PlacesServiceStatus.OK) {
