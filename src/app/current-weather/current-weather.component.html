@@ -2,10 +2,11 @@
 <h1>{{ myWeather.cityName }}</h1>
 
 <div>
-    <img src="http://openweathermap.org/img/w/{{ myWeather.icon }}.png">
+<img src="http://openweathermap.org/img/w/{{ myWeather.icon }}.png">
+<h2>{{ myWeather.temp }}&deg;C</h2>
 </div>
-<h3>{{ myWeather.weatherKind | capitalize }}</h3>
-<h2>{{ myWeather.temp }}&deg;</h2>
+<h4>{{ myWeather.weatherKind | capitalize }}</h4>
+
 <!-- <h4>Max: {{ myWeather.tempMax }}&deg;</h4>
 <h4>Min: {{ myWeather.tempMin }}&deg;</h4> -->
 </div>

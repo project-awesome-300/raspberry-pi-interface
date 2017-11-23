@@ -12,7 +12,7 @@ import { FoodComponent } from './food/food.component';
 import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MapComponent } from './map/map.component';
-import { WeatherComponent } from './weather/weather.component';
+//import { WeatherComponent } from './weather/weather.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { CapitalizePipe } from '../pipes/capitalise.pipe';
@@ -45,7 +45,7 @@ const routes: Routes = [
     DashboardComponent,
     CameraComponent,
     WebCamComponent,
-    WeatherComponent,
+   // WeatherComponent,
     CurrentWeatherComponent,
     ForecastComponent,
     WebCamComponent,
