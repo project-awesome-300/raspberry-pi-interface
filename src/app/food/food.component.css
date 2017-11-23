@@ -1,9 +1,14 @@
 .mapRestaurants
 {
-  position:absolute;
+  /* position:absolute;
   top:25%;
   left:50%;
-  width:60%;
+  width:60%; */
+}
+
+.container{
+  padding: 0;
+  margin: 0;
 }
 
 .listRestaurants{
@@ -14,14 +19,15 @@ width:40%;
 margin-left: 1%;
 }
 
-.mapRestaurants agm-map {
-    height: 280px;
+  agm-map {
+    height: 480px;
     width: 400px;
   }
  
 .navbar{
   background-color: #5cb85c;
   font-size: 10px;  
+  margin-bottom: 5px;
 }
 .fa-arrow-left{
   color: white;

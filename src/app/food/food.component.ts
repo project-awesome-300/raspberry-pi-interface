@@ -4,6 +4,7 @@ import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 import { GoogleAnalyticsEventsService } from '../../providers/google-analytics-events.service';
 import { AnalyticsEvent } from '../../models/AnalyticsEvent';
+import { AgmMap } from '@agm/core/directives/map';
 
 @Component({
   selector: 'app-food',
@@ -19,21 +20,28 @@ export class FoodComponent implements OnInit {
   public loadFinished = false;
   nothing = '';
   private _event: AnalyticsEvent;
+  public height = 0;
+  private width = 0;
+
+  @ViewChild('mapbox') mapBox: ElementRef;
   
 
-  constructor(private _googleAnalyticsEventsService: GoogleAnalyticsEventsService) { }
+  constructor(private _googleAnalyticsEventsService: GoogleAnalyticsEventsService) {
+   
+   }
 
   ngOnInit() {
     //set current position
     this.setCurrentPosition();
     this._event = new AnalyticsEvent("food", "unknown")
+
+    this.height = (window.screen.availHeight) - 50;
+    this.width = this.mapBox.nativeElement.offsetWidth;
+    // 
   }
 
   onMapLoad(map) {
-    console.log(map);
-
     setTimeout(() => {
-
       this.draw(map);
     }, 2000);
 
@@ -43,7 +51,7 @@ export class FoodComponent implements OnInit {
     navigator.geolocation.getCurrentPosition((position) => {
       this.latitude = position.coords.latitude;
       this.longitude = position.coords.longitude;
-      this.zoom = 15;
+      this.zoom = 14;
 
       console.log({ lat: this.latitude, lng: this.longitude });
       const service = new google.maps.places.PlacesService(map);

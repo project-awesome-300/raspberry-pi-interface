@@ -1,22 +1,29 @@
 <div class="food">
-
-  <!-- header -->
   <nav class="navbar navbar-success">
-      <div class="container-fluid">
-        <a [routerLink]="['/dashboard']" id="back">
-          <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
-        </a>
-        <div class="header">
-            <h1>Best places in town!</h1>
-          </div>
+    <div class="container-fluid">
+      <a [routerLink]="['/dashboard']" id="back">
+        <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
+      </a>
+      <div class="header">
+        <h1>Best places in town!</h1>
       </div>
-    </nav>
-
-  <!-- body -->
+    </div>
+  </nav>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12"#map>
-        <!-- map -->
+      <div class="col-sm-12" #mapbox>
+        <div class="map-wrapper">
+          <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom"
+            [style.height.px]="height" [style.width.px]="width">
+            <agm-marker [latitude]="latitude" [longitude]="longitude">
+              <agm-info-window [disableAutoPan]="true">
+                <strong>You are here!</strong>
+              </agm-info-window>
+            </agm-marker>
+          </agm-map>
+        </div>
+      </div>
+      <!-- <div class="col-xs-12"#map>
         <div class="mapRestaurants">
           <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
             <agm-marker [latitude]="latitude" [longitude]="longitude">
@@ -27,7 +34,6 @@
           </agm-map>
         </div>
 
-        <!-- list of restaurants -->
         <div class="listRestaurants">
           <table class="table">
             <div *ngIf='loadFinished'>
@@ -38,17 +44,15 @@
               </thead>
 
               <tr *ngFor='let i of result | slice:0:13'>
-                <!-- <tbody> -->
                   <td>{{i.name}}</td>
                   <td>
                     <app-star-rating [rating]='i.rating'></app-star-rating>
                   </td>
-                <!-- </tbody> -->
               </tr>
             </div>
           </table>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
