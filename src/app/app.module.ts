@@ -13,7 +13,7 @@ import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MapComponent } from './map/map.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
-import { WeatherComponent } from './weather/weather.component';
+//import { WeatherComponent } from './weather/weather.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { CapitalizePipe } from '../pipes/capitalise.pipe';
