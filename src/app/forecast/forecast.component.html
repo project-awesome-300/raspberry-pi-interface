@@ -36,11 +36,12 @@
 </div> -->
 <div>
   <div class="col-xs-4">
-    <app-current-weather class="widget"></app-current-weather>
+    <app-current-weather class="widget current"></app-current-weather>
   </div>
   <div class="col-xs-8">
+    <div class=" gradient">
     <div *ngFor="let days of generateArray(fullDays)">
-      <div class="widget row">
+      <div class="row">
         <div class="col-6">
           <h2>{{days[0].date | date: 'EEEE MMMM d'}}</h2>
 
@@ -57,4 +58,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
