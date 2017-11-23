@@ -5,36 +5,30 @@
   left:50%;
   width:60%;
 }
+
 .listRestaurants{
 position:absolute;
 top:25%;
 left:0%;
 width:40%;
-margin-left: 8%;
+margin-left: 1%;
 }
 
 .mapRestaurants agm-map {
-    height: 400px;
-    width: 600px;
+    height: 280px;
+    width: 400px;
   }
-.header{
-  text-align: center;
-}
-.fa-arrow-left
-{
-  color: white;
-}
+ 
 .navbar-info{
   background-color: greenyellow;
 }
-
-table{
-  width:50%;
-  border:0;
-  border-collapse: collapse;
+.fa-arrow-left{
+  color: white;
 }
-td{
-  min-width: 280px;
+.header{ 
+  text-align: center; 
+  color: white;
+} 
+#back {
+  float: left;
 }
-
-

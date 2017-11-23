@@ -1,4 +1,4 @@
-import { WeatherService } from '../providers/weather.service';
+import { BussService } from '../providers/buss.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WebCamComponent } from 'ack-angular-webcam/webcam.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -12,7 +12,8 @@ import { FoodComponent } from './food/food.component';
 import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MapComponent } from './map/map.component';
-//import { WeatherComponent } from './weather/weather.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
+import { WeatherComponent } from './weather/weather.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { CapitalizePipe } from '../pipes/capitalise.pipe';
@@ -20,6 +21,11 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { ConfirmEmailComponent } from './modals/confirm-email/confirm-email.component';
 import { AppService } from '../providers/app.service';
 import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
+import { GoogleMapsAPIWrapper } from '@agm/core';
+import { GoogleAnalyticsEventsService } from '../providers/google-analytics-events.service';
+import { BussComponent } from './buss/buss.component';
+import { SundayBussComponent } from './sunday-buss/sunday-buss.component';
+import { WeatherService } from '../providers/weather.service';
 
 
 
@@ -32,7 +38,9 @@ const routes: Routes = [
   { path: 'current', component: CurrentWeatherComponent },
   { path: 'forecast', component: ForecastComponent },
   { path: 'food', component: FoodComponent },
-  { path: 'map', component: MapComponent }
+  { path: 'map', component: MapComponent },
+  { path: 'sundaybus', component: SundayBussComponent },
+  { path: 'bus', component: BussComponent },
 ];
 
 
@@ -53,7 +61,10 @@ const routes: Routes = [
     GenericModalComponent,
     FoodComponent,
     MapComponent,
-    CapitalizePipe
+    StarRatingComponent,
+    CapitalizePipe,
+    BussComponent,
+    SundayBussComponent
   ],
   imports: [
     BrowserModule,
@@ -71,8 +82,11 @@ const routes: Routes = [
     BootstrapModalModule
   ],
   providers: [
+    BussService,
+    GoogleMapsAPIWrapper,
     WeatherService,
-    AppService
+    AppService,
+    GoogleAnalyticsEventsService
   ],
   entryComponents: [
     ConfirmEmailComponent,

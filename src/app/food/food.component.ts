@@ -2,6 +2,8 @@ import { ElementRef, NgZone, OnInit, Component, ViewChild } from '@angular/core'
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
+import { GoogleAnalyticsEventsService } from '../../providers/google-analytics-events.service';
+import { AnalyticsEvent } from '../../models/AnalyticsEvent';
 
 @Component({
   selector: 'app-food',
@@ -14,19 +16,30 @@ export class FoodComponent implements OnInit {
   public longitude: number;
   public zoom: number;
   public result: any[];
-  public loadFinished= false;
+  public loadFinished = false;
   nothing = '';
+  private _event: AnalyticsEvent;
+  
 
-  constructor() {}
+  constructor(private _googleAnalyticsEventsService: GoogleAnalyticsEventsService) { }
 
   ngOnInit() {
     //set current position
-    this.setCurrentPosition(); 
+    this.setCurrentPosition();
+    this._event = new AnalyticsEvent("food", "unknown")
   }
 
   onMapLoad(map) {
     console.log(map);
-    
+
+    setTimeout(() => {
+
+      this.draw(map);
+    }, 2000);
+
+  }
+
+  draw(map: any) {
     navigator.geolocation.getCurrentPosition((position) => {
       this.latitude = position.coords.latitude;
       this.longitude = position.coords.longitude;
@@ -38,15 +51,23 @@ export class FoodComponent implements OnInit {
         location: { lat: this.latitude, lng: this.longitude },
         radius: 5000,
         types: ['restaurant']
-      },  (results, status) => { 
-       // console.log(results);
-         this.result=results;
-         this.loadFinished= true;
-         console.log(this.result);
+      }, (results, status) => {
+        // console.log(results);
+
+        results.sort(function (a: google.maps.places.PlaceResult, b: google.maps.places.PlaceResult) {
+            return b.rating - a.rating;
+        });
+
+        this.result = results;
+
+
+        this.loadFinished = true;
+        console.log(this.result);
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
             const place = results[i];
             var placeLoc = place.geometry.location;
+
             var marker = new google.maps.Marker({
               map: map,
               position: place.geometry.location,
@@ -54,26 +75,21 @@ export class FoodComponent implements OnInit {
             });
             var infowindow = new google.maps.InfoWindow({
             });
+            var self = this;
             google.maps.event.addListener(marker, 'click', function () {
-              infowindow.setContent(place.name + 
-                "  " + place.photos["0"].html_attributions 
-                + " " + place.opening_hours["0"]
-              +' '+ place.rating
-            +place.formatted_address);
-             // infowindow.setValues(place.opening_hours);
-               infowindow.open(map, this);
+              self.logEvent("pin-click", place.name)
+              infowindow.setContent('<div><strong>' + place.name + '</strong><br>');
+              infowindow.open(map, this);
             });
-            //google.maps.places.PlaceResult
-          } 
+          }
         }
-        });
+      });
     });
   }
 
   public onClickMe() {
     this.nothing = 'You are my hero!';
     console.log('You are my hero! ----> ');
-
   }
 
   private setCurrentPosition() {
@@ -86,4 +102,9 @@ export class FoodComponent implements OnInit {
     }
   }
 
+  logEvent(type: string, label: string) {
+    this._event.eventAction = type;
+    this._event.eventLabel = label;
+    this._googleAnalyticsEventsService.emitEvent(this._event);
+  }
 }
