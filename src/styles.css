@@ -33,3 +33,7 @@
     font-family: KBREINDEERGAMES;
     font-size: 60px;
 }
+
+.food, .camera, .weather{
+    padding: 5px;
+  }

@@ -148,7 +148,7 @@ export class CameraComponent implements OnInit, DoCheck {
 
     // send image using service here
     this.showSuccessDialog();
-    this.logEvent("upload-dialog");
+    this.logEvent("upload-dialog-open");
   }
 
   submitPhoto() {
@@ -158,7 +158,7 @@ export class CameraComponent implements OnInit, DoCheck {
     }).subscribe((result: CloseEmailModal) => {
       if (result.submit) {
         this.uploadPhoto(result.email);
-        this.logEvent("upload-confirm ");
+        this.logEvent("upload-confirm");
       }
       else this.logEvent("cancel-upload");
     });
