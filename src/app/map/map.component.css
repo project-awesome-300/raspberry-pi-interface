@@ -1,19 +1,21 @@
 agm-map {
-    height: 260px;
+    height: 340px;
 }
-.navbar-info{
-    background-color: green;
-    font-size: 10px;
-}
-.fa-arrow-left{
+.navbar{
+    background-color: #5cb85c;
+    font-size: 10px;  
+  }
+  .fa-arrow-left{
     color: white;
-}
-.header{ 
+  }
+  .header{ 
     text-align: center; 
     color: white;
-} 
-
-#back {
-  float: left;
-}
+  } 
+  .header > h1, i{
+    margin-top: 10px;
+  }
+  #back {
+    float: left;
+  }
   
