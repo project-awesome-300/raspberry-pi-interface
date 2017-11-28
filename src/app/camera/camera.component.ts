@@ -91,7 +91,7 @@ export class CameraComponent implements OnInit, DoCheck {
   }
 
   setCameraDimensions(): void {
-    let h = (window.screen.availHeight) - 50;
+    let h = (window.screen.availHeight) - 80;
     let w = this.cameraBox.nativeElement.offsetWidth;
     this.imageWidth = w;
     this.imageHeight = h;

@@ -62,7 +62,7 @@ i {
 #canx-btn {
     position: absolute;
     top: 35%;
-    left: 15%;
+    left: 8%;
     font-size: .7em;
 }
 
@@ -70,7 +70,7 @@ i {
     position: absolute;
     top: 35%;
     float: right;
-    right: 15%;
+    right: 20%;
 }
 
 .camera-area {
@@ -78,11 +78,17 @@ i {
 }
 
 .countdown {
-    font-family: KBREINDEERGAMES;
     font-size: 15em;
     position: absolute;
     z-index: 999;
     left: 40%;
-    top: 20%;
+    top: 15%;
     color: #fff
+}
+.countdown > i {
+    font-family: KBREINDEERGAMES;    
+}
+.camera-view{
+    text-align: center;
+    margin-left: -20px;    
 }
