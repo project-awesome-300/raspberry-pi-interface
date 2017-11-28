@@ -15,9 +15,7 @@ export class BussComponent implements OnInit {
 
   buss: Buss[];
 
-  cuurentTime = (moment().format("hh:mm"));
-
-BusT =['Carton', '(Classibawn Drive)', '7:30', '8:00', '8:30', '9:00', '10:30', ]
+  //cuurentTime = (moment().format("hh:mm"));
 
   constructor() {
     this.buss = [
@@ -43,11 +41,6 @@ BusT =['Carton', '(Classibawn Drive)', '7:30', '8:00', '8:30', '9:00', '10:30', 
     ]
   }
 
-
- // _.filter(buss, function(o){ return !o.active;});
-/*
-var bus =_.find(buss, function(bus){})
- */
 
   ngOnInit() {};
 /*
