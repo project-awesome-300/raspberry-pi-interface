@@ -74,6 +74,7 @@ export class FoodComponent implements OnInit {
             var marker = new google.maps.Marker({
               map: map,
               position: place.geometry.location,
+              animation: google.maps.Animation.DROP,
               icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
             });
             var infowindow = new google.maps.InfoWindow({
