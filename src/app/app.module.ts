@@ -13,10 +13,10 @@ import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MapComponent } from './map/map.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
-//import { WeatherComponent } from './weather/weather.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { CapitalizePipe } from '../pipes/capitalise.pipe';
+import { GroupByPipe } from '../pipes/group-by.pipe';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { ConfirmEmailComponent } from './modals/confirm-email/confirm-email.component';
 import { AppService } from '../providers/app.service';
@@ -53,7 +53,6 @@ const routes: Routes = [
     DashboardComponent,
     CameraComponent,
     WebCamComponent,
-   // WeatherComponent,
     CurrentWeatherComponent,
     ForecastComponent,
     WebCamComponent,
@@ -63,6 +62,7 @@ const routes: Routes = [
     MapComponent,
     StarRatingComponent,
     CapitalizePipe,
+    GroupByPipe,
     BussComponent,
     SundayBussComponent
   ],

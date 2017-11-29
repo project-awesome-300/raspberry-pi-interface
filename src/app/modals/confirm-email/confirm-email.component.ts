@@ -11,13 +11,12 @@ import { OpenEmailModal, CloseEmailModal } from '../../../models/modals.model';
 
 export class ConfirmEmailComponent extends DialogComponent<OpenEmailModal, CloseEmailModal> implements OnInit {
 
-  @ViewChild('email') el: ElementRef;
+  @ViewChild('emailField') el: ElementRef;
 
   //these variavbles are implied from the parent dialog component
   title: string;
   message: string;
-  private _webAddress: string;
-  private _email: string;
+  email: string;
 
 
   constructor(dialogService: DialogService) {
@@ -25,12 +24,13 @@ export class ConfirmEmailComponent extends DialogComponent<OpenEmailModal, Close
 
   }
 
+
   ngOnInit(): void {
     this.el.nativeElement.focus();
   }
   confirm() {
     this.result = {
-      email: this._email,
+      email: this.email,
       submit: true
     }
     this.close();
