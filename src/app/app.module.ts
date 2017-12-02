@@ -44,10 +44,6 @@ const routes: Routes = [
   { path: 'bus', component: BussComponent },
 ];
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
