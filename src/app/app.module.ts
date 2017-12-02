@@ -26,6 +26,7 @@ import { GoogleAnalyticsEventsService } from '../providers/google-analytics-even
 import { BussComponent } from './buss/buss.component';
 import { SundayBussComponent } from './sunday-buss/sunday-buss.component';
 import { WeatherService } from '../providers/weather.service';
+import { CameraService } from '../providers/camera.service';
 
 
 
@@ -86,7 +87,8 @@ const routes: Routes = [
     GoogleMapsAPIWrapper,
     WeatherService,
     AppService,
-    GoogleAnalyticsEventsService
+    GoogleAnalyticsEventsService,
+    CameraService
   ],
   entryComponents: [
     ConfirmEmailComponent,

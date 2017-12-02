@@ -14,6 +14,14 @@ export class AppService {
     this._mapsApiKey = ""
     this._lat = -1;
     this._lng = -1;
+    this.getLatLngCoOrdinates();
+  }
+
+  getLatLngCoOrdinates(){
+    navigator.geolocation.getCurrentPosition((position) => {
+      this._lat = position.coords.latitude;
+      this._lng = position.coords.longitude;
+    });
   }
 
 

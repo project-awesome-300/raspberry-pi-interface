@@ -15,6 +15,7 @@ import { GenericModalComponent } from '../modals/generic-modal/generic-modal.com
 import { Router } from '@angular/router';
 import { GoogleAnalyticsEventsService } from '../../providers/google-analytics-events.service';
 import { AnalyticsEvent } from '../../models/AnalyticsEvent';
+import { CameraService } from '../../providers/camera.service';
 
 @Component({
   selector: 'app-camera',
@@ -49,7 +50,7 @@ export class CameraComponent implements OnInit, DoCheck {
   private _event: AnalyticsEvent;
 
   constructor(private _dialogService: DialogService, private _app: AppService, private _router: Router,
-    private _googleAnalyticsEventsService: GoogleAnalyticsEventsService) {
+    private _googleAnalyticsEventsService: GoogleAnalyticsEventsService, private _camera: CameraService) {
 
     // init the camera
     this.options = {
@@ -143,10 +144,15 @@ export class CameraComponent implements OnInit, DoCheck {
     this._photo.base64 = this.base64;
     this._photo.lat = this._app.lat;
     this._photo.lng = this._app.lng;
-    this._photo.date = moment();
+    this._photo.date = moment().unix().toString();
+    this._photo.imageFormat = '.png';
+    this._photo.boxID = "dev";
     this._photo.email = email;
 
     // send image using service here
+    this._camera.uploadPhoto(this._photo).subscribe((res) => {
+      console.log(res);
+    })
     this.showSuccessDialog();
     this.logEvent("upload-dialog-open");
   }
