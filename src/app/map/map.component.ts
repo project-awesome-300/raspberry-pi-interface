@@ -2,6 +2,7 @@ import { ElementRef, NgZone, OnInit, Component, ViewChild } from '@angular/core'
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
+import { AppService } from '../../providers/app.service';
 
 @Component({
   selector: 'app-map',
@@ -22,7 +23,8 @@ export class MapComponent implements OnInit {
   constructor(
     //inject dependencies
     private mapsAPILoader: MapsAPILoader,//load google places api 
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private _app: AppService
   ) { }
 
   onMapLoad(map) {
@@ -32,13 +34,14 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     //set google maps initial values
-    this.zoom = 5;
-
+    
     //create FormControl instance for search
     this.searchControl = new FormControl();
-
+    
     //set current position
-    this.setCurrentPosition();
+    this.zoom = 12;
+    this.latitude = this._app.lat;
+    this.longitude = this._app.lng;
 
     //use method mapsAPILoader to load google places api
     this.mapsAPILoader.load().then(() => {
@@ -94,18 +97,4 @@ export class MapComponent implements OnInit {
       });
     });
   }
-
-  private setCurrentPosition() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 12;
-      });
-    }
-    else {
-      alert('There is a problem geting geolocation!');
-    }
-  }
-
 }

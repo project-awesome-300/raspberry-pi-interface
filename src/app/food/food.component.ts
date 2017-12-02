@@ -4,6 +4,7 @@ import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 import { GoogleAnalyticsEventsService } from '../../providers/google-analytics-events.service';
 import { AnalyticsEvent } from '../../models/AnalyticsEvent';
+import { AppService } from '../../providers/app.service';
 
 @Component({
   selector: 'app-food',
@@ -21,7 +22,10 @@ export class FoodComponent implements OnInit {
   private _event: AnalyticsEvent;
   
 
-  constructor(private _googleAnalyticsEventsService: GoogleAnalyticsEventsService) { }
+  constructor(private _googleAnalyticsEventsService: GoogleAnalyticsEventsService, private _app: AppService) {
+    this.latitude = this._app.lat;
+    this.longitude = this._app.lng;
+   }
 
   ngOnInit() {
     //set current position
@@ -40,31 +44,20 @@ export class FoodComponent implements OnInit {
   }
 
   draw(map: any) {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.latitude = position.coords.latitude;
-      this.longitude = position.coords.longitude;
       this.zoom = 15;
-
-      console.log({ lat: this.latitude, lng: this.longitude });
       const service = new google.maps.places.PlacesService(map);
       service.nearbySearch({
         location: { lat: this.latitude, lng: this.longitude },
         radius: 5000,
         types: ['restaurant']
       }, (results, status) => {
-        // console.log(results);
-
         results.sort(function (a: google.maps.places.PlaceResult, b: google.maps.places.PlaceResult) {
             return b.rating - a.rating;
         });
-
         this.result = results;
-
-
         this.loadFinished = true;
-        console.log(this.result);
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
+          for (var i = 0; i < results.length; i++) { 
             const place = results[i];
             var placeLoc = place.geometry.location;
 
@@ -84,7 +77,6 @@ export class FoodComponent implements OnInit {
           }
         }
       });
-    });
   }
 
   public onClickMe() {

@@ -6,6 +6,7 @@ import { GroupByPipe } from '../../pipes/group-by.pipe';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import { CapitalizePipe } from '../../pipes/capitalise.pipe';
+import { AppService } from '../../providers/app.service';
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
@@ -16,13 +17,11 @@ export class ForecastComponent implements OnInit {
   fullDays: Object[] = [];
   days: Forecast[] = [];
 
-  constructor(private ws: WeatherService) { }
+  constructor(private ws: WeatherService, private _app: AppService) { }
 
   ngOnInit() {
     // this.myForecast =this.ws.forecastNow();
-    const lat = 54.2697;
-    const lon = -8.4695;
-    this.ws.forecastWeather(lat, lon).subscribe(
+    this.ws.forecastWeather(this._app.lat, this._app.lng).subscribe(
       (data) => {
         console.log('this is data');
         console.log(data);
