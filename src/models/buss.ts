@@ -4,7 +4,6 @@ export class Buss {
     FirstBus:string;
     SecondBus: string;
     ThirdBus: string;
-    FourthBus:string;
     FifthBus:string;
     SixthBus:string;
     SeventhBus:string;
@@ -12,14 +11,13 @@ export class Buss {
     SecLast:string;
     Last: string
 
-    constructor(origin: string, name: string, firstbus:string,sbus: string,tbus:string, fbus:string,
+    constructor(origin: string, name: string, firstbus:string,sbus: string,tbus:string,
         fifthbus: string, sixthbus:string, sevenbus:string,thirdlast:string, seclast:string, last:string) {
         this.Origin = origin;
         this.Name = name;
         this.FirstBus=firstbus;
         this.SecondBus = sbus;
         this.ThirdBus = tbus;
-        this.FourthBus = fbus;
         this.FifthBus = fifthbus;
         this.SixthBus= sixthbus;
         this.SeventhBus=sevenbus;
