@@ -27,9 +27,6 @@ import { BussComponent } from './buss/buss.component';
 import { SundayBussComponent } from './sunday-buss/sunday-buss.component';
 import { WeatherService } from '../providers/weather.service';
 import { CameraService } from '../providers/camera.service';
-import { SpinnerModule } from 'angular-spinner';
-
-
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -76,8 +73,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    BootstrapModalModule,
-    SpinnerModule
+    BootstrapModalModule
   ],
   providers: [
     BussService,
