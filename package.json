@@ -24,6 +24,7 @@
     "@angular/platform-server": "^4.4.4",
     "@angular/router": "^4.4.4",
     "@types/google-maps": "^3.2.0",
+    "angular-spinner": "^1.0.1",
     "angular2-fontawesome": "^0.9.3",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
