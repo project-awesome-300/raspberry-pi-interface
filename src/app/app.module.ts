@@ -28,9 +28,6 @@ import { SundayBussComponent } from './sunday-buss/sunday-buss.component';
 import { WeatherService } from '../providers/weather.service';
 import { CameraService } from '../providers/camera.service';
 
-
-
-
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },

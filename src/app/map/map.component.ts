@@ -28,7 +28,6 @@ export class MapComponent implements OnInit {
   ) { }
 
   onMapLoad(map) {
-    console.log(map);
     this.map = map;
   }
 
@@ -47,7 +46,7 @@ export class MapComponent implements OnInit {
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(
         this.searchElementRef.nativeElement, {
-          types: ["address"]
+          componentRestrictions: {country: "ie",  }
         });
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
@@ -57,8 +56,7 @@ export class MapComponent implements OnInit {
             autocomplete.getPlace();
 
           //verify result
-          if (place.geometry === undefined ||
-            place.geometry === null) {
+          if (place.geometry === undefined || place.geometry === null) {
             return;
           }
 
@@ -75,7 +73,6 @@ export class MapComponent implements OnInit {
             if (status === 'OK') {
               instance.map.setZoom(30);
               var point = response.routes[0].legs[0];
-              console.log(response);
 
               var myRoute = response.routes[0].legs[0];
               directionsDisplay.setDirections(response);
