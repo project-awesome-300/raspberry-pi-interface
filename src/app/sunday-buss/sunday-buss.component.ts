@@ -17,7 +17,7 @@ export class SundayBussComponent implements OnInit {
       new SundayBuss('Sligo Hospital', '(The Mall)', '11:13', '12:13', '13', '14:13', '15:13', '16:13', '17:13', '18:13'),
       new SundayBuss('Town Centre', '(Abbey St)', '11:16', '12:16', '16', '14:16', '15:16', '16:16', '17:16', '18:16'),
       new SundayBuss('Doorly Park', '(Doorly Park)', '11:19', '12:19', '19', '14:19', '15:19', '16:19', '17:19', '18:19'),
-      new SundayBuss('Cranmore', '(devins drive)', '11:23', '12:23', '23', '14:23', '15:23', '16:23', '17:23', '18:23'),
+      new SundayBuss('Cranmore', '(Devins Drive)', '11:23', '12:23', '23', '14:23', '15:23', '16:23', '17:23', '18:23'),
       new SundayBuss('Cemetery Rd', '(Cemetery Rd)', '11:26', '12:26', '26', '14:26', '15:26', '16:26', '17:26', '18:26'),
       new SundayBuss('Cairns Rd', '(Bus Stop)', '11:29', '12:29', '29', '14:29', '15:29', '16:29', '17:29', '18:29'),
       new SundayBuss('      ', '     ', '  ', '', '', '', '', '', '', ''),
