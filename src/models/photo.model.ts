@@ -1,5 +1,3 @@
-import * as moment from 'moment';
-
 export class Photo {
 	lat: number;
 	lng: number;
@@ -8,6 +6,8 @@ export class Photo {
 	date: string;
 	imageFormat: string;
 	base64: string;
+	address: string;
+	placeID: string;
 
 	constructor() {
 

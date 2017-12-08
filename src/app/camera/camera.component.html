@@ -22,7 +22,7 @@
             <i class="action-btn fa fa-check success faa-tada animated"></i>
           </span>
           <div class="camera-content">
-            <ack-webcam [(ref)]="webcam" [options]="options" (onSuccess)="onSuccess($event)" (onError)="onError($event)" style="width:100%;height:100%"
+            <ack-webcam [(ref)]="webcam" [options]="options" (onError)="onError($event)" style="width:100%;height:100%"
               *ngIf="!hasPhoto" class="camera-view" [hidden]="hasPhoto"></ack-webcam>
             <!-- Camera Still -->
             <div *ngIf="hasPhoto" id="stillImage">

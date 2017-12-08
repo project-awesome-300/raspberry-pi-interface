@@ -76,15 +76,23 @@ export class CameraComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     this.cameraReady = true;
-    this._event = new AnalyticsEvent("camera", "unknown")
+    this._event = new AnalyticsEvent("camera", "unknown");
+    this._photo = new Photo();
+    this._camera.getAddressFromLatLng(this._app.lat, this._app.lng).subscribe((res) => {
+      this.getLocationMetaData(res);
+    });
   }
-
-  onSuccess(stream: any) {
-  };
 
   onError(err) {
     console.log(err);
   };
+
+  getLocationMetaData(data) {
+    if (data.status == "OK") {
+      this._photo.address = data.results[0].formatted_address;
+      this._photo.placeID = data.results[0].place_id ? data.results[0].place_id : "";
+    }
+  }
 
   ngAfterViewInit() {
     //set the dimensions of the camera box
@@ -140,7 +148,6 @@ export class CameraComponent implements OnInit, DoCheck {
   }
 
   uploadPhoto(email: string) {
-    this._photo = new Photo();
     this._photo.base64 = this.base64;
     this._photo.lat = this._app.lat;
     this._photo.lng = this._app.lng;

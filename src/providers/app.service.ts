@@ -11,7 +11,7 @@ export class AppService {
 
   constructor() {
     this._webAddress = "www.project-awesome.com";
-    this._mapsApiKey = ""
+    this._mapsApiKey = "AIzaSyDL_h4Q3HL5CwDFJrGOzztLY5tBbcldPuk"
     this._lat = -1;
     this._lng = -1;
     this.getLatLngCoOrdinates();
