@@ -1,1 +1,0 @@
-chromium-browser --fullscreen http://localhost:4200
