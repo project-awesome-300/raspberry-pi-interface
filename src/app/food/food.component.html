@@ -2,20 +2,20 @@
 
   <!-- header -->
   <nav class="navbar navbar-success">
-      <div class="container-fluid">
-        <a [routerLink]="['/dashboard']" id="back">
-          <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
-        </a>
-        <div class="header">
-            <h1>Best places in town!</h1>
-          </div>
+    <div class="container-fluid">
+      <a [routerLink]="['/dashboard']" id="back">
+        <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
+      </a>
+      <div class="header">
+        <h1>Best places in town!</h1>
       </div>
-    </nav>
+    </div>
+  </nav>
 
   <!-- body -->
   <div class="container">
     <div class="row">
-      <div class="col-xs-12"#map>
+      <div class="col-xs-12" #map>
         <!-- map -->
         <div class="mapRestaurants">
           <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
@@ -30,20 +30,20 @@
         <!-- list of restaurants -->
         <div class="listRestaurants">
           <table class="table">
+            <div class="notloaded" *ngIf="!loadFinished">
+              <img src="../../assets/images/rainbow.gif" align="middle">
+            </div>
             <div *ngIf='loadFinished'>
               <thead>
                 <tr>
                   <th scope="row"></th>
                 </tr>
               </thead>
-
               <tr *ngFor='let i of result | slice:0:6'>
-                <!-- <tbody> -->
-                  <td>{{i.name}}</td>
-                  <td>
-                    <app-star-rating [rating]='i.rating'></app-star-rating>
-                  </td>
-                <!-- </tbody> -->
+                <td>{{i.name}}</td>
+                <td>
+                  <app-star-rating [rating]='i.rating'></app-star-rating>
+                </td>
               </tr>
             </div>
           </table>

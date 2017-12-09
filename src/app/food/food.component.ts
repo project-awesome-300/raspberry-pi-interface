@@ -17,15 +17,14 @@ export class FoodComponent implements OnInit {
   public longitude: number;
   public zoom: number;
   public result: any[];
-  public loadFinished = false;
-  nothing = '';
+  public loadFinished: boolean = false;
   private _event: AnalyticsEvent;
-  
+
 
   constructor(private _googleAnalyticsEventsService: GoogleAnalyticsEventsService, private _app: AppService) {
     this.latitude = this._app.lat;
     this.longitude = this._app.lng;
-   }
+  }
 
   ngOnInit() {
     //set current position
@@ -44,44 +43,39 @@ export class FoodComponent implements OnInit {
   }
 
   draw(map: any) {
-      this.zoom = 15;
-      const service = new google.maps.places.PlacesService(map);
-      service.nearbySearch({
-        location: { lat: this.latitude, lng: this.longitude },
-        radius: 5000,
-        types: ['restaurant']
-      }, (results, status) => {
-        results.sort(function (a: google.maps.places.PlaceResult, b: google.maps.places.PlaceResult) {
-            return b.rating - a.rating;
-        });
-        this.result = results;
-        this.loadFinished = true;
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) { 
-            const place = results[i];
-            var placeLoc = place.geometry.location;
-
-            var marker = new google.maps.Marker({
-              map: map,
-              position: place.geometry.location,
-              icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-            });
-            var infowindow = new google.maps.InfoWindow({
-            });
-            var self = this;
-            google.maps.event.addListener(marker, 'click', function () {
-              self.logEvent("pin-click", place.name)
-              infowindow.setContent('<div><strong>' + place.name + '</strong><br>');
-              infowindow.open(map, this);
-            });
-          }
-        }
+    this.zoom = 15;
+    const service = new google.maps.places.PlacesService(map);
+    service.nearbySearch({
+      location: { lat: this.latitude, lng: this.longitude },
+      radius: 5000,
+      types: ['restaurant']
+    }, (results, status) => {
+      results.sort(function (a: google.maps.places.PlaceResult, b: google.maps.places.PlaceResult) {
+        return b.rating - a.rating;
       });
-  }
+      this.result = results;
+      this.loadFinished = true;
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          const place = results[i];
+          var placeLoc = place.geometry.location;
 
-  public onClickMe() {
-    this.nothing = 'You are my hero!';
-    console.log('You are my hero! ----> ');
+          var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location,
+            icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          });
+          var infowindow = new google.maps.InfoWindow({
+          });
+          var self = this;
+          google.maps.event.addListener(marker, 'click', function () {
+            self.logEvent("pin-click", place.name)
+            infowindow.setContent('<div><strong>' + place.name + '</strong><br>');
+            infowindow.open(map, this);
+          });
+        }
+      }
+    });
   }
 
   private setCurrentPosition() {
