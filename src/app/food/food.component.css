@@ -3,6 +3,7 @@
   position:absolute;
   top:25%;
   left:50%;
+  right: 0%;
   width:60%;
 }
 
@@ -11,6 +12,7 @@ position:absolute;
 top:25%;
 left:0%;
 width:40%;
+right: 50%;
 margin-left: 1%;
 }
 
