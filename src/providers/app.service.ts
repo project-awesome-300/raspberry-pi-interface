@@ -7,6 +7,7 @@ export class AppService {
   private _mapsApiKey: string;
   private _lat: number;
   private _lng: number;
+  private _lang: string;
 
 
   constructor() {
@@ -15,6 +16,7 @@ export class AppService {
     this._lat = -1;
     this._lng = -1;
     this.getLatLngCoOrdinates();
+    this._lang = 'fr';
   }
 
   getLatLngCoOrdinates(){
@@ -23,7 +25,16 @@ export class AppService {
       this._lng = position.coords.longitude;
     });
   }
+  
 
+	public get lang(): string {
+		return this._lang;
+	}
+
+	public set lang(value: string) {
+		this._lang = value;
+	}
+  
 
   public get webAddress(): string {
     return this._webAddress;

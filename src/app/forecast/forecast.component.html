@@ -17,7 +17,8 @@
     <div *ngFor="let days of generateArray(fullDays)">
       <div class="row">
         <div class="col-6">
-          <h2>{{days[0].date | date: 'EEEE MMMM d'}}</h2>
+          <!-- <h2>{{days[0].date | date: 'EEEE MMMM d'}}</h2> -->
+          <h2>{{days[0].date | moment: 'dddd MMMM Do'}}</h2>
 
           <div class="icon col-3">
             <img src="http://openweathermap.org/img/w/{{ days[0].icon }}.png">

@@ -3,6 +3,8 @@ import { AppService } from '../../providers/app.service';
 
 import * as i18next from 'i18next';
 import * as i18nextXHRBackend from 'i18next-xhr-backend';
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'dashboard',
@@ -14,7 +16,8 @@ export class DashboardComponent implements OnInit {
   public viewReady = false;
   constructor(private _app: AppService) {
     this.loadTranslations();
-   }
+    moment.locale(this._app.lang);
+  }
 
   ngOnInit() {
   }
@@ -22,7 +25,7 @@ export class DashboardComponent implements OnInit {
   loadTranslations() {
     i18next.use(i18nextXHRBackend).init({
       debug: false,
-      lng: 'fr',
+      lng: this._app.lang,
       fallbackLng: 'en',
       returnEmptyString: true,
       defaultNS: 'static',
@@ -37,7 +40,6 @@ export class DashboardComponent implements OnInit {
       }
     }, () => {
       this.viewReady = true;
-      console.log(i18next.t("takeSelfie"));
     });
   }
 }

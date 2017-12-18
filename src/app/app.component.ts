@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { AppService } from '../providers/app.service';
 
 
 declare var ga: any;
@@ -13,7 +14,7 @@ declare var ga: any;
 export class AppComponent {
   title = 'app';
 
-  constructor(private _router: Router) {
+  constructor(private _router: Router, private _app: AppService) {
     this._router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         ga('set', 'page', event.urlAfterRedirects);

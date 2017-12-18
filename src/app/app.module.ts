@@ -28,6 +28,7 @@ import { SundayBussComponent } from './sunday-buss/sunday-buss.component';
 import { WeatherService } from '../providers/weather.service';
 import { CameraService } from '../providers/camera.service';
 import { TranslatePipe } from '../pipes/translate.pipe';
+import { MomentPipe } from '../pipes/moment.pipe';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -60,7 +61,8 @@ const routes: Routes = [
     GroupByPipe,
     BussComponent,
     SundayBussComponent,
-    TranslatePipe
+    TranslatePipe,
+    MomentPipe
   ],
   imports: [
     BrowserModule,

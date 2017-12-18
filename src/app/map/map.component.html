@@ -7,7 +7,7 @@
         <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
       </a>
       <div class="header">
-        <h1>Looking for places around you?</h1>
+        <h1>{{ "lookingPlaces" | translate}}</h1>
       </div>
     </div>
   </nav>
@@ -17,7 +17,7 @@
     <div class="row">
       <div class="container">
         <div class="form-group">
-          <input placeholder="Search for places around you" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+          <input placeholder="{{ 'searchPlaces' | translate}}" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
             #search [formControl]="searchControl">
         </div>
         <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
