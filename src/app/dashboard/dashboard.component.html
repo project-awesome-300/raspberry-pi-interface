@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="viewReady">
   <div class="row">
     <div class="col-xs-4">
       <div class="square-service-block btn-success">
@@ -6,10 +6,10 @@
           <div class="ssb-icon">
             <i class="fa fa-map fa-3x" aria-hidden="true"></i>
           </div>
-          <h2 class="ssb-title">Map</h2>
+          <h2 class="ssb-title">{{"map" | translate}}</h2>
         </a>
       </div>
-    </div>
+    </div> 
 
     <div class="col-xs-4">
       <div class="square-service-block btn-warning">
@@ -17,7 +17,7 @@
           <div class="ssb-icon">
             <i class="fa fa-bus fa-3x" aria-hidden="true"></i>
           </div>
-          <h2 class="ssb-title">Bus Info</h2>
+          <h2 class="ssb-title">{{"busInfo" | translate}}</h2>
         </a>
       </div>
     </div>
@@ -28,8 +28,7 @@
           <div class="ssb-icon">
             <i class="fa fa-camera-retro fa-3x" aria-hidden="true"></i>
           </div>
-          <h2 class="ssb-title">Take A Selfie
-          </h2>
+          <h2 class="ssb-title">{{"takeSelfie" | translate}}</h2>
         </a>
       </div>
     </div>
@@ -45,7 +44,7 @@
           <div class="ssb-icon">
             <i class="fa fa-sun-o fa-3x" aria-hidden="true"></i>
           </div>
-          <h2 class="ssb-title">Weather</h2>
+          <h2 class="ssb-title">{{"weather" | translate}}</h2>
         </a>
       </div>
     </div>
@@ -56,7 +55,7 @@
           <div class="ssb-icon">
             <i class="fa fa-info-circle fa-3x" aria-hidden="true"></i>
           </div>
-          <h2 class="ssb-title">Local Info</h2>
+          <h2 class="ssb-title">{{"localInfo" | translate}}</h2>
         </a>
       </div>
     </div>
@@ -67,7 +66,7 @@
           <div class="ssb-icon">
             <i class="fa fa-cutlery fa-3x" aria-hidden="true"></i>
           </div>
-          <h2 class="ssb-title">Food</h2>
+          <h2 class="ssb-title">{{"food" | translate}}</h2>
         </a>
       </div>
     </div>

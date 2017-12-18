@@ -27,6 +27,7 @@ import { BussComponent } from './buss/buss.component';
 import { SundayBussComponent } from './sunday-buss/sunday-buss.component';
 import { WeatherService } from '../providers/weather.service';
 import { CameraService } from '../providers/camera.service';
+import { TranslatePipe } from '../pipes/translate.pipe';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -58,7 +59,8 @@ const routes: Routes = [
     CapitalizePipe,
     GroupByPipe,
     BussComponent,
-    SundayBussComponent
+    SundayBussComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,8 @@ const routes: Routes = [
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyDL_h4Q3HL5CwDFJrGOzztLY5tBbcldPuk",
-      libraries: ["places"]
+      libraries: ["places"],
+      // language: "fr"
     }),
     BrowserModule,
     FormsModule,
