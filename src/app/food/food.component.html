@@ -39,7 +39,7 @@
                   <th scope="row"></th>
                 </tr>
               </thead>
-              <tr *ngFor='let i of result | slice:0:6'>
+              <tr *ngFor='let i of result | slice:0:8'>
                 <td>{{i.name}}</td>
                 <td>
                   <app-star-rating [rating]='i.rating'></app-star-rating>
