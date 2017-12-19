@@ -7,6 +7,11 @@ import * as i18next from 'i18next';
 export class TranslatePipe implements PipeTransform {
 
   transform(value: string, ...args) {
-    return i18next.t(value);
+    if (args.length > 0) {
+      return i18next.t(value, { x: args[0] });
+    }
+    else {
+      return i18next.t(value);
+    }
   }
 }

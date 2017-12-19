@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { DialogComponent, DialogService } from "ng2-bootstrap-modal";
 import { OpenEmailModal, CloseEmailModal } from '../../../models/modals.model';
-
+import * as i18next from 'i18next';
 
 @Component({
   selector: 'confirm',
@@ -17,11 +17,12 @@ export class ConfirmEmailComponent extends DialogComponent<OpenEmailModal, Close
   title: string;
   message: string;
   email: string;
+  emailText: string;
 
 
   constructor(dialogService: DialogService) {
     super(dialogService);
-
+    this.emailText = i18next.t("email");
   }
 
 

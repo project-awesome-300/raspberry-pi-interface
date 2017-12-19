@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 import { GoogleAnalyticsEventsService } from '../../providers/google-analytics-events.service';
 import { AnalyticsEvent } from '../../models/AnalyticsEvent';
 import { CameraService } from '../../providers/camera.service';
+import * as i18next from 'i18next';
 
 @Component({
   selector: 'app-camera',
@@ -179,7 +180,7 @@ export class CameraComponent implements OnInit, DoCheck {
 
   showSuccessDialog() {
     this._dialogService.addDialog(GenericModalComponent, {
-      html: `<div class="center"><p class="awesome">Awesome!</p><img src="assets/images/smiley-thumbs-up.png" width="300px"></div><div><p>Your photo is on it's way to our server<br />Check it out on ${this._app.webAddress}</p></div>`,
+      html: `<div class="center"><p class="awesome">${i18next.t("awesome")}!</p><img src="assets/images/smiley-thumbs-up.png" width="300px"></div><div><p>${i18next.t("photoOnWay")}<br />${i18next.t("checkItOut", { x: this._app.webAddress })}</p></div>`,
       time: 5000
     }).subscribe((result: GenericModalClose) => {
       if (result.isClosed)

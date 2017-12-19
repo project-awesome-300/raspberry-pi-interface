@@ -12,14 +12,14 @@
     "every30Mins": "Toutes les 30 miunutes jusqu'à LT",
     "sundayBys": "Bus du Dimanche",
     "townService": "S1 Service Sligo Town",
-    "andPublicHolidays": "{x} et vacances scolaires",
+    "andPublicHolidays": "{{x}} et vacances scolaires",
     "mondayToSat": "Lundi à Samedi ( Sauf vacances scolaires )",
-    "tagInSelfie": "Si vous voulez vous marquer sur cette photo, entrez votre adresse email dans la case ci-dessous. En cliquant sur Envoyer, vous sauvegarderez cette photo sur notre site, que vous pouvez consulter à tout moment sur {x}",
+    "tagInSelfie": "Si vous voulez vous marquer sur cette photo, entrez votre adresse email dans la case ci-dessous. En cliquant sur Envoyer, vous sauvegarderez cette photo sur notre site, que vous pouvez consulter à tout moment sur {{x}}",
     "cancel": "Annuler",
     "upload": "Télécharger",
     "email": "Adresse Email",
     "photoOnWay": "Votre photo est en cours d'envoi sur nos serveurs",
-    "checkItOut": "Regardez là sur www.project-awesome.com",
+    "checkItOut": "Regardez là sur {{x}}",
     "awesome": "Génial",
     "bestPlaces": "Meilleur endroit en ville",
     "search": "Rechercher un lieu d'intérêt",
@@ -28,5 +28,7 @@
     "windSpeed": "Vitesse du Vent",
     "temp": "Température",
     "clouds": "Nuages",
-    "maxTemp": "Températures maximum"
+    "maxTemp": "Températures maximum",
+    "submitPhoto": "Soumettez votre photo"
+    
 }
