@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 
+import * as i18next from 'i18next';
+import * as i18nextXHRBackend from 'i18next-xhr-backend';
+import * as moment from 'moment';
+
 @Injectable()
 export class AppService {
 
@@ -8,6 +12,7 @@ export class AppService {
   private _lat: number;
   private _lng: number;
   private _lang: string;
+  private _viewReady = false;
 
 
   constructor() {
@@ -17,24 +22,57 @@ export class AppService {
     this._lng = -1;
     this.getLatLngCoOrdinates();
     this._lang = 'fr';
+    this.loadTranslations();
   }
 
-  getLatLngCoOrdinates(){
+  loadTranslations() {
+    i18next.use(i18nextXHRBackend).init({
+      debug: false,
+      lng: this.lang,
+      fallbackLng: 'en',
+      returnEmptyString: true,
+      defaultNS: 'static',
+      ns: ['static', 'dynamic'],
+      backend: {
+        loadPath: '../assets/i18n/{{lng}}.json',
+        crossDomain: true
+      },
+      interpolation: {
+        prefix: "{{",
+        suffix: "}}"
+      }
+    }, () => {
+      this._viewReady = true;
+    });
+    moment.locale(this.lang);
+
+  }
+
+  set language(lang: string){
+    this._lang = lang;
+    i18next.changeLanguage(lang);
+  }
+
+  get viewReady(): boolean {
+    return this._viewReady;
+  }
+
+  getLatLngCoOrdinates() {
     navigator.geolocation.getCurrentPosition((position) => {
       this._lat = position.coords.latitude;
       this._lng = position.coords.longitude;
     });
   }
-  
 
-	public get lang(): string {
-		return this._lang;
-	}
 
-	public set lang(value: string) {
-		this._lang = value;
-	}
-  
+  public get lang(): string {
+    return this._lang;
+  }
+
+  public set lang(value: string) {
+    this._lang = value;
+  }
+
 
   public get webAddress(): string {
     return this._webAddress;
@@ -53,22 +91,22 @@ export class AppService {
   }
 
 
-	public get lat(): number {
-		return this._lat;
-	}
+  public get lat(): number {
+    return this._lat;
+  }
 
-	public set lat(value: number) {
-		this._lat = value;
-	}
+  public set lat(value: number) {
+    this._lat = value;
+  }
 
-	public get lng(): number {
-		return this._lng;
-	}
+  public get lng(): number {
+    return this._lng;
+  }
 
-	public set lng(value: number) {
-		this._lng = value;
-	}
-  
+  public set lng(value: number) {
+    this._lng = value;
+  }
+
 
 
 }

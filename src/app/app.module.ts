@@ -29,18 +29,21 @@ import { WeatherService } from '../providers/weather.service';
 import { CameraService } from '../providers/camera.service';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { MomentPipe } from '../pipes/moment.pipe';
+import { LanguageComponent } from './language/language.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'language', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'language', component: LanguageComponent },
   { path: 'camera', component: CameraComponent },
-  { path: 'weather', component: ForecastComponent } ,
+  { path: 'weather', component: ForecastComponent },
   { path: 'current', component: CurrentWeatherComponent },
   { path: 'forecast', component: ForecastComponent },
   { path: 'food', component: FoodComponent },
   { path: 'map', component: MapComponent },
   { path: 'sundaybus', component: SundayBussComponent },
   { path: 'bus', component: BussComponent },
+  { path: '**', redirectTo: 'language', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -62,7 +65,8 @@ const routes: Routes = [
     BussComponent,
     SundayBussComponent,
     TranslatePipe,
-    MomentPipe
+    MomentPipe,
+    LanguageComponent
   ],
   imports: [
     BrowserModule,
