@@ -13,7 +13,10 @@ export class LanguageComponent implements OnInit {
 
   public background = 'assets/images/logo.png';
   private _event: AnalyticsEvent
-  constructor(private _googleAnalyticsEventsService: GoogleAnalyticsEventsService, private _router: Router, private _appService: AppService) { }
+  constructor(
+    private _googleAnalyticsEventsService: GoogleAnalyticsEventsService, 
+    private _router: Router, 
+    private _appService: AppService) { }
 
   ngOnInit() {
     this._event = new AnalyticsEvent("language", "unknown");
