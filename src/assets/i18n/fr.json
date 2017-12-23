@@ -10,7 +10,7 @@
     "noSunday": "Ne fonctionne pas les Dimanches",
     "lastBys": "Bus de Nuit",
     "every30Mins": "Toutes les 30 miunutes jusqu'à LT",
-    "sundayBys": "Bus du Dimanche",
+    "sundayBus": "Bus du Dimanche",
     "townService": "S1 Service Sligo Town",
     "andPublicHolidays": "{{x}} et vacances scolaires",
     "mondayToSat": "Lundi à Samedi ( Sauf vacances scolaires )",

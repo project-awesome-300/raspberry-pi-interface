@@ -10,7 +10,7 @@
     "noSunday": "Does not operate on Saturdays",
     "lastBys": "Last Bus",
     "every30Mins": "Every 30 minutes until LT",
-    "sundayBys": "Sunday Bus",
+    "sundayBus": "Sunday Bus",
     "townService": "S1 Sligo Town Service",
     "andPublicHolidays": "{{x} and public holidays",
     "mondayToSat": "Monday to Saturday (except public holidays)",

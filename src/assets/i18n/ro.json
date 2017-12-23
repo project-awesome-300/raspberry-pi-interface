@@ -10,7 +10,7 @@
     "noSunday": "Nu funcționează duminica",
     "lastBys": "Ultimul autobuy",
     "every30Mins": "La fiecare 30 de minunte pana la LT",
-    "sundayBys": "Autobuz duminica",
+    "sundayBus": "Autobuz duminica",
     "townService": "S1 Sligo Servicii Oras",
     "andPublicHolidays": "{{x} şi sarbători publice",
     "mondayToSat": "Luni pana Sâmbătă (exceptând sarbători publice)",
