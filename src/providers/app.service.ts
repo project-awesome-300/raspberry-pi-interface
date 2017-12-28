@@ -25,6 +25,7 @@ export class AppService {
     this.loadTranslations();
   }
 
+
   loadTranslations() {
     i18next.use(i18nextXHRBackend).init({
       debug: false,
@@ -48,9 +49,10 @@ export class AppService {
 
   }
 
-  set language(lang: string){
+  set language(lang: string) {
     this._lang = lang;
-    i18next.changeLanguage(lang);
+    this._viewReady = false;
+    i18next.changeLanguage(lang, () => { this._viewReady = true });
   }
 
   get viewReady(): boolean {
