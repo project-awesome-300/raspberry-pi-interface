@@ -48,8 +48,12 @@ h2.ssb-title {
 .btn-weather:hover {
     background-color: #9b1bb1;
 }
-.dash{
-  height: 800px;
-  padding-top: 30px;
+
+.dash {
+    height: 800px;
+    padding-top: 30px;
 }
 
+.container {
+    overflow: hidden;
+}

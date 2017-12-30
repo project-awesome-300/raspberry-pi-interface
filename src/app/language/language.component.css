@@ -18,3 +18,7 @@ img {
     text-align: center;
     padding: 20px;
 }
+.row{
+    margin-right: 0;
+    margin-left: 0;
+}
