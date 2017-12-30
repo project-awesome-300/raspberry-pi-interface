@@ -12,7 +12,7 @@ import { AppService } from '../../providers/app.service';
 export class DashboardComponent implements OnInit {
 
   public viewReady = false;
-  constructor(private _app: AppService) {
+  constructor(public app: AppService) {
   }
 
   ngOnInit() {
