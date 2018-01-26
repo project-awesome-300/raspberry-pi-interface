@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
+import { Router } from '@angular/router';
 
 
 
@@ -12,11 +13,13 @@ import { AppService } from '../../providers/app.service';
 export class DashboardComponent implements OnInit {
 
   public viewReady = false;
-  constructor(public app: AppService) {
+  constructor(public app: AppService, private _router: Router) {
   }
 
   ngOnInit() {
   }
 
-  
+  goHome() {
+    this._router.navigateByUrl('/');
+  }
 }

@@ -57,3 +57,20 @@ h2.ssb-title {
 .container {
     overflow: hidden;
 }
+
+.fab {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+}
+
+.btn-circle {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 24px;
+    line-height: 1;
+    border-radius: 30px;
+    box-shadow: 3px 3px 5px grey;
+}
