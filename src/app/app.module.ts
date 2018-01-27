@@ -30,6 +30,8 @@ import { CameraService } from '../providers/camera.service';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { MomentPipe } from '../pipes/moment.pipe';
 import { LanguageComponent } from './language/language.component';
+import { LocalEventsComponent } from './local-events/local-events.component';
+import { HttpService } from '../providers/http.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'language', pathMatch: 'full' },
@@ -43,6 +45,7 @@ const routes: Routes = [
   { path: 'map', component: MapComponent },
   { path: 'sundaybus', component: SundayBussComponent },
   { path: 'bus', component: BussComponent },
+  { path: 'events', component: LocalEventsComponent },
   { path: '**', redirectTo: 'language', pathMatch: 'full' }
 ];
 
@@ -66,7 +69,8 @@ const routes: Routes = [
     SundayBussComponent,
     TranslatePipe,
     MomentPipe,
-    LanguageComponent
+    LanguageComponent,
+    LocalEventsComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +89,7 @@ const routes: Routes = [
     BootstrapModalModule
   ],
   providers: [
+    HttpService,
     BussService,
     GoogleMapsAPIWrapper,
     WeatherService,

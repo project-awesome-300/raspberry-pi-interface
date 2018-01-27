@@ -34,6 +34,6 @@
     font-size: 60px;
 }
 
-.food, .camera, .weather{
+.food, .camera, .weather, .local-events{
     padding: 5px;
   }

@@ -1,0 +1,45 @@
+.sdfs{
+    background-image: url('../../assets/images/background/event-back.jpg');
+}
+.navbar{
+    background-color: #337AB7;
+    font-size: 10px;  
+  }
+  .fa-arrow-left{
+    color: white;
+  }
+  .header{ 
+    text-align: center; 
+    color: white;
+  } 
+  .header > h1, i{
+    margin-top: 10px;
+  }
+  #back {
+    float: left;
+  }
+  .fixed-top{
+      position: fixed;
+      width: 99%;
+  }
+  .container{
+      margin-top: 75px;
+  }
+  td > i{
+      margin-top: 0;
+      /* font-size: 2.5em; */
+  }
+  .table td {
+    /* text-align: center;  */
+    vertical-align: middle;  
+ }
+ .table > tr {
+     margin-top:10px;
+     margin-bottom:10px;
+ }
+ .middle{
+     text-align: center;
+ }
+ th{
+     font-size: 28px;
+ }

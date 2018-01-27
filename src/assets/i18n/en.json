@@ -29,5 +29,10 @@
     "temp": "Temperature",
     "clouds": "Clouds",
     "maxTemp": "Max Temperature",
-    "submitPhoto": "Submit your photo"
+    "submitPhoto": "Submit your photo",
+    "when": "When",
+    "what": "What",
+    "where": "Where",
+    "how" : "How",
+    "localEvents": "Local Events"
 }

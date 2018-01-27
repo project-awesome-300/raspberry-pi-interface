@@ -1,0 +1,15 @@
+export interface ILocalEvent{
+    eventId: number;
+    name: string;
+    priority: number;
+    details: string;
+    startTime: string;
+    endTime: string;
+    eventCategoryId: number;
+    locationId: number;
+    organiserId: number;
+    assocatiatedLocation: {};
+    associatedOrganiser: {};
+    associatedEventGroup: {}
+
+}

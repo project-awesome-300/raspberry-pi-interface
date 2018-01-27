@@ -21,7 +21,7 @@ export class AppService {
     this._lat = -1;
     this._lng = -1;
     this.getLatLngCoOrdinates();
-    this._lang = 'fr';
+    this._lang = 'en';
     this.loadTranslations();
   }
 
