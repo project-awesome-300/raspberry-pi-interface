@@ -1,24 +1,27 @@
-<div class="Buss">
+<!-- <div class="buss"> -->
   <nav class="navbar navbar-info">
-    <div class="container-fluid">
-      <div class="navbar-header">
+    <!-- <div class="container-fluid">
+      <div class="navbar-header"> -->
         <a [routerLink]="['/dashboard']"><i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i></a>
-        <button type="button" [routerLink]="['/sundaybus']" class="btn btn-warning  btn-lg pull-right">Sunday Bus
+        <div class="center">
+        <h1>{{"townService" | translate}}</h1>
+       </div>
+        <button type="button" [routerLink]="['/sundaybus']" class="btn btn-sundayBus  btn-lg pull-right">Sunday Bus
           <i class="fa fa-bus" aria-hidden="true"></i></button>
-      </div>
-    </div>
+
+      <!-- </div>
+    </div> -->
   </nav>
-</div>
-
-
+<!-- </div> -->
 
 <div class="container">
-  <div class="heading">
+  <!-- <div class="heading">
     <Header>
       <h1>{{"townService" | translate}}</h1>
     </Header>
-    <h2>{{"mondayToSat" | translate}}</h2>
-  </div>
+  
+  </div> -->
+  <h2>{{"mondayToSat" | translate}}</h2>
   <div class="panel-body">
     <p> SX = {{"noSunday" | translate}} </p>
     <p> TM = {{"every30Mins" | translate}}</p>
