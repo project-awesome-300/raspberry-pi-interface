@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 
 
-
-
 @Component({
   selector: 'dashboard',
   templateUrl: './dashboard.component.html',

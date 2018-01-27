@@ -4,6 +4,7 @@ import { Http, Response } from '@angular/http';
 import { Buss } from '../../models/buss';
 import * as _ from "lodash";
 import * as moment from 'moment';
+import { AppService } from '../../providers/app.service';
 
 @Component({
   selector: 'app-buss',
@@ -17,7 +18,9 @@ export class BussComponent implements OnInit {
 
   //cuurentTime = (moment().format("hh:mm"));
 
-  constructor() {
+  constructor(
+    public app: AppService
+  ) {
     this.buss = [
       new Buss('Carton', '(Classibawn Drive)', '7:30', '8:00', '8:30', '9:00', '00', '30', '17:00', '17:30', '18:00'),
       new Buss('Bundoran Rd', '(Abbotts)', '7:36', '8:06', '8:36', '9:06', '06', '36', '17:06', '17:36', '18:06'),
