@@ -1,17 +1,25 @@
 <!-- <div class="buss"> -->
+<div class="row">
   <nav class="navbar navbar-info">
     <!-- <div class="container-fluid">
       <div class="navbar-header"> -->
-        <a [routerLink]="['/dashboard']"><i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i></a>
-        <div class="center">
-        <h1>{{"townService" | translate}}</h1>
-       </div>
-        <button type="button" [routerLink]="['/sundaybus']" class="btn btn-sundayBus  btn-lg pull-right">Sunday Bus
-          <i class="fa fa-bus" aria-hidden="true"></i></button>
-
-      <!-- </div>
+    <div class="col-xs-3 arrow">
+      <a [routerLink]="['/dashboard']">
+        <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="col-xs-6 text-center">
+      <h1>{{"townService" | translate}}</h1>
+    </div>
+    <div class="col-xs-3 bus-button">
+      <button  [routerLink]="['/sundaybus']"  class="btn btn-bus btn-lg">Sunday Bus
+        <i class="fa fa-bus" aria-hidden="true"></i>
+      </button>
+    </div>
+    <!-- </div>
     </div> -->
   </nav>
+</div>
 <!-- </div> -->
 
 <div class="container">
@@ -21,50 +29,54 @@
     </Header>
   
   </div> -->
-  <h2>{{"mondayToSat" | translate}}</h2>
-  <div class="panel-body">
-    <p> SX = {{"noSunday" | translate}} </p>
-    <p> TM = {{"every30Mins" | translate}}</p>
-    <p> LT = {{"lastBys" | translate}}</p>
+  <div class="details">
+      <span class="space2"> {{"mondayToSat" | translate}}</span>
+    <p>
+      <span class="space1"></span>
+      SX = {{"noSunday" | translate}}
+      <span class="space1"> </span>
+      TM = {{"every30Mins" | translate}}
+      <span class="space1"></span>
+      LT = {{"lastBys" | translate}}</p>
   </div>
   <div class="panel-body">
-    <h4>
-      <div class="table-responsive">
-        <table class="table ">
-          <thead>
-            <tr>
-              <th></th>
-              <th></th>
-              <th>SX</th>
-              <th>SX</th>
-              <th></th>
-              <th></th>
-              <th>TM</th>
-              <th>TM</th>
-              <th></th>
-              <th>LT</th>
-              <th>LT</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let bussInfo of buss">
-            <tr>
-              <td>{{bussInfo.Origin}}</td>
-              <td>{{bussInfo.Name}}</td>
-              <td>{{bussInfo.FirstBus}}</td>
-              <td>{{bussInfo.SecondBus}}</td>
-              <td>{{bussInfo.ThirdBus}}</td>
-              <td>{{bussInfo.FifthBus}}</td>
-              <td>{{bussInfo.SixthBus}}</td>
-              <td>{{bussInfo.SeventhBus}}</td>
-              <td>{{bussInfo.ThirdLast}}</td>
-              <td>{{bussInfo.SecLast}}</td>
-              <td>{{bussInfo.Last}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </h4>
+    <!-- <h4> -->
+    <!-- <div class="table-responsive"> -->
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>SX</th>
+          <th>SX</th>
+          <th></th>
+          <th></th>
+          <th>TM</th>
+          <th>TM</th>
+          <th></th>
+          <th>LT</th>
+          <th>LT</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let bussInfo of buss">
+        <tr>
+          <td>{{bussInfo.Origin}}</td>
+          <td>{{bussInfo.Name}}</td>
+          <td>{{bussInfo.FirstBus}}</td>
+          <td>{{bussInfo.SecondBus}}</td>
+          <td>{{bussInfo.ThirdBus}}</td>
+          <td>{{bussInfo.FifthBus}}</td>
+          <td>{{bussInfo.SixthBus}}</td>
+          <td>{{bussInfo.SeventhBus}}</td>
+          <td>{{bussInfo.ThirdLast}}</td>
+          <td>{{bussInfo.SecLast}}</td>
+          <td>{{bussInfo.Last}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+  <!-- </h4>
+  </div> -->
 </div>
 
 

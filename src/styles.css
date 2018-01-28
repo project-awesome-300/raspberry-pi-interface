@@ -2,6 +2,7 @@
     cursor: none;
 } */
 
+/* 
 .success {
     color: #3e8f3e;
 }   
@@ -16,8 +17,13 @@
 
 .info {
     color: #2aabd2
-}
+} */
 
+body{
+    overflow-x: hidden !important;
+    width: 800px;
+    height: 480px;
+}
 @font-face {
     font-family: "KBREINDEERGAMES";
     src: url("./assets/fonts/KBREINDEERGAMES.ttf");
