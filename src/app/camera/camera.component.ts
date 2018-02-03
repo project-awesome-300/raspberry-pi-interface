@@ -168,7 +168,9 @@ export class CameraComponent implements OnInit, DoCheck {
   submitPhoto() {
     this._dialogService.addDialog(ConfirmEmailComponent, {
       title: 'Submit your photo',
-      message: `If you want to tag yourself in a this photo, enter your email address in the box below. Clicking Upload will save this photo on our website, which you can view at any time on ${this._app.webAddress}`
+      message: `If you want to tag yourself in a this photo, 
+      enter your email address in the box below.
+       Clicking Upload will save this photo on our website, which you can view at any time on ${this._app.webAddress}`
     }).subscribe((result: CloseEmailModal) => {
       if (result.submit) {
         this.uploadPhoto(result.email);
