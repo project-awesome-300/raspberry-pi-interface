@@ -28,6 +28,7 @@ body {
     overflow-y: hidden !important;
     width: 800px;
     height: 480px;
+    display: block !important;
 }
 
 /* .container {
@@ -104,6 +105,7 @@ hr#hr-bottom {
 #temperature h4 {
     text-align: left;
     font-size: 26px;
+    margin-top: 10%;
     font-weight: 400;
 }
 
