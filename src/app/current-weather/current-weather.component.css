@@ -1,5 +1,154 @@
-img{ 
+/* main color : #aa00ff*/
+
+/* hover: #e040fb */
+
+img {
     width: 100px;
-    height:100px;
+    height: 100px;
 }
 
+.navbar-info {
+    background-color: #aa00ff;
+}
+
+a {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* back arrow */
+
+.arrow {
+    margin-top: 14px;
+    padding-left: 22px;
+}
+
+body {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    width: 800px;
+    height: 480px;
+}
+
+/* .container {
+    max-width: inherit;
+    max-width: none !important;
+} */
+
+/* 
+h1 {
+    font-size: 62px;
+    line-height: 62px;
+    vertical-align: middle;
+    font-weight: 200;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    color: black;
+} */
+
+h1 .title {
+    font-size: 60px;
+    line-height: 80px;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+hr {
+    margin-top: 3px;
+    border-width: 1px 0;
+    border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+    border-color: #888485;
+    border-color: white;
+}
+
+hr#hr-bottom {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.panel {
+    -webkit-box-shadow: -1px 2px 8px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: -1px 2px 8px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: -1px 2px 8px 0px rgba(0, 0, 0, 0.3);
+    /* background-color: #00a6a7; */
+    /* background-color: RGBA(0, 0, 0, 0.3); */
+}
+
+/* .panel-body {
+    position: relative;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-top: 5px;
+} */
+
+.vcenter {
+    display: block;
+    /* float: middle; */
+}
+
+#weather-icon-display {
+    height: 307px;
+    line-height: 307px;
+    color: black;
+}
+
+#weather-icon {
+    font-size: 180px;
+    /* vertical-align: middle; */
+    display: inline-block;
+    /* margin-top: -100px; */
+}
+
+/* temperature */
+
+#temperature h4 {
+    text-align: left;
+    font-size: 26px;
+    font-weight: 400;
+}
+
+#temperature p {
+    text-align: left;
+    font-size: 150px;
+}
+
+#temperature p {
+    font-size: 300px;
+    /* margin-top: -10px; */
+    /* margin-left: -10px; */
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 230px;
+}
+
+#temperature p sup {
+    vertical-align: baseline;
+    position: relative;
+    /* top: -185px; */
+    line-height: 0;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+#temperature h5 {
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 10px;
+    /* margin-top: 0; */
+    font-weight: 300;
+}
+
+/* details for weather condition */
+
+#weather-condition h6 {
+    font-size: 36px;
+    margin-bottom: 2px;
+}
+
+#weather-condition p {
+    margin-bottom: 3px;
+    font-size: 14px;
+    font-weight: 200;
+}
