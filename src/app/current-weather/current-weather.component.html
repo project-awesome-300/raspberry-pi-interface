@@ -9,67 +9,65 @@
             <h1>{{"weather" | translate}}</h1>
         </div>
         <div class="col-xs-3 next-button">
-            <button [routerLink]="['/forecast']" class="btn btn-bus btn-lg">Next days
-                <i class="fa fa-weather" aria-hidden="true"></i>
+            <button [routerLink]="['/forecast']" class="btn nextDay-button btn-lg">Next days
+                <i class="fa fa-sun-o" aria-hidden="true"></i>
             </button>
         </div>
     </nav>
 </div>
 <!-- container -->
-<div class="panel panel-default">
-    <div class="container text-center vcenter">
-        <!-- weather for city  -->
-        <div class="row">
-            <div class="col-xs-6" id="weather-icon-display">
-                <div id="weather-icon">
-                    <!-- city name -->
-                    <h6 id="city">{{ myWeather.cityName }}</h6>
-                    <img src="http://openweathermap.org/img/w/{{ myWeather.icon }}.png">
-                </div>
-            </div>
-            <div class="col-xs-6" id="temperature">
-                <p>
-                    <sup>
-                        <h4>Today</h4>
-                        {{ myWeather.temp }}&deg;C
-                    </sup>
-                </p>
-                <h5>High:
-                    <span id="temp-max"> {{ myWeather.tempMax }}&deg; C</span>
-                    / Low:
-                    <span id="temp-min">{{ myWeather.tempMin }}&deg; C</span>
-                </h5>
-                <h4>{{ myWeather.weatherKind | capitalize }}</h4>
+<div class="container text-center vcenter">
+    <!-- weather for city  -->
+    <div class="row">
+        <div class="col-xs-6" id="weather-icon-display">
+            <div id="weather-icon">
+                <!-- city name -->
+                <h6 id="city">{{ myWeather.cityName }}</h6>
+                <img src="http://openweathermap.org/img/w/{{ myWeather.icon }}.png">
             </div>
         </div>
-
-        <!-- weather details for today -->
-        <hr id="hr-bottom">
-        <div class="row" id="weather-condition">
-            <!-- humidity -->
-            <div class="col-xs-4">
-                <h6>
-                    <i class="wi wi-humidity"></i>
-                </h6>
-                <p id="humidity">{{ myWeather.humidity }}&deg;/p>
-            </div>
-            <!-- wind -->
-            <div class="col-xs-4">
-                <h6>
-                    <i class="wi wi-strong-wind"></i>
-                </h6>
-                <p id="wind">{{ myWeather.wind }}m/s</p>
-            </div>
-            <!-- clouds -->
-            <div class="col-xs-4">
-                <h6>
-                    <i class="wi wi-showers"></i>
-                </h6>
-                <p id="prec">{{ myWeather.clouds }}%</p>
-            </div>
+        <div class="col-xs-6" id="temperature">
+            <p>
+                <sup>
+                    <h4>Today</h4>
+                    {{ myWeather.temp }}&deg;C
+                </sup>
+            </p>
+            <h5>High:
+                <span id="temp-max"> {{ myWeather.tempMax }}&deg; C</span>
+                / Low:
+                <span id="temp-min">{{ myWeather.tempMin }}&deg; C</span>
+            </h5>
+            <h4>{{ myWeather.weatherKind | capitalize }}</h4>
         </div>
     </div>
 
-    <!-- <h4>Max: {{ myWeather.tempMax }}&deg;</h4>
-<h4>Min: {{ myWeather.tempMin }}&deg;</h4> -->
+    <!-- weather details for today -->
+    <hr id="hr-bottom">
+    <div class="row" id="weather-condition">
+        <!-- humidity -->
+        <div class="col-xs-4">
+            <h6>
+                <i class="wi wi-humidity"></i>
+            </h6>
+            <p id="humidity">{{ myWeather.humidity }}&deg;/p>
+        </div>
+        <!-- wind -->
+        <div class="col-xs-4">
+            <h6>
+                <i class="wi wi-strong-wind"></i>
+            </h6>
+            <p id="wind">{{ myWeather.wind }}m/s</p>
+        </div>
+        <!-- clouds -->
+        <div class="col-xs-4">
+            <h6>
+                <i class="wi wi-showers"></i>
+            </h6>
+            <p id="prec">{{ myWeather.clouds }}%</p>
+        </div>
+    </div>
 </div>
+
+<!-- <h4>Max: {{ myWeather.tempMax }}&deg;</h4>
+<h4>Min: {{ myWeather.tempMin }}&deg;</h4> -->

@@ -23,6 +23,16 @@ a {
     padding-left: 22px;
 }
 
+.next-button {
+    padding-right: 28px;
+}
+
+.nextDay-button {
+    background-color: #e040fb;
+    float: right;
+    margin-top: 14px;
+}
+
 body {
     overflow-x: hidden !important;
     overflow-y: hidden !important;
@@ -31,21 +41,10 @@ body {
     display: block !important;
 }
 
-/* .container {
+.container {
     max-width: inherit;
-    max-width: none !important;
-} */
-
-/* 
-h1 {
-    font-size: 62px;
-    line-height: 62px;
-    vertical-align: middle;
-    font-weight: 200;
-    margin-bottom: 20px;
-    text-transform: capitalize;
-    color: black;
-} */
+    margin-top: 0%;
+}
 
 h1 .title {
     font-size: 60px;
@@ -66,21 +65,6 @@ hr#hr-bottom {
     margin-top: 0px;
     margin-bottom: 5px;
 }
-
-.panel {
-    -webkit-box-shadow: -1px 2px 8px 0px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: -1px 2px 8px 0px rgba(0, 0, 0, 0.3);
-    box-shadow: -1px 2px 8px 0px rgba(0, 0, 0, 0.3);
-    /* background-color: #00a6a7; */
-    /* background-color: RGBA(0, 0, 0, 0.3); */
-}
-
-/* .panel-body {
-    position: relative;
-    margin-right: 20px;
-    margin-left: 20px;
-    padding-top: 5px;
-} */
 
 .vcenter {
     display: block;
