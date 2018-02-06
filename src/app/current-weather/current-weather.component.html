@@ -21,12 +21,12 @@
     <div id="display">
         <div class="row">
             <div class="col-xs-6">
-                <!-- city name -->
-                <h6 id="city">{{ myWeather.cityName }}</h6>
                 <img src="http://openweathermap.org/img/w/{{ myWeather.icon }}.png">
             </div>
             <div class="col-xs-6" id="temperature">
-                <h4>Today</h4>
+                <h4>Today in
+                        {{ myWeather.cityName }}
+                </h4>
                 <p>
                     <span>
                         {{ myWeather.temp }}

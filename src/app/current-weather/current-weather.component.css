@@ -61,15 +61,16 @@ h6 {
     font-size: 34px;
     /* font-weight:bold; */
 }
-
+/* today */
 #temperature h4 {
     text-align: left;
     font-size: 32px;
     font-weight: 400;
+    margin-top: 15%;
 }
 
 #temperature p {
-    font-size: 150px;
+    font-size: 100px;
     margin-top: -10px;
     text-align: left;
 }
@@ -77,7 +78,7 @@ h6 {
 #temperature p sup {
     vertical-align: baseline;
     position: relative;
-    top: -85px;
+    top: -55px;
     font-size: 40px;
 }
 
