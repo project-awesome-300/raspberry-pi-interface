@@ -22,7 +22,14 @@
         "styles.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
-        "../node_modules/font-awesome-animation/dist/font-awesome-animation.min.css"
+        "../node_modules/font-awesome-animation/dist/font-awesome-animation.min.css",
+        "../node_modules/weather-icons/css/weather-icons.css",
+        "../node_modules/weather-icons/css/weather-icons-wind.css"
+      
+      ],
+      "addons":[
+        "../node_modules/weather-icons/fonts/*.+(otf|eot|svg|ttf|woff|woff2)"
+ 
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
