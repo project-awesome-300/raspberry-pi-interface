@@ -39,6 +39,7 @@ body {
     width: 800px;
     height: 480px;
     display: block !important;
+    font-family: "Roboto", sans-serif;
 }
 
 /* Custom CSS  */
@@ -88,6 +89,14 @@ h6 {
     font-weight: 300;
 }
 
+#temp-max {
+    color: darkgray;
+}
+
+#temp-min {
+    color: darkgray;
+}
+
 #weather-condition h6 {
     font-size: 36px;
     margin-bottom: 2px;
@@ -101,8 +110,4 @@ h6 {
 
 #condition {
     text-transform: capitalize;
-}
-
-.temp-switch input {
-    font-size: 100px;
 }

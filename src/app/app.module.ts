@@ -31,6 +31,7 @@ import { TranslatePipe } from '../pipes/translate.pipe';
 import { MomentPipe } from '../pipes/moment.pipe';
 import { LanguageComponent } from './language/language.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'language', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
