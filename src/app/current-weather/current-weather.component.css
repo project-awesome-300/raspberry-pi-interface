@@ -49,13 +49,9 @@ body {
     width: 700px;
 }
 
-/* #weather-icon-display {
-   
-} */
-
 img {
     height: 307px !important;
-    width:  207px !important;
+    width: 207px !important;
     margin-top: 25%;
 }
 
@@ -74,20 +70,14 @@ h6 {
 #temperature p {
     font-size: 150px;
     margin-top: -10px;
-    /* margin-left: -10px; */
-    /* margin-bottom: 0; */
     text-align: left;
-    /* font-weight: 500; */
-    /* line-height: 230px; */
 }
 
 #temperature p sup {
     vertical-align: baseline;
     position: relative;
     top: -85px;
-    /* line-height: 0; */
     font-size: 40px;
-    /* font-weight: 400; */
 }
 
 #temperature h5 {
@@ -116,4 +106,3 @@ h6 {
 .temp-switch input {
     font-size: 100px;
 }
-
