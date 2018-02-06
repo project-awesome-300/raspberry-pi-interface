@@ -16,23 +16,19 @@
     </nav>
 </div>
 <!-- container -->
-<div class="container text-center vcenter">
+<div class="container text-center">
     <!-- weather for city  -->
     <div id="display">
         <div class="row">
-            <div class="col-xs-6" id="weather-icon-display">
-                <div id="weather-icon">
-                    <img src="http://openweathermap.org/img/w/{{ myWeather.icon }}.png">
-                    <!-- city name -->
-                    <h6 id="city">{{ myWeather.cityName }}</h6>
-
-                </div>
+            <div class="col-xs-6">
+                <!-- city name -->
+                <h6 id="city">{{ myWeather.cityName }}</h6>
+                <img src="http://openweathermap.org/img/w/{{ myWeather.icon }}.png">
             </div>
             <div class="col-xs-6" id="temperature">
-
                 <h4>Today</h4>
                 <p>
-                    <span id="temp">
+                    <span>
                         {{ myWeather.temp }}
                     </span>
                     <sup>&deg;</sup>
@@ -48,7 +44,6 @@
         </div>
 
         <!-- weather details for today -->
-        <hr id="hr-bottom">
         <div class="row" id="weather-condition">
             <!-- humidity -->
             <div class="col-xs-4">

@@ -41,92 +41,62 @@ body {
     display: block !important;
 }
 
+/* Custom CSS  */
+
 .container {
-    max-width: inherit;
-    margin-top: 0%;
+    max-width: 700px;
+    max-width: none !important;
+    width: 700px;
 }
 
-h1 .title {
-    font-size: 60px;
-    line-height: 80px;
-    vertical-align: middle;
-    font-weight: 500;
+/* #weather-icon-display {
+   
+} */
+
+img {
+    height: 307px !important;
+    width:  207px !important;
+    margin-top: 25%;
 }
 
-hr {
-    margin-top: 3px;
-    border-width: 1px 0;
-    border-color: #EEEEEE -moz-use-text-color #FFFFFF;
-    border-color: #888485;
-    border-color: white;
-}
-
-hr#hr-bottom {
-    margin-top: 0px;
-    margin-bottom: 5px;
-}
-
-.vcenter {
-    display: block;
-    /* float: middle; */
-}
-
-#weather-icon-display {
-    height: 307px;
-    line-height: 307px;
+h6 {
     color: black;
+    font-size: 34px;
+    /* font-weight:bold; */
 }
-
-#weather-icon {
-    font-size: 180px;
-    /* vertical-align: middle; */
-    display: inline-block;
-    /* margin-top: -100px; */
-}
-
-/* temperature */
 
 #temperature h4 {
     text-align: left;
-    font-size: 26px;
-    margin-top: 10%;
+    font-size: 32px;
     font-weight: 400;
 }
 
 #temperature p {
-    text-align: left;
     font-size: 150px;
-}
-
-#temperature p {
-    font-size: 300px;
-    /* margin-top: -10px; */
+    margin-top: -10px;
     /* margin-left: -10px; */
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
     text-align: left;
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 230px;
+    /* font-weight: 500; */
+    /* line-height: 230px; */
 }
 
 #temperature p sup {
     vertical-align: baseline;
     position: relative;
-    /* top: -185px; */
-    line-height: 0;
+    top: -85px;
+    /* line-height: 0; */
     font-size: 40px;
-    font-weight: 400;
+    /* font-weight: 400; */
 }
 
 #temperature h5 {
     text-align: left;
     font-size: 16px;
     margin-bottom: 10px;
-    /* margin-top: 0; */
+    margin-top: 0;
     font-weight: 300;
 }
-
-/* details for weather condition */
 
 #weather-condition h6 {
     font-size: 36px;
@@ -136,5 +106,14 @@ hr#hr-bottom {
 #weather-condition p {
     margin-bottom: 3px;
     font-size: 14px;
-    font-weight: 200;
+    font-weight: 400;
 }
+
+#condition {
+    text-transform: capitalize;
+}
+
+.temp-switch input {
+    font-size: 100px;
+}
+
