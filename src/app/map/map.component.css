@@ -18,6 +18,15 @@ a {
   padding-left: 22px;
 }
 
+.text h1 {
+  /* clear: both; */
+  display: inline-block;
+  overflow: hidden;
+  font-size: 2em ;
+  /* white-space: nowrap; */
+  word-wrap: break-word !important;
+}
+
 agm-map {
   height: 340px;
 }

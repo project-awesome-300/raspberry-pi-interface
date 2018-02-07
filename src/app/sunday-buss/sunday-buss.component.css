@@ -14,10 +14,13 @@ a {
 /* back arrow */
 
 .arrow {
-    margin-top: 14px;
+    margin-top: 8px;
     padding-left: 22px;
+    margin-bottom: 5px;
 }
-
+.text-center h1{
+    font-size: 2em ;
+}
 /* }space between words */
 
 .space1 {

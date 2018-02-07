@@ -28,7 +28,15 @@
   background-color: #5cb85c;
   font-size: 10px;
 }
-
+/* back arrow */
+.arrow {
+  margin-top: 8px;
+  padding-left: 22px;
+  margin-bottom: 5px;
+}
+.text-center h1{
+  font-size: 2em ;
+}
 .fa-arrow-left {
   color: white;
 }
