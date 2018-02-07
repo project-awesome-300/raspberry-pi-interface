@@ -43,13 +43,21 @@
               {{days[0].wind }}m/s
             </i>
           </div>
-          <div class="day-weather-maxTemp">
-            <h2>{{days[0].maxTemp}}
-              <sup>&deg;</sup>C
-            </h2>
+          <div class="day-weather-maxMin">
+            <h5>
+              <i class="wi wi-thermometer">
+                Max: {{days[0].maxTemp}}
+                <sup>&deg;</sup>C
+              </i>
+              <span class="space"></span>
+              <i class=" wi wi-thermometer-exterior">
+                Min: {{days[0].minTemp}}
+                <sup>&deg;</sup>C
+              </i>
+            </h5>
           </div>
           <div class="day-weather-clouds">
-            <i class="wi wi-clouds">
+            <i class="wi wi-cloudy">
               {{days[0].clouds}}%
             </i>
           </div>
