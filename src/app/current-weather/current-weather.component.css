@@ -51,8 +51,8 @@ body {
 }
 
 img {
-    height: 307px !important;
-    width: 207px !important;
+    height: 207px !important;
+    width: 157px !important;
     margin-top: 25%;
 }
 
@@ -61,7 +61,9 @@ h6 {
     font-size: 34px;
     /* font-weight:bold; */
 }
+
 /* today */
+
 #temperature h4 {
     text-align: left;
     font-size: 32px;
