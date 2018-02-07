@@ -101,6 +101,7 @@ h6 {
 #weather-condition h6 {
     font-size: 36px;
     margin-bottom: 2px;
+    margin-left: 20px;
 }
 
 #weather-condition p {
