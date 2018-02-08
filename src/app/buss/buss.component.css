@@ -83,10 +83,12 @@ th {
 
 thead th {
     background-color: #ffb300;
+    color: black;
 }
 
 tbody td {
     position: relative;
+   
 }
 
 tbody td:hover:before {
