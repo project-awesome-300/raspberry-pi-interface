@@ -1,33 +1,38 @@
-<div class="camera">
+<div class="row">
   <nav class="navbar navbar-info">
-    <div class="container-fluid">
-      <a [routerLink]="['/dashboard']" id="back">
+    <div class="col-xs-3 arrow">
+      <a [routerLink]="['/dashboard']">
         <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
       </a>
-      <i class="fa fa-camera-retro fa-4x info cam-btn" aria-hidden="true" (click)="beginCountdown()"></i>
+    </div>
+    <div class="col-xs-6 text-center ssb-icon">
+      <i class="fa fa-camera-retro fa-4x info" aria-hidden="true" (click)="beginCountdown()"></i>
+    </div>
+    <div class="col-xs-3">
     </div>
   </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 camera" #camera>
-        <!-- Camera -->
-        <div class="camera-area center" *ngIf="cameraReady" [@fade]>
-          <span class="countdown" *ngIf="countingDown">
-            <i class="fa faa-bounce animated">{{countDownIndicator}}</i>
-          </span>
-          <span id="canx-btn" *ngIf="hasPhoto">
-            <i class="action-btn fa fa-ban danger" (click)="discardPhoto()"></i>
-          </span>
-          <span id="save-btn" *ngIf="hasPhoto" (click)="submitPhoto()">
-            <i class="action-btn fa fa-check success faa-tada animated"></i>
-          </span>
-          <div class="camera-content">
-            <ack-webcam [(ref)]="webcam" [options]="options" (onError)="onError($event)" style="width:100%;height:100%"
-              *ngIf="!hasPhoto" class="camera-view" [hidden]="hasPhoto"></ack-webcam>
-            <!-- Camera Still -->
-            <div *ngIf="hasPhoto" id="stillImage">
-              <img [src]="base64" [style.height.px]="imageHeight">
-            </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 camera" #camera>
+      <!-- Camera -->
+      <div class="camera-area center" *ngIf="cameraReady" [@fade]>
+        <span class="countdown" *ngIf="countingDown">
+          <i class="fa faa-bounce animated">{{countDownIndicator}}</i>
+        </span>
+        <span id="canx-btn" *ngIf="hasPhoto">
+          <i class="action-btn fa fa-ban danger" (click)="discardPhoto()"></i>
+        </span>
+        <span id="save-btn" *ngIf="hasPhoto" (click)="submitPhoto()">
+          <i class="action-btn fa fa-check success faa-tada animated"></i>
+        </span>
+        <div class="camera-content">
+          <ack-webcam [(ref)]="webcam" [options]="options" (onError)="onError($event)" style="width:100%;height:100%" *ngIf="!hasPhoto"
+            class="camera-view" [hidden]="hasPhoto"></ack-webcam>
+          <!-- Camera Still -->
+          <div *ngIf="hasPhoto" id="stillImage">
+            <img [src]="base64" [style.height.px]="imageHeight">
           </div>
         </div>
       </div>

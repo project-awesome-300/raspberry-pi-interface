@@ -1,51 +1,113 @@
+/* main color:#ffb300  */
+
+/* hover:  #ffea00*/
+
 .navbar-info {
-    background-color: #f0ad4e;
+    background-color: #ffb300;
 }
+
 a {
     color: #fff;
-}
-i {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-weight: bold;
 }
 
- td{
-    color: #DDB27A;
+/* back arrow */
+
+.arrow {
+    margin-top: 8px;
+    padding-left: 22px;
+    margin-bottom: 5px;
+}
+.text-center h1{
+    font-size: 2em ;
+}
+/* }space between words */
+
+.space1 {
+    margin-right: 30px;
 }
 
-
- td{
-    color: #DDB27A;
-}
-.container {
-    border-radius: 10px;
-    background-color: #ecf0f5;
-} 
-th{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    border-bottom: 1px solid #B1926F;
-    font-size: 12px;
-  
-}
-
-h1{
-    font-family: Arial, Helvetica, sans-serif;
-    color: #F29316;
+.space2 {
     font-size: 30px;
- /*   background-color: #F4DEC3;    */
-    text-align: center;
-    /*padding: 10px 0px; */
-
-}
-h2{
-    font-family: Arial, Helvetica, sans-serif;
-    color: #E88D1E;
-    font-size: 20px;
+    margin-left: 95px;
     text-align: center;
 }
 
-p{
-    margin-left: 40px;
-      margin-bottom: 0px;
-      color: black;
-    }
+/* sunday bus button */
+
+.btn-bus {
+    background-color: #ffea00;
+    float: right;
+    margin-top: 14px;
+}
+
+.bus-button {
+    padding-right: 28px;
+}
+
+.details {
+    margin-top: 150px;
+}
+
+body {
+    background: linear-gradient(45deg, #ffd600, #ffea00);
+    font-family: sans-serif;
+    overflow-x: hidden !important;
+    width: 800px;
+    height: 480px;
+}
+
+.container {
+    margin-top: 20%;
+    margin-left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.panel-body {
+    margin-top: 0%;
+}
+
+/* table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+}
+
+/* hover and lines on touch.click */
+
+th, td {
+    background-color: rgba(255, 255, 0);
+    color: #000;
+}
+
+th {
+    text-align: left;
+}
+
+thead th {
+    background-color: #ffd600;
+}
+
+tbody td {
+    position: relative;
+}
+
+tbody td:hover:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: #fff9c4;
+    z-index: -1;
+}
+
+tbody tr:hover {
+    background-color: #fff176;
+}

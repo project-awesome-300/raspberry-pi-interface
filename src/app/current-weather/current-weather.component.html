@@ -1,12 +1,71 @@
-<div class="container">
-<h1>{{ myWeather.cityName }}</h1>
-
-<div>
-<img src="http://openweathermap.org/img/w/{{ myWeather.icon }}.png">
-<h2>{{ myWeather.temp }}&deg;C</h2>
+<div class="row">
+    <nav class="navbar navbar-info">
+        <div class="col-xs-3 arrow">
+            <a [routerLink]="['/dashboard']">
+                <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="col-xs-6 text-center">
+            <h1>{{"weather" | translate}}</h1>
+        </div>
+        <div class="col-xs-3 next-button">
+            <button [routerLink]="['/forecast']" class="btn nextDay-button btn-lg">Next days
+                <i class="fa fa-sun-o" aria-hidden="true"></i>
+            </button>
+        </div>
+    </nav>
 </div>
-<h4>{{ myWeather.weatherKind | capitalize }}</h4>
+<!-- container -->
+<div class="container text-center">
+    <!-- weather for city  -->
+    <div id="display">
+        <div class="row">
+            <div class="col-xs-6">
+                <img src="http://openweathermap.org/img/w/{{ myWeather.icon }}.png">
+            </div>
+            <div class="col-xs-6" id="temperature">
+                <h4>Today in {{ myWeather.cityName }}
+                </h4>
+                <p>
+                    <span>
+                        {{ myWeather.temp }}
+                        <sup>&deg;</sup>C
+                    </span>
+                </p>
+                <h5>High:
+                    <span id="temp-max"> {{ myWeather.tempMax }}&deg; C</span>
+                    / Low:
+                    <span id="temp-min">{{ myWeather.tempMin }}&deg; C</span>
+                </h5>
+                <h4>{{ myWeather.weatherKind | capitalize }}</h4>
+            </div>
+        </div>
 
-<!-- <h4>Max: {{ myWeather.tempMax }}&deg;</h4>
+        <!-- weather details for today -->
+        <!-- <div class="row" id="weather-condition"> -->
+        <!-- humidity -->
+        <!-- <div class="col-xs-4">
+                <h6>
+                    <i class="wi wi-humidity"></i>
+                </h6>
+                <p id="humidity">{{ myWeather.humidity }}&deg;/p>
+            </div> -->
+        <!-- wind -->
+        <!-- <div class="col-xs-4">
+                <h6>
+                    <i class="wi wi-strong-wind"></i>
+                </h6>
+                <p id="wind">{{ myWeather.wind }}m/s</p>
+            </div> -->
+        <!-- clouds -->
+        <!-- <div class="col-xs-4">
+                <h6>
+                    <i class="wi wi-cloud"></i>
+                </h6>
+                <p id="condition">{{ myWeather.clouds }}%</p>
+            </div> -->
+        <!-- </div> -->
+    </div>
+
+    <!-- <h4>Max: {{ myWeather.tempMax }}&deg;</h4>
 <h4>Min: {{ myWeather.tempMin }}&deg;</h4> -->
-</div>

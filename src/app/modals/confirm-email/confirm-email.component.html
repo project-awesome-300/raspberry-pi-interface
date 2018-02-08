@@ -5,14 +5,17 @@
       <h4 class="modal-title">{{"submitPhoto" | translate}}</h4>
     </div>
     <div class="modal-body">
-      <div class="alert alert-success" role="alert">{{ "tagInSelfie" | translate: 'www.projectawesome.com' }}</div>
+      <div role="alert">{{ "tagInSelfie" | translate}}
+        <a href="www.projectawesome.com"></a>
+      </div>
       <div class="form-group">
-        <input type="email" class="form-control" placeholder={{emailText}} [(ngModel)]="email" #emailField>
+        <input type="email" class="form-control" [(ngModel)]="email" #emailField>
+        <label for={{emailText}} ></label>
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default pull-left btn-lg" (click)="dismiss()">{{ "cancel" | translate}}</button>
-      <button type="button" class="btn btn-success btn-lg" (click)="confirm()">{{ "upload" | translate }}
+      <button type="button" class="btn btn-danger pull-left btn-lg" (click)="dismiss()">{{ "cancel" | translate}}</button>
+      <button type="button" class="btn btn-upload btn-lg" (click)="confirm()">{{ "upload" | translate }}
         <i class="fa fa-cloud-upload"></i>
       </button>
     </div>

@@ -33,6 +33,7 @@ import { LanguageComponent } from './language/language.component';
 import { LocalEventsComponent } from './local-events/local-events.component';
 import { HttpService } from '../providers/http.service';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'language', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },

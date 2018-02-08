@@ -1,21 +1,39 @@
-agm-map {
-    height: 340px;
+/* main color: #00c853  */
+
+/* hover: #00e676 */
+
+.navbar-info {
+  background-color: #00c853;
 }
-.navbar{
-    background-color: #5cb85c;
-    font-size: 10px;  
-  }
-  .fa-arrow-left{
-    color: white;
-  }
-  .header{ 
-    text-align: center; 
-    color: white;
-  } 
-  .header > h1, i{
-    margin-top: 10px;
-  }
-  #back {
-    float: left;
-  }
-  
+
+a {
+  color: #fff;
+  font-weight: bold;
+}
+
+/* back arrow */
+
+.arrow {
+  margin-top: 14px;
+  padding-left: 22px;
+}
+
+.text h1 {
+  /* clear: both; */
+  display: inline-block;
+  overflow: hidden;
+  font-size: 2em ;
+  /* white-space: nowrap; */
+  word-wrap: break-word !important;
+}
+
+agm-map {
+  height: 340px;
+}
+
+body {
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  width: 800px;
+  height: 480px;
+}

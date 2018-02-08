@@ -1,30 +1,29 @@
-<div class="food">
-
-  <!-- header -->
+<!-- header -->
+<div class="row">
   <nav class="navbar navbar-info">
-    <div class="container-fluid">
+    <div class="col-xs-3 arrow">
       <a [routerLink]="['/dashboard']" id="back">
         <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
       </a>
-      <div class="header">
-        <h1>{{ "lookingPlaces" | translate}}</h1>
-      </div>
     </div>
+    <div class="col-xs-6 text-center">
+      <h1>{{"lookingPlaces" | translate}}</h1>
+    </div>
+    <div class="col-xs-3"></div>
   </nav>
+</div>
 
-  <!-- map -->
-  <div class="container">
-    <div class="row">
-      <div class="container">
-        <div class="form-group">
-          <input placeholder="{{ 'searchPlaces' | translate}}" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
-            #search [formControl]="searchControl">
-        </div>
-        <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-        </agm-map>
+<!-- map -->
+<div class="container">
+  <div class="row">
+    <div class="panel-body">
+      <div class="form-group">
+        <input placeholder="{{ 'searchPlaces' | translate}}" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+          class="form-control" #search [formControl]="searchControl">
       </div>
+      <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      </agm-map>
     </div>
   </div>
-
 </div>

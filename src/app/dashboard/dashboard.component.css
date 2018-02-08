@@ -40,20 +40,56 @@ h2.ssb-title {
     position: relative;
     top: 1px;
 }
+/* buttons colors */
 
-.btn-weather {
-    background-color: #c123de;
+/* map button */
+.btn-map {
+    background-color: #00c853;
+}
+.btn-map:hover {
+    background-color: #00e676;
 }
 
+/* bus button */
+.btn-bus {
+    background-color: #ffb300;
+}
+.btn-bus:hover {
+    background-color: #ffea00;
+}
+/* photo button */
+.btn-photo {
+    background-color: #dd2c00;
+}
+.btn-photo:hover {
+    background-color: #ff6e40;
+}
+/* weather button */
+.btn-weather {
+    background-color: #9c27b0;
+}
 .btn-weather:hover {
-    background-color: #9b1bb1;
+    background-color: #e040ed;
+}
+/* localInfo button */
+.btn-localInfo {
+    background-color: #0091ea;
+}
+.btn-localInfo:hover {
+    background-color: #00b8d9;
+}
+/* food button */
+.btn-food {
+    background-color: #ad1457;
+}
+.btn-food:hover {
+    background-color: #ad1430;
 }
 
 .dash {
     height: 800px;
     padding-top: 30px;
 }
-
 .container {
     overflow: hidden;
 }
