@@ -10,6 +10,8 @@ body {
     src: url("./assets/fonts/KBREINDEERGAMES.ttf");
 }
 
+/* font  for text all over ubuntu */
+
 .awesome {
     font-family: KBREINDEERGAMES;
     font-size: 60px;
