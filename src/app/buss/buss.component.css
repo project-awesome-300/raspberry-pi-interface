@@ -3,7 +3,7 @@
 /* hover: #ffea00 */
 
 .navbar-info {
-    background-color: #ffd600;
+    background-color: #ffb300;
 }
 
 a {
@@ -37,7 +37,7 @@ a {
 /* sunday bus button */
 
 .btn-bus {
-    background-color: #ffea00;
+    background-color: #ffc107;
     float: right;
     margin-top: 14px;
 }
@@ -51,8 +51,8 @@ a {
 }
 
 body {
-    background: linear-gradient(45deg, #ffd600, #ffea00);
-    font-family: sans-serif;
+    /* background: linear-gradient(45deg, #ffd600, #ffea00);
+    font-family: sans-serif; */
     overflow-x: hidden !important;
     width: 800px;
     height: 480px;
@@ -87,7 +87,7 @@ th {
 }
 
 thead th {
-    background-color: #ffd600;
+    background-color: #ffb300;
 }
 
 tbody td {
