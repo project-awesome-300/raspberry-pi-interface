@@ -14,8 +14,6 @@ export class ConfirmEmailComponent extends DialogComponent<OpenEmailModal, Close
   @ViewChild('emailField') el: ElementRef;
 
   //these variavbles are implied from the parent dialog component
-  title: string;
-  message: string;
   email: string;
   emailText: string;
 

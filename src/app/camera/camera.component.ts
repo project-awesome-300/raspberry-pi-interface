@@ -101,7 +101,7 @@ export class CameraComponent implements OnInit, DoCheck {
   }
 
   setCameraDimensions(): void {
-    let h = (window.screen.availHeight) - 80;
+    let h = (window.screen.availHeight) - 70;
     let w = this.cameraBox.nativeElement.offsetWidth;
     this.imageWidth = w;
     this.imageHeight = h;
@@ -166,12 +166,7 @@ export class CameraComponent implements OnInit, DoCheck {
   }
 
   submitPhoto() {
-    this._dialogService.addDialog(ConfirmEmailComponent, {
-      title: 'Submit your photo',
-      message: `If you want to tag yourself in a this photo, 
-      enter your email address in the box below.
-       Clicking Upload will save this photo on our website, which you can view at any time on ${this._app.webAddress}`
-    }).subscribe((result: CloseEmailModal) => {
+    this._dialogService.addDialog(ConfirmEmailComponent, {}).subscribe((result: CloseEmailModal) => {
       if (result.submit) {
         this.uploadPhoto(result.email);
         this.logEvent("upload-confirm");
@@ -182,11 +177,11 @@ export class CameraComponent implements OnInit, DoCheck {
 
   showSuccessDialog() {
     this._dialogService.addDialog(GenericModalComponent, {
-      html: `<div class="center"><p class="awesome">${i18next.t("awesome")}!</p><img src="assets/images/smiley-thumbs-up.png" width="300px"></div><div><p>${i18next.t("photoOnWay")}<br />${i18next.t("checkItOut", { x: this._app.webAddress })}</p></div>`,
+      html: `<div class="center"><p class="awesome">${i18next.t("awesome")}!</p><img src="assets/images/smiley-thumbs-up.png" width="300px"><div><p>${i18next.t("photoOnWay")}<br />${i18next.t("checkItOut", { x: 'our mobile app' })}</p></div></div>`,
       time: 5000
     }).subscribe((result: GenericModalClose) => {
       if (result.isClosed)
-        this._router.navigateByUrl('/');
+        this._router.navigateByUrl('/dashboard');
     });
   }
 
