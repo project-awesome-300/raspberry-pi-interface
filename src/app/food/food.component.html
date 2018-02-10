@@ -1,55 +1,41 @@
-<div class="food">
+<!-- header -->
+<nav class="navbar navbar-success">
+  <div class="container-fluid">
+    <a [routerLink]="['/dashboard']" id="back">
+      <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
+    </a>
+    <div class="header">
+      <h1>{{"bestPlaces" | translate}}</h1>
+    </div>
+  </div>
+</nav>
 
-  <!-- header -->
-  <nav class="navbar navbar-success">
-    <div class="container-fluid">
-      <a [routerLink]="['/dashboard']" id="back">
-        <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
-      </a>
-      <div class="header">
-        <h1>{{"bestPlaces" | translate}}</h1>
+<div class="main">
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="notloaded" *ngIf="!loadFinished">
+        <img src="../../assets/images/rainbow.gif" align="middle">
+      </div>
+      <div class="row">
+        <div class="table">
+          <div *ngFor='let i of result'>
+            <div class="col-xs-8 left">{{i.name}}</div>
+            <div class="col-xs-4">
+              <app-star-rating [rating]='i.rating'></app-star-rating>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
-
-  <!-- body -->
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12" #map>
-        <!-- map -->
-        <div class="mapRestaurants">
-          <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-            <agm-marker [latitude]="latitude" [longitude]="longitude">
-              <agm-info-window [disableAutoPan]="true">
-                <strong>You are here!</strong>
-              </agm-info-window>
-            </agm-marker>
-          </agm-map>
-        </div>
-
-        <!-- maybe list of restaurants as buttons and on click to show directions from here to the restaurant -->
-        <!-- list of restaurants -->
-        <div class="listRestaurants">
-          <table class="table">
-            <div class="notloaded" *ngIf="!loadFinished">
-              <img src="../../assets/images/rainbow.gif" align="middle">
-            </div>
-            <div *ngIf='loadFinished'>
-              <thead>
-                <tr>
-                  <th scope="row"></th>
-                </tr>
-              </thead>
-              <tr *ngFor='let i of result | slice:0:8'>
-                <td>{{i.name}}</td>
-                <!-- rating to work on the pie -->
-                <td>
-                  <app-star-rating [rating]='i.rating'></app-star-rating>
-                </td>
-              </tr>
-            </div>
-          </table>
-        </div>
+    <div class="col-xs-6">
+      <div class="mapRestaurants">
+        <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude">
+            <agm-info-window [disableAutoPan]="true">
+              <strong>You are here!</strong>
+            </agm-info-window>
+          </agm-marker>
+        </agm-map>
       </div>
     </div>
   </div>
