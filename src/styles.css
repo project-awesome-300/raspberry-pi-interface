@@ -1,3 +1,8 @@
+* {
+    font-family: 'Ubuntu';
+    src: url("./assets/fonts/Ubuntu-R.ttf");
+}
+
 body {
     overflow-x: hidden !important;
     width: 800px;
@@ -6,11 +11,8 @@ body {
 
 @font-face {
     font-family: "KBREINDEERGAMES";
-    /* why this font? */
     src: url("./assets/fonts/KBREINDEERGAMES.ttf");
 }
-
-/* font for font family:  ubuntu */
 
 .awesome {
     font-family: KBREINDEERGAMES;

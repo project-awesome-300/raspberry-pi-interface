@@ -51,8 +51,6 @@ a {
 }
 
 body {
-    /* background: linear-gradient(45deg, #ffd600, #ffea00);
-    font-family: sans-serif; */
     overflow-x: hidden !important;
     width: 800px;
     height: 480px;
