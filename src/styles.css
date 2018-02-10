@@ -1,8 +1,3 @@
-* {
-    font-family: 'Ubuntu';
-    src: url("./assets/fonts/Ubuntu-R.ttf");
-}
-
 body {
     overflow-x: hidden !important;
     width: 800px;
