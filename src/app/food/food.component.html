@@ -27,6 +27,7 @@
           </agm-map>
         </div>
 
+        <!-- maybe list of restaurants as buttons and on click to show directions from here to the restaurant -->
         <!-- list of restaurants -->
         <div class="listRestaurants">
           <table class="table">
@@ -41,6 +42,7 @@
               </thead>
               <tr *ngFor='let i of result | slice:0:8'>
                 <td>{{i.name}}</td>
+                <!-- rating to work on the pie -->
                 <td>
                   <app-star-rating [rating]='i.rating'></app-star-rating>
                 </td>
