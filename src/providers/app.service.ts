@@ -51,6 +51,7 @@ export class AppService {
 
   set language(lang: string) {
     this._lang = lang;
+    moment.locale(lang);
     this._viewReady = false;
     i18next.changeLanguage(lang, () => { this._viewReady = true });
   }
