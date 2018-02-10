@@ -10,18 +10,15 @@
   </div>
 </nav>
 
-<!-- no need for space between seacrh and navbar
-map can go right and left to max
--->
 <!-- map -->
-<div class="container">
+<div class="main">
   <div class="row">
-    <div class="panel-body">
+    <div class="col-xs-12">
       <div class="form-group">
         <input placeholder="{{ 'searchPlaces' | translate}}" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
           class="form-control" #search [formControl]="searchControl">
       </div>
-      <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+      <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" id="map">
         <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
       </agm-map>
     </div>
