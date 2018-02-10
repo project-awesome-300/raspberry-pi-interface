@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Monoton|Ubuntu');
+
 body {
     overflow-x: hidden !important;
     width: 800px;
     height: 480px;
+}
+* {
+    font-family: 'Ubuntu';
 }
 
 @font-face {

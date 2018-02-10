@@ -4,11 +4,16 @@
 
 .navbar-info {
     background-color: #ffb300;
+    color: #fff;
 }
 
 a {
     color: #fff;
     font-weight: bold;
+}
+
+.center, .bus-button{
+    font-size: 2.0em;
 }
 
 /* back arrow */
@@ -47,22 +52,11 @@ a {
     padding-right: 28px;
 }
 
-.details {
-    margin-top: 150px;
-}
-
 body {
     background: linear-gradient(45deg, #ffd600, #ffea00);
     overflow-x: hidden !important;
     width: 800px;
     height: 480px;
-}
-
-.container {
-    margin-top: 20%;
-    margin-left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 }
 
 .panel-body {
