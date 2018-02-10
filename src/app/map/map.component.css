@@ -10,11 +10,16 @@ a {
   color: #fff;
   font-weight: bold;
 }
+h1{
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
 
 /* back arrow */
 
 .arrow {
-  margin-top: 14px;
+  margin-top: 4px;
   padding-left: 22px;
 }
 
