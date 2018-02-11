@@ -34,5 +34,6 @@
     "what": "What",
     "where": "Where",
     "how" : "How",
-    "localEvents": "Local Events"
+    "localEvents": "Local Events",
+    "Sunday":"SUNDAY (and public holidays)"
 }

@@ -29,5 +29,11 @@
     "temp": "Temperatur",
     "clouds": "Wolken",
     "maxTemp": "Maximale Temperatur",
-    "submitPhoto": "Reichen Sie Ihr Foto ein"
+    "submitPhoto": "Reichen Sie Ihr Foto ein",
+    "when": "Wann",
+    "what": "Was",
+    "where": "Woher",
+    "how" : "Wie",
+    "localEvents": "Lokale Veranstaltungen",
+    "Sunday":"Sonntag (und Feiertage)"
 }
