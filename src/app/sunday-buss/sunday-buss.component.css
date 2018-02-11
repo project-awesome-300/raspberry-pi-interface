@@ -1,10 +1,15 @@
-/* main color:#ffb300  */
+/* main color: #ffb300 */
 
-/* hover:  #ffea00*/
+/* hover: #ffea00 */
 
 .navbar-info {
     background-color: #ffb300;
     color: #fff;
+    font-weight: bold;
+}
+
+.center, .bus-button {
+    font-size: 1.2em;
 }
 
 a {
@@ -12,8 +17,8 @@ a {
     font-weight: bold;
 }
 
-.center, .bus-button{
-    font-size: 2.0em;
+.center {
+    text-align: center;
 }
 
 /* back arrow */
@@ -24,7 +29,7 @@ a {
     margin-bottom: 5px;
 }
 
-.text-center h1 {
+h1 {
     font-size: 2em;
 }
 
@@ -36,14 +41,17 @@ a {
 
 .space2 {
     font-size: 30px;
-    margin-left: 95px;
-    text-align: center;
+    margin-left: 55px;
+}
+
+.details {
+    text-align: center !important;
 }
 
 /* sunday bus button */
 
 .btn-bus {
-    background-color: #ffea00;
+    background-color: #ffc107;
     float: right;
     margin-top: 14px;
 }
@@ -53,14 +61,8 @@ a {
 }
 
 body {
-    background: linear-gradient(45deg, #ffd600, #ffea00);
-    overflow-x: hidden !important;
     width: 800px;
     height: 480px;
-}
-
-.panel-body {
-    margin-top: 0%;
 }
 
 /* table */
@@ -75,17 +77,17 @@ table {
 
 /* hover and lines on touch.click */
 
-th, td {
-    background-color: rgba(255, 255, 0);
-    color: #000;
+th {
+    text-align: center;
 }
 
-th {
-    text-align: left;
+td {
+    text-align: center;
 }
 
 thead th {
-    background-color: #ffd600;
+    background-color: #ffb300;
+    color: black;
 }
 
 tbody td {

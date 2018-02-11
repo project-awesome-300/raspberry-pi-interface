@@ -8,7 +8,7 @@
     font-weight: bold;
 }
 
-.center, .bus-button{
+.center, .bus-button {
     font-size: 1.2em;
 }
 
@@ -17,9 +17,10 @@ a {
     font-weight: bold;
 }
 
-.center{
+.center {
     text-align: center;
 }
+
 /* back arrow */
 
 .arrow {
@@ -27,8 +28,9 @@ a {
     padding-left: 22px;
     margin-bottom: 5px;
 }
- h1{
-    font-size: 2em ;
+
+h1 {
+    font-size: 2em;
 }
 
 /* }space between words */
@@ -42,10 +44,10 @@ a {
     margin-left: 55px;
 }
 
-.details{
+.details {
     text-align: center !important;
-
 }
+
 /* sunday bus button */
 
 .btn-bus {
@@ -58,12 +60,10 @@ a {
     padding-right: 28px;
 }
 
-
 body {
     width: 800px;
     height: 480px;
 }
-
 
 /* table */
 
@@ -78,7 +78,11 @@ table {
 /* hover and lines on touch.click */
 
 th {
-    text-align: left;
+    text-align: center;
+}
+
+td {
+    text-align: center;
 }
 
 thead th {
@@ -88,7 +92,6 @@ thead th {
 
 tbody td {
     position: relative;
-   
 }
 
 tbody td:hover:before {
