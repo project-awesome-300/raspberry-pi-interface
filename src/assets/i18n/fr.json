@@ -29,6 +29,11 @@
     "temp": "Température",
     "clouds": "Nuages",
     "maxTemp": "Températures maximum",
-    "submitPhoto": "Soumettez votre photo"
-    
+    "submitPhoto": "Soumettez votre photo",
+    "when": "Quand",
+    "what": "Quelle",
+    "where": "Où",
+    "how": "Comment",
+    "localEvents": "Evénements Locaux",
+    "sunday": "Dimanche (et jours fériés)"
 }
