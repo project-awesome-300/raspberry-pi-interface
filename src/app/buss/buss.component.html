@@ -11,7 +11,7 @@
     </div>
     <div class="col-xs-3 bus-button">
       <!-- sunday bus need be translated  -->
-      <button  [routerLink]="['/sundaybus']" class="btn btn-bus btn-lg">Sunday Bus
+      <button [routerLink]="['/sundaybus']" class="btn btn-bus btn-lg">Sunday Bus
         <i class="fa fa-bus" aria-hidden="true"></i>
       </button>
     </div>
@@ -65,6 +65,18 @@
   </div>
 </div>
 
+<footer>
+  <div class="details">
+    <p>
+      <!-- footer with  -->
+      <span class="space1"></span>
+      SX = {{"noSunday" | translate}}
+      <span class="space1"> </span>
+      TM = {{"every30Mins" | translate}}
+      <span class="space1"></span>
+      LT = {{"lastBys" | translate}}</p>
+  </div>
+</footer>
 
 
 
