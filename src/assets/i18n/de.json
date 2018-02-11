@@ -33,7 +33,8 @@
     "when": "Wann",
     "what": "Was",
     "where": "Woher",
-    "how" : "Wie",
+    "how": "Wie",
     "localEvents": "Lokale Veranstaltungen",
-    "sunday":"Sonntag (und Feiertage)"
+    "sunday": "Sonntag (und Feiertage)",
+    "waitText": "Wir suchen die besten Restaurants für Sie!"
 }

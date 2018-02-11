@@ -11,14 +11,14 @@
     "lastBys": "último Bus",
     "every30Mins": "Cada 30 minutos hasta LT",
     "sundayBus": "Domingo Bus",
-    "townService": "S1 Sligo Servicio a la ciudad", 
+    "townService": "S1 Sligo Servicio a la ciudad",
     "andPublicHolidays": "{{x}} y días festivos",
     "mondayToSat": "de lunes a sábado (excepto festivos)",
     "tagInSelfie": "Si desea etiquetarse en una foto, ingrese su dirección de correo electrónico en el cuadro siguiente. Al hacer clic en Cargar guardará esta foto en nuestro sitio web, que puede ver en cualquier momento el {{x}}",
     "cancel": "Cancelar",
     "upload": "Subir",
     "email": "Dirección de correo electrónico",
-    "photoOnWay": "Su foto está en camino a nuestro servidor ", 
+    "photoOnWay": "Su foto está en camino a nuestro servidor ",
     "checkItOut": "Compruébalo en {{x}}",
     "awesome": "Increíble",
     "bestPlaces": "Los mejores lugares de la ciudad",
@@ -33,7 +33,8 @@
     "when": "Cuando",
     "what": "Qué",
     "where": "Dónde",
-    "how" : "Cómo",
+    "how": "Cómo",
     "localEvents": "Eventos Locales",
-    "sunday":"DOMINGO (y días festivos)"
+    "sunday": "DOMINGO (y días festivos)",
+    "waitText": "¡Estamos buscando los mejores restaurantes para ti!"
 }
