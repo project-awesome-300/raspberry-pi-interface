@@ -108,7 +108,7 @@ body {
 }
 
 .countdown>i {
-    font-family: KBREINDEERGAMES;
+    font-family: KBREINDEERGAMES !important;
 }
 
 .camera-view {
