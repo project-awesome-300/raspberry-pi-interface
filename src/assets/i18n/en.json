@@ -35,5 +35,6 @@
     "where": "Where",
     "how" : "How",
     "localEvents": "Local Events",
-    "sunday":"Sunday (and public holidays)"
+    "sunday":"Sunday (and public holidays)",
+    "waitText":"We are searching for best restaurants for you!"
 }
