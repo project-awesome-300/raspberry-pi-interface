@@ -5,6 +5,8 @@ a:focus {
 }
 
 .square-service-block {
+    height: 209px !important;
+
     position: relative;
     overflow: hidden;
     margin: 15px auto;
