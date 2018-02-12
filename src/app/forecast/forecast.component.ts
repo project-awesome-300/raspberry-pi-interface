@@ -20,40 +20,29 @@ export class ForecastComponent implements OnInit {
   constructor(private ws: WeatherService, private _app: AppService) { }
 
   ngOnInit() {
-    this.ws.forecastWeather(this._app.lat, this._app.lng).subscribe((data) => {
-
-      for (let i = 0; i < data.list.length; i += 1) 
-        this.days[i] = new Forecast(
-          data.city.name,
-          data.list[i].main.temp_max,
-          data.list[i].main.temp_min,
-          data.list[i].dt_txt,
-          data.list[i].weather[0].icon,
-          data.list[i].weather[0].description,
-          data.list[i].wind.speed,
-          data.list[i].clouds.all
-        )
-        });
-        // const forecastWeather = {
-        //   cityName: data.city.name,
-        //   maxTemp: data.list[i].main.temp_max,
-        //   minTemp: data.list[i].main.temp_min,
-        //   date: data.list[i].dt_txt,
-        //   icon: data.list[i].weather[0].icon,
-        //   desc: data.list[i].weather[0].description,
-        //   wind: data.list[i].wind.speed,
-        //   clouds: data.list[i].clouds.all
-        
-       // this.myForecast.push(this.days);
-
-        this.fullDays = _.groupBy(this.days, function (row) {
-          return moment(row.date).format("DDMMYYYY")
-        })
-        // _.orderBy('date', 'asc');
-      }
-
-  generateArray(obj) {
-    return Object.keys(obj).map((key) => { return obj[key] });
-  }
-
+    this.ws.forecastWeather(this._app.lat, this._app.lng).subscribe((data) => { 
+ 
+      for (let i = 0; i < data.list.length; i += 1) { 
+        this.days[i] = new Forecast( 
+         data.city.name, 
+          data.list[i].main.temp_max, 
+          data.list[i].main.temp_min, 
+          data.list[i].dt_txt, 
+          data.list[i].weather[0].icon, 
+          data.list[i].weather[0].description, 
+          data.list[i].wind.speed, 
+          data.list[i].clouds.all 
+        ); 
+        //this.myForecast.push(this.days); 
+ 
+        this.fullDays = _.groupBy(this.days, function (row) { 
+          return moment(row.date).format("DDMMYYYY") 
+        }) 
+        // _.orderBy('date', 'asc'); 
+      } 
+    }) 
+  } 
+  generateArray(obj) { 
+    return Object.keys(obj).map((key) => { return obj[key] }); 
+  } 
 }
