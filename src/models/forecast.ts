@@ -4,6 +4,10 @@ export class Forecast {
         public maxTemp: string,
         public minTemp: string,
         public date: string,
-        public img: string) { }
+        public icon: string,
+        public desc: string,
+        public wind: string,
+        public clouds: string      
+    ) { }
 }
 
