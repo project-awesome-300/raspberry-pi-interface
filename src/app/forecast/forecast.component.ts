@@ -16,6 +16,7 @@ export class ForecastComponent implements OnInit {
   //myForecast: Object[] = [];
   fullDays: Forecast[] = [];
   days: Forecast[] = [];
+  ChangeView: Boolean = true;
 
   constructor(private ws: WeatherService, private _app: AppService) { }
 
@@ -42,7 +43,7 @@ export class ForecastComponent implements OnInit {
       } 
     }) 
   } 
-  generateArray(obj) { 
-    return Object.keys(obj).map((key) => { return obj[key] }); 
+  generateArray(Forecast) { 
+    return Object.keys(Forecast).map((key) => { return Forecast[key] }); 
   } 
 }

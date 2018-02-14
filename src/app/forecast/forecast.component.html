@@ -8,8 +8,22 @@
     <div class="col-xs-6 text-center">
       <h1>{{"weather" | translate}}</h1>
     </div>
-    <div class="col-xs-3">
+    <div class="col-xs-3 next-button" *ngIf="ChangeView; else ElseButtonBlock">
+      <!-- <a [routerLink]="['/current']"> -->
+        <button class="btn nextDay-button btn-lg" (click)="ChangeView = !ChangeView">Next days
+        <i class="fa fa-sun-o" aria-hidden="true" ></i>
+        <!-- <i class="fa fa-arrow-left fa-4x" aria-hidden="true" (click)="ChangeView = !ChangeView"></i> -->
+      <!-- </a> -->
+      </button>
     </div>
+    <ng-template class="col-xs-3 next-button" #ElseButtonBlock>
+        <!-- <a [routerLink]="['/current']"> -->
+          <button class="btn nextDay-button btn-lg" (click)="ChangeView = !ChangeView">Previous days
+          <i class="fa fa-sun-o" aria-hidden="true" ></i>
+          <!-- <i class="fa fa-arrow-left fa-4x" aria-hidden="true" (click)="ChangeView = !ChangeView"></i> -->
+        <!-- </a> -->
+        </button>
+      </ng-template>
   </nav>
 </div>
 
@@ -21,48 +35,92 @@
     </div> -->
     <div class="row">
       <!-- <div class="col-xs-8">
-      <div class=" gradient"> -->
-      <div *ngFor="let days of generateArray(fullDays)">
+              <div class=" gradient"> -->
+      <div *ngFor="let days of generateArray(fullDays); let i = index">
         <!-- <div class="row"> -->
         <!-- <div class="col-6"> -->
         <!-- <h2>{{days[0].date | date: 'EEEE MMMM d'}}</h2> -->
-        <div class="sm-days columns">
-          <div class="day">
-            <h2>{{days[0].date | moment: 'dddd'}}</h2>
-          </div>
-
-          <div class="day-weather-icon">
-            <img src="http://openweathermap.org/img/w/{{ days[0].icon }}.png">
-          </div>
-          <div class="day-weather-info">
-            <p class="temp col-6">{{days[0].desc | capitalize}}</p>
-          </div>
-          <!-- <div class="col-6"> -->
-          <div class="day-weather-wind">
-            <i class="wi wi-wind">
-              {{days[0].wind }}m/s
-            </i>
-          </div>
-          <div class="day-weather-maxMin">
-            <h5>
-              <i class="wi wi-thermometer">
-                Max: {{days[0].maxTemp}}
-                <sup>&deg;</sup>C
-              </i>
-              <span class="space"></span>
-              <i class=" wi wi-thermometer-exterior">
-                Min: {{days[0].minTemp}}
-                <sup>&deg;</sup>C
-              </i>
-            </h5>
-          </div>
-          <div class="day-weather-clouds">
-            <i class="wi wi-cloudy">
-              {{days[0].clouds}}%
-            </i>
+        <div *ngIf="ChangeView; else elseBlock">
+          <div *ngIf="i<3">
+            <div class="sm-days columns">
+              <div class="day">
+                <h2>{{days[0].date | moment: 'dddd'}}</h2>
+              </div>
+    
+              <div class="day-weather-icon">
+                <img src="http://openweathermap.org/img/w/{{ days[0].icon }}.png">
+              </div>
+              <div class="day-weather-info">
+                <p class="temp col-6">{{days[0].desc | capitalize}}</p>
+              </div>
+              <!-- <div class="col-6"> -->
+              <div class="day-weather-wind">
+                <i class="wi wi-wind">
+                  {{days[0].wind }}m/s
+                </i>
+              </div>
+              <div class="day-weather-maxMin">
+                <h5>
+                  <i class="wi wi-thermometer">
+                    Max: {{days[0].maxTemp}}
+                    <sup>&deg;</sup>C
+                  </i>
+                  <span class="space"></span>
+                  <i class=" wi wi-thermometer-exterior">
+                    Min: {{days[0].minTemp}}
+                    <sup>&deg;</sup>C
+                  </i>
+                </h5>
+              </div>
+              <div class="day-weather-clouds">
+                <i class="wi wi-cloudy">
+                  {{days[0].clouds}}%
+                </i>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+        <ng-template #elseBlock>
+            <div *ngIf="i>=3">
+              <div class="sm-days columns">
+                <div class="day">
+                  <h2>{{days[0].date | moment: 'dddd'}}</h2>
+                </div>
+      
+                <div class="day-weather-icon">
+                  <img src="http://openweathermap.org/img/w/{{ days[0].icon }}.png">
+                </div>
+                <div class="day-weather-info">
+                  <p class="temp col-6">{{days[0].desc | capitalize}}</p>
+                </div>
+                <!-- <div class="col-6"> -->
+                <div class="day-weather-wind">
+                  <i class="wi wi-wind">
+                    {{days[0].wind }}m/s
+                  </i>
+                </div>
+                <div class="day-weather-maxMin">
+                  <h5>
+                    <i class="wi wi-thermometer">
+                      Max: {{days[0].maxTemp}}
+                      <sup>&deg;</sup>C
+                    </i>
+                    <span class="space"></span>
+                    <i class=" wi wi-thermometer-exterior">
+                      Min: {{days[0].minTemp}}
+                      <sup>&deg;</sup>C
+                    </i>
+                  </h5>
+                </div>
+                <div class="day-weather-clouds">
+                  <i class="wi wi-cloudy">
+                    {{days[0].clouds}}%
+                  </i>
+                </div>
+              </div>
+            </div>
+          <!-- </div> -->
+        </ng-template>
     </div>
-  </div>
-</div>
+    </div>
+    </div>

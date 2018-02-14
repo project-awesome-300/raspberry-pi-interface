@@ -20,6 +20,7 @@ a {
 }
 .text-center h1{
     font-size: 2em ;
+    color:white;
 }
 
 body {
@@ -88,6 +89,7 @@ body {
     /* margin-left: 15px; */
     /* max-height: 400px; */
     overflow: hidden;
+    margin-top: 10px;
 }
 
 /* Week Days Section */
@@ -132,8 +134,17 @@ body {
     animation-name: fadeIn;
     animation-duration: 1s;
     animation-fill-mode: both;
+    width: 33%;
 }
 
 .space {
     margin-right: 200px;
+}
+.next-button {
+    padding-right: 28px;
+}
+.nextDay-button {
+    background-color: #9c27b0;
+    float: right;
+    margin-top: 14px;
 }

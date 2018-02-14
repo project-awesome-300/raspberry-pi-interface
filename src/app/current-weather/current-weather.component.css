@@ -1,7 +1,9 @@
 /* main color : #9c27b0*/
 
 /* hover: #e040ed */
-
+h1{
+    color: white;
+}
 img {
     width: 100px;
     height: 100px;
