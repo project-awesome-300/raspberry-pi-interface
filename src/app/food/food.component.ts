@@ -21,6 +21,7 @@ export class FoodComponent implements OnInit {
   private _event: AnalyticsEvent;
   private map: any;
   public placeLoc: any;
+  public place: any;
 
 
   constructor(
@@ -41,6 +42,7 @@ export class FoodComponent implements OnInit {
 
   onMapLoad(map) {
     console.log(map);
+    this.map = map;
     setTimeout(() => {
       this.draw(map);
     }, 2000);
@@ -63,20 +65,20 @@ export class FoodComponent implements OnInit {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
           // here are my coord for restaurants
-          const place = results[i];
-           this.placeLoc = place.geometry.location;
+          this.place = results[i];
+          this.placeLoc = this.place.geometry.location;
 
           var marker = new google.maps.Marker({
             map: map,
-            position: place.geometry.location,
+            position: this.place.geometry.location,
             icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
           });
           var infowindow = new google.maps.InfoWindow({
           });
           var self = this;
           google.maps.event.addListener(marker, 'click', function () {
-            self.logEvent("pin-click", place.name)
-            infowindow.setContent('<div><strong>' + place.name + '</strong><br>');
+            self.logEvent("pin-click", this.place.name)
+            infowindow.setContent('<div><strong>' + this.place.name + '</strong><br>');
             infowindow.open(map, this);
           });
         }
@@ -97,18 +99,19 @@ export class FoodComponent implements OnInit {
   findRoute() {
     console.log('findRouteClicked');
     // var place: google.maps.places.PlaceResult ;
+    var instance = this;
     var markerArray = [];
     var directionsDisplay = new google.maps.DirectionsRenderer({
       map: this.map
     });
     var directionsService = new google.maps.DirectionsService;
     directionsService.route({
-      origin: {lat:this.latitude,  lng:this.longitude},
-      destination: this.placeLoc,
+      origin: { lat: this.latitude, lng: this.longitude },
+      destination: this.place.geometry.location,
       travelMode: google.maps.TravelMode.DRIVING
     }, function (response: any, status: any) {
       if (status === 'OK') {
-        // this.map.setZoom(30);
+        instance.map.setZoom(30);
         var point = response.routes[0].legs[0];
 
         var myRoute = response.routes[0].legs[0];
@@ -124,9 +127,6 @@ export class FoodComponent implements OnInit {
     }
     );
   }
-
-
-
 
   // google analytics
   logEvent(type: string, label: string) {
