@@ -33,10 +33,10 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     //set google maps initial values
-    
+
     //create FormControl instance for search
     this.searchControl = new FormControl();
-    
+
     //set current position
     this.zoom = 12;
     this.latitude = this._app.lat;
@@ -46,7 +46,7 @@ export class MapComponent implements OnInit {
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(
         this.searchElementRef.nativeElement, {
-          componentRestrictions: {country: "ie",  }
+          componentRestrictions: { country: "ie", }
         });
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
@@ -62,7 +62,9 @@ export class MapComponent implements OnInit {
 
           var instance = this;
           var markerArray = [];
-          var directionsDisplay = new google.maps.DirectionsRenderer({ map: this.map });
+          var directionsDisplay = new google.maps.DirectionsRenderer({
+            map: this.map
+          });
           var directionsService = new google.maps.DirectionsService;
           directionsService.route({
             origin: { lat: this.latitude, lng: this.longitude },

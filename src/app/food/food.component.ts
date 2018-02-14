@@ -19,9 +19,15 @@ export class FoodComponent implements OnInit {
   public result: any[];
   public loadFinished: boolean = false;
   private _event: AnalyticsEvent;
+  private map: any;
 
 
-  constructor(private _googleAnalyticsEventsService: GoogleAnalyticsEventsService, private _app: AppService) {
+  constructor(
+    private _googleAnalyticsEventsService: GoogleAnalyticsEventsService,
+    private _app: AppService,
+    private mapsAPILoader: MapsAPILoader,//load google places api 
+
+  ) {
     this.latitude = this._app.lat;
     this.longitude = this._app.lng;
   }
@@ -34,9 +40,7 @@ export class FoodComponent implements OnInit {
 
   onMapLoad(map) {
     console.log(map);
-
     setTimeout(() => {
-
       this.draw(map);
     }, 2000);
 
@@ -57,6 +61,7 @@ export class FoodComponent implements OnInit {
       this.loadFinished = true;
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
+          // here are my coord for restaurants
           const place = results[i];
           var placeLoc = place.geometry.location;
 
@@ -88,14 +93,45 @@ export class FoodComponent implements OnInit {
     }
   }
 
+  findRoute() {
+    console.log('findRouteClicked');
+    var place: google.maps.places.PlaceResult ;
+    var markerArray = [];
+    var directionsDisplay = new google.maps.DirectionsRenderer({
+      map: this.map
+    });
+    var directionsService = new google.maps.DirectionsService;
+    directionsService.route({
+      origin: {lat:this.latitude,  lng:this.longitude},
+      destination: place.geometry.location,
+      travelMode: google.maps.TravelMode.DRIVING
+    }, function (response: any, status: any) {
+      if (status === 'OK') {
+        this.map.setZoom(30);
+        var point = response.routes[0].legs[0];
+
+        var myRoute = response.routes[0].legs[0];
+        directionsDisplay.setDirections(response);
+        for (var i = 0; i < myRoute.steps.lenght; i++) {
+          var marker = markerArray[i] = markerArray[i] || new google.maps.Marker;
+          marker.setPosition(myRoute.steps[i].start_location);
+        }
+      }
+      else {
+        console.log('Directions request failed due to ' + status);
+      }
+    }
+    );
+  }
+
+
+
+
+  // google analytics
   logEvent(type: string, label: string) {
     this._event.eventAction = type;
     this._event.eventLabel = label;
     this._googleAnalyticsEventsService.emitEvent(this._event);
-  }
-
-  findRoute() {
-    console.log('findRouteClicked');
   }
 
 }
