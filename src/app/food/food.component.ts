@@ -20,6 +20,7 @@ export class FoodComponent implements OnInit {
   public loadFinished: boolean = false;
   private _event: AnalyticsEvent;
   private map: any;
+  public placeLoc: any;
 
 
   constructor(
@@ -63,7 +64,7 @@ export class FoodComponent implements OnInit {
         for (var i = 0; i < results.length; i++) {
           // here are my coord for restaurants
           const place = results[i];
-          var placeLoc = place.geometry.location;
+           this.placeLoc = place.geometry.location;
 
           var marker = new google.maps.Marker({
             map: map,
@@ -95,7 +96,7 @@ export class FoodComponent implements OnInit {
 
   findRoute() {
     console.log('findRouteClicked');
-    var place: google.maps.places.PlaceResult ;
+    // var place: google.maps.places.PlaceResult ;
     var markerArray = [];
     var directionsDisplay = new google.maps.DirectionsRenderer({
       map: this.map
@@ -103,11 +104,11 @@ export class FoodComponent implements OnInit {
     var directionsService = new google.maps.DirectionsService;
     directionsService.route({
       origin: {lat:this.latitude,  lng:this.longitude},
-      destination: place.geometry.location,
+      destination: this.placeLoc,
       travelMode: google.maps.TravelMode.DRIVING
     }, function (response: any, status: any) {
       if (status === 'OK') {
-        this.map.setZoom(30);
+        // this.map.setZoom(30);
         var point = response.routes[0].legs[0];
 
         var myRoute = response.routes[0].legs[0];
