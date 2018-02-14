@@ -93,4 +93,9 @@ export class FoodComponent implements OnInit {
     this._event.eventLabel = label;
     this._googleAnalyticsEventsService.emitEvent(this._event);
   }
+
+  findRoute() {
+    console.log('findRouteClicked');
+  }
+
 }
