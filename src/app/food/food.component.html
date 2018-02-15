@@ -22,7 +22,7 @@
       <div class="row">
         <div class="table">
           <div *ngFor='let i of result'>
-            <div class="col-xs-8 left" on-click='findRoute()'>
+            <div class="col-xs-8 left" on-click='findRoute(i)'>
               <button>{{i.name}}</button>
             </div>
             <div class="col-xs-4">
