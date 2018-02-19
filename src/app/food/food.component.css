@@ -80,3 +80,10 @@
     text-align: center;
     margin-top: 45px;
 }
+hr{
+    margin-top: 1px;
+    margin-bottom: 5px;
+    border-width: 1.5px;
+    color: #ad1457;
+    border-style: solid;
+}

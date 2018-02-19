@@ -22,11 +22,12 @@
       <div class="row">
         <div class="table">
           <div *ngFor='let i of result'>
-            <div class="col-xs-8 left" on-click='findRoute()'>
-              <button>{{i.name}}</button>
+            <div class="col-xs-8 left" on-click='findRoute(i)'>
+              {{i.name}}
+              <hr>
             </div>
             <div class="col-xs-4">
-              <app-star-rating [rating]='i.rating'></app-star-rating>
+              <app-star-rating [rating]='i.rating'></app-star-rating>    
             </div>
           </div>
         </div>

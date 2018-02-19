@@ -20,8 +20,11 @@ export class FoodComponent implements OnInit {
   public loadFinished: boolean = false;
   private _event: AnalyticsEvent;
   private map: any;
-  public placeLoc: any;
-  public place: any;
+  private placeLoc: any;
+  private place: any;
+  private markerArray = [];
+  private directionsDisplay: any;
+  private directionsService: any;
 
 
   constructor(
@@ -64,7 +67,7 @@ export class FoodComponent implements OnInit {
       this.loadFinished = true;
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-          // here are my coord for restaurants
+          //coord for restaurants
           this.place = results[i];
           this.placeLoc = this.place.geometry.location;
 
@@ -84,6 +87,10 @@ export class FoodComponent implements OnInit {
         }
       }
     });
+    this.directionsDisplay = new google.maps.DirectionsRenderer({
+      map: this.map
+    });
+    this.directionsService = new google.maps.DirectionsService;
   }
 
   private setCurrentPosition() {
@@ -96,36 +103,22 @@ export class FoodComponent implements OnInit {
     }
   }
 
-  findRoute() {
+  findRoute(place) {
     console.log('findRouteClicked');
-    // var place: google.maps.places.PlaceResult ;
-    var instance = this;
-    var markerArray = [];
-    var directionsDisplay = new google.maps.DirectionsRenderer({
-      map: this.map
-    });
-    var directionsService = new google.maps.DirectionsService;
-    directionsService.route({
+    this.directionsService.route({
       origin: { lat: this.latitude, lng: this.longitude },
-      destination: this.place.geometry.location,
+      destination: place.geometry.location,
       travelMode: google.maps.TravelMode.DRIVING
-    }, function (response: any, status: any) {
+    }, (response: any, status: any) => {
       if (status === 'OK') {
-        instance.map.setZoom(30);
-        var point = response.routes[0].legs[0];
-
+        this.map.setZoom(30);
         var myRoute = response.routes[0].legs[0];
-        directionsDisplay.setDirections(response);
-        for (var i = 0; i < myRoute.steps.lenght; i++) {
-          var marker = markerArray[i] = markerArray[i] || new google.maps.Marker;
-          marker.setPosition(myRoute.steps[i].start_location);
-        }
+        this.directionsDisplay.setDirections(response);
       }
       else {
         console.log('Directions request failed due to ' + status);
       }
-    }
-    );
+    });
   }
 
   // google analytics
