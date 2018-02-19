@@ -10,8 +10,8 @@
         </div>
     </nav>
     <div class="container">
-        <table class="table table-striped">
-            <thead>
+        <!-- <table class="table table-striped">
+            <thead class="fixed-top">
                 <tr>
                     <th class="middle">
                         <i class="fa fa-question-circle" aria-hidden="true"></i>
@@ -19,10 +19,11 @@
                     <th>{{ "when" | translate }}</th>
                     <th>{{ "what" | translate }}</th>
                     <th>{{ "where" | translate }}</th>
-                    <!-- no need for how -->
-                    <th>{{ "how" | translate }}</th>
+                    
+                <th>{{ "how" | translate }}</th>
                 </tr>
             </thead>
+
             <tbody>
                 <tr *ngFor="let evt of events">
                     <td>
@@ -30,12 +31,58 @@
                     </td>
                     <td>{{evt.startTime}}</td>
                     <td>{{evt.name}}</td>
-                    <!-- what does that id mean? -->
                     <td>{{evt.eventCategoryId}}</td>
-                    <td class="middle"><a href=""> <i class="fa fa-map fa-2x" aria-hidden="true"></i></a></td>
+                    <td class="middle">
+                        <a href="">
+                            <i class="fa fa-map fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </td>
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
 
-</div>
+
+
+    <div>
+            <div class="row titles">
+                    <div class="col-xs-1 col-cs-offset-1 middle">
+    
+                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-xs-2">
+                        {{ "when" | translate }}
+                    </div>
+                    <div class="col-xs-7">
+                        {{ "what" | translate }}
+                    </div>
+                    <div class="col-xs-1">
+                        {{ "where" | translate }}
+                    </div>
+                    <div class="col-xs-1">
+                        {{ "how" | translate }}
+                    </div>
+                </div>
+    <div>
+        <div>
+           
+        </div>
+        <div class="data">
+        <div *ngFor="let evt of events" class="row">
+            <!-- <div class="row"> -->
+            <div class="col-xs-1 col-cs-offset-1">
+                <i class="fa fa-music fa-2x"></i>
+            </div>
+            <div class="col-xs-2">{{evt.startTime}}</div>
+            <div class="col-xs-7">{{evt.name}}</div>
+            <!-- what does that id mean? -->
+            <div class="col-xs-1">{{evt.eventCategoryId}}</div>
+            <div class="col-xs-1">
+                <a href="">
+                    <i class="fa fa-map fa-2x" aria-hidden="true"></i>
+                </a>
+            </div>
+            <!-- </div> -->
+        </div>
+        </div>
+    </div>
