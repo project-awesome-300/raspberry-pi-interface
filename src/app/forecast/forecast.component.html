@@ -10,7 +10,7 @@
     </div>
     <div class="col-xs-3 next-button" *ngIf="ChangeView; else ElseButtonBlock">
       <!-- <a [routerLink]="['/current']"> -->
-        <button class="btn nextDay-button btn-lg" (click)="ChangeView = !ChangeView">Next days
+        <button class="btn nextDay-button btn-lg" (click)="ChangeView = !ChangeView"><span>Next days</span>
         <i class="fa fa-sun-o" aria-hidden="true" ></i>
         <!-- <i class="fa fa-arrow-left fa-4x" aria-hidden="true" (click)="ChangeView = !ChangeView"></i> -->
       <!-- </a> -->
@@ -18,7 +18,7 @@
     </div>
     <ng-template class="col-xs-3 next-button" #ElseButtonBlock>
         <!-- <a [routerLink]="['/current']"> -->
-          <button class="btn nextDay-button btn-lg" (click)="ChangeView = !ChangeView">Previous days
+          <button class="btn nextDay-button btn-lg previous" (click)="ChangeView = !ChangeView"><span>Previous days</span>
           <i class="fa fa-sun-o" aria-hidden="true" ></i>
           <!-- <i class="fa fa-arrow-left fa-4x" aria-hidden="true" (click)="ChangeView = !ChangeView"></i> -->
         <!-- </a> -->
