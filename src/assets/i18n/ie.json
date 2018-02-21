@@ -19,7 +19,7 @@
     "upload": "Uaslódáil",
     "email": "Seoladh R-Phoist",
     "photoOnWay": "Tá do ghrianghraf ar a bhealach go dtí an freastalaí. ",
-    "checkItOut": "Check it out on {{x}}",
+    "checkItOut": "Cás do shúil ar {{x}}",
     "awesome": "Iontach",
     "bestPlaces": "Na háiteanna is fearr sa bhaile",
     "search": "Cuardaigh",
@@ -29,6 +29,13 @@
     "temp": "Teocht",
     "clouds": "Na Scamaill",
     "maxTemp": "Uasteocht",
-    "submitPhoto": "Cur isteach do ghrianghraif"
+    "submitPhoto": "Cur isteach do ghrianghraif",
+    "when": "Cathain",
+    "what": "Cad",
+    "where": "Cá",
+    "how" : "Conas",
+    "localEvents": "Imeachtaí Áitiúla",
+    "sunday":"Dé Domhnaigh (agus saoire phoiblí)",
+    "waitText":"Táimid ag cuardach na bialanna is fearr duit! "
 
 }
