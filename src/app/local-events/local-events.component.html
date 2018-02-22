@@ -1,7 +1,7 @@
 <div class="local-events">
         <!--  change local info  to local events  -->
     <nav class="navbar navbar-info fixed-top">
-        <div class="container-fluid">
+        <div>
             <a [routerLink]="['/dashboard']" id="back">
                 <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
             </a>
@@ -60,7 +60,7 @@
                     <div class="col-xs-1">
                         {{ "where" | translate }}
                     </div>
-                    <div class="col-xs-1">
+                    <div class="col-xs-1 how">
                         {{ "how" | translate }}
                     </div>
                 </div>
@@ -74,15 +74,16 @@
             <div class="col-xs-1 col-cs-offset-1">
                 <i class="fa fa-music fa-2x"></i>
             </div>
-            <div class="col-xs-2">{{evt.startTime}}</div>
+            <div class="col-xs-2"><span>{{evt.startTime}}</span></div>
             <div class="col-xs-7">{{evt.name}}</div>
             <!-- what does that id mean? -->
-            <div class="col-xs-1">{{evt.eventCategoryId}}</div>
-            <div class="col-xs-1">
+            <div class="col-xs-1 middle">{{evt.eventCategoryId}}</div>
+            <div class="col-xs-1 middle">
                 <a href="">
                     <i class="fa fa-map fa-2x" aria-hidden="true"></i>
                 </a>
             </div>
+            <hr>
             <!-- </div> -->
         </div>
         </div>

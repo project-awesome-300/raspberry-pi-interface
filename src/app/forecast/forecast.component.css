@@ -1,7 +1,9 @@
 /* main color : #9c27b0 */
 
 /* hover: #e040ed */
-
+span{
+  color: white;
+}
 .navbar-info {
     background-color: #9c27b0;
 }
@@ -147,4 +149,10 @@ body {
     background-color: #9c27b0;
     float: right;
     margin-top: 14px;
+}
+.fa-sun-o{
+    color: white;
+}
+.previous{
+    margin-right: 30px;
 }
