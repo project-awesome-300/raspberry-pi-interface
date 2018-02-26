@@ -13,7 +13,8 @@ export class AppService {
   private _lng: number;
   private _lang: string;
   private _viewReady = false;
-
+  private _locationID: number;
+ 
 
   constructor() {
     this._webAddress = "www.project-awesome.com";
@@ -23,6 +24,12 @@ export class AppService {
     this.getLatLngCoOrdinates();
     this._lang = 'en';
     this.loadTranslations();
+    this._locationID = 11;
+  }
+
+
+  get locationID(): number {
+    return this._locationID;
   }
 
 

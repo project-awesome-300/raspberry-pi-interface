@@ -77,3 +77,16 @@
     font-weight: bold;
     font-size: 15px;
 }
+.loading{
+    font-size: 8em;
+    color: #337AB7;
+    position: absolute;
+    left: 45%;
+    top: 30%;
+}
+.date{
+    font-size: 1.2em;
+}
+p{
+    margin-bottom: 1px;
+}

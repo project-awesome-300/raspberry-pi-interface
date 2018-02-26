@@ -9,7 +9,7 @@ export class HttpService {
   private _baseURL: string;
 
   constructor(private _http: Http) {
-    this._baseURL = '../assets/data/mock-events.json';
+    this._baseURL = 'https://sallinet.azurewebsites.net/api/myEvents';
   }
 
   private _errorHandler(error: Response) {
@@ -17,8 +17,8 @@ export class HttpService {
   }
 
   
-  fetchLocalEvents() {
-    return this._http.get(this._baseURL)
+  fetchLocalEvents(locationID: number) {
+    return this._http.get(`${this._baseURL}/${locationID}`)
       .map((res: Response) => <ILocalEvent[]>res.json())
       .catch(this._errorHandler);
   }

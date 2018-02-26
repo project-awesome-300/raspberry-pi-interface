@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../providers/http.service';
 import { ILocalEvent } from '../../models/ILocalEvent';
+import { AppService } from '../../providers/app.service';
 
 @Component({
   selector: 'app-local-events',
@@ -9,11 +10,17 @@ import { ILocalEvent } from '../../models/ILocalEvent';
 })
 export class LocalEventsComponent implements OnInit {
 
+  public isLoading: boolean;
+
   public events: Array<ILocalEvent>;
-  constructor(private _http: HttpService) { }
+  constructor(private _http: HttpService, private _app: AppService) {
+    this.isLoading = true;
+
+  }
 
   ngOnInit() {
-    this._http.fetchLocalEvents().subscribe((result: ILocalEvent[]) => {
+    this._http.fetchLocalEvents(this._app.locationID).subscribe((result: ILocalEvent[]) => {
+      this.isLoading = false;
       this.events = result;
     })
   }

@@ -1,4 +1,4 @@
-export interface ILocalEvent{
+export interface ILocalEvent {
     eventId: number;
     name: string;
     priority: number;
@@ -8,7 +8,7 @@ export interface ILocalEvent{
     eventCategoryId: number;
     locationId: number;
     organiserId: number;
-    assocatiatedLocation: {};
+    assocatiatedLocation: { county: string, lat: number, lng: number, locationID: number, name: string, town: string };
     associatedOrganiser: {};
     associatedEventGroup: {}
 
