@@ -1,10 +1,12 @@
 <!-- header -->
 <nav class="navbar navbar-success">
   <div class="container-fluid">
+    <!-- back to dashboard -->
     <a [routerLink]="['/dashboard']" id="back">
       <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
     </a>
     <div class="header">
+      <!-- header title -->
       <h1>{{"bestPlaces" | translate}}</h1>
     </div>
   </div>
@@ -15,28 +17,36 @@
     <div class="col-xs-6">
       <div class="notloaded" *ngIf="!loadFinished">
         <p class="wait-text">
+          <!-- wait text for loading list of restaurants -->
           {{"waitText" | translate}}
         </p>
+        <!-- spinner for loading -->
         <img src="../../assets/images/rainbow.gif" align="middle">
       </div>
       <div class="row">
         <div class="table">
+          <!-- list of restaurants -->
           <div *ngFor='let i of result'>
+            <!-- on click, draw route for clicked restaurant -->
             <div class="col-xs-8 left" on-click='findRoute(i)'>
               {{i.name}}
               <hr>
             </div>
+            <!-- star -->
             <div class="col-xs-4">
-              <app-star-rating [rating]='i.rating'></app-star-rating>    
+              <app-star-rating [rating]='i.rating'></app-star-rating>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col-xs-6">
+      <!-- draw map  -->
       <div class="mapRestaurants">
         <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+          <!-- draw markers for restaurants  -->
           <agm-marker [latitude]="latitude" [longitude]="longitude">
+            <!-- your position -->
             <agm-info-window [disableAutoPan]="true">
               <strong>You are here!</strong>
             </agm-info-window>
