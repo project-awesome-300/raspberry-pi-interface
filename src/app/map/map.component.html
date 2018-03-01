@@ -1,10 +1,12 @@
 <!-- header -->
 <nav class="navbar navbar-info">
   <div class="col-xs-1 arrow">
+    <!-- back to dashboard -->
     <a [routerLink]="['/dashboard']" id="back">
       <i class="fa fa-arrow-left fa-4x" aria-hidden="true"></i>
     </a>
   </div>
+  <!-- header title -->
   <div class="col-xs-11 text-center">
     <h1>{{"lookingPlaces" | translate}}</h1>
   </div>
@@ -15,10 +17,13 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="form-group">
+        <!-- search for places around you -->
         <input placeholder="{{ 'searchPlaces' | translate}}" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
           class="form-control" #search [formControl]="searchControl">
       </div>
-      <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" id="map">
+      <!-- draw map  and route beetwen the 2 markers-->
+      <agm-map (mapReady)="onMapLoad($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom"
+        id="map">
         <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
       </agm-map>
     </div>
