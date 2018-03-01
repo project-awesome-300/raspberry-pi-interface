@@ -11,6 +11,7 @@ import { AppService } from '../../providers/app.service';
 })
 
 export class MapComponent implements OnInit {
+  // global variables needed
   public latitude: number;
   public longitude: number;
   public searchControl: FormControl;
@@ -27,16 +28,15 @@ export class MapComponent implements OnInit {
     private _app: AppService
   ) { }
 
+  // from gmaps api
   onMapLoad(map) {
     this.map = map;
   }
 
   ngOnInit() {
     //set google maps initial values
-
     //create FormControl instance for search
     this.searchControl = new FormControl();
-
     //set current position
     this.zoom = 12;
     this.latitude = this._app.lat;
@@ -46,6 +46,7 @@ export class MapComponent implements OnInit {
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(
         this.searchElementRef.nativeElement, {
+          //restrict google maps to ir for a better searching
           componentRestrictions: { country: "ie", }
         });
       autocomplete.addListener("place_changed", () => {
@@ -54,40 +55,43 @@ export class MapComponent implements OnInit {
           //get the place result
           let place: google.maps.places.PlaceResult =
             autocomplete.getPlace();
-
           //verify result
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-
+          // local variables
           var instance = this;
           var markerArray = [];
           var directionsDisplay = new google.maps.DirectionsRenderer({
             map: this.map
           });
           var directionsService = new google.maps.DirectionsService;
+          //rcreate route 
           directionsService.route({
+            //start 
             origin: { lat: this.latitude, lng: this.longitude },
+            //finish 
             destination: place.geometry.location,
             avoidHighways: true,
+            //choose route to be draw by draw mode
             travelMode: google.maps.TravelMode.DRIVING
           }, function (response: any, status: any) {
             if (status === 'OK') {
               instance.map.setZoom(30);
               var point = response.routes[0].legs[0];
-
               var myRoute = response.routes[0].legs[0];
               directionsDisplay.setDirections(response);
               for (var i = 0; i < myRoute.steps.length; i++) {
+                //if there is no marker on the map, create one
                 var marker = markerArray[i] = markerArray[i] || new google.maps.Marker;
                 marker.setPosition(myRoute.steps[i].start_location);
               }
 
             } else {
+              //show msg if status not ok
               console.log('Directions request failed due to ' + status);
             }
           });
-
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();

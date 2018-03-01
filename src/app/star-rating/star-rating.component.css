@@ -1,6 +1,8 @@
+/* crop what is over width from the star */
 .crop{
     overflow: hidden; 
 }
+/* stars color */
 div{
     cursor: pointer;
     color: black;
