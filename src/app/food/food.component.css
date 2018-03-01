@@ -1,25 +1,78 @@
 /* main color: #ad1457*/
 
+
 /* hober: #ad1430 */
+
+
+/* navbar custom */
 
 .navbar {
     margin-bottom: 5px;
+    background-color: #ad1457;
+    font-size: 10px;
 }
+
+
+/* back arrow */
+
+#back {
+    float: left;
+}
+
+
+/* back arrow */
+
+.arrow {
+    margin-top: 8px;
+    padding-left: 22px;
+    margin-bottom: 5px;
+}
+
+
+/* header title */
+
+.text-center h1 {
+    font-size: 2em;
+}
+
+.fa-arrow-left {
+    color: white;
+}
+
+
+/* header title */
+
+.header {
+    text-align: center;
+    color: white;
+}
+
+
+/* main class */
 
 .main {
     margin-left: 5px;
     margin-right: 5px;
 }
 
+
+/* map custom */
+
 .mapRestaurants agm-map {
     height: 410px;
     width: 395px;
 }
 
+
+/* table custom */
+
 .table {
     max-height: 410px;
     overflow-y: scroll;
 }
+
+
+/* list in left side */
 
 .left {
     padding-left: 35px;
@@ -34,39 +87,13 @@
     padding-right: 0;
 }
 
-.navbar {
-    background-color: #ad1457;
-    font-size: 10px;
-}
-
-/* back arrow */
-
-.arrow {
-    margin-top: 8px;
-    padding-left: 22px;
-    margin-bottom: 5px;
-}
-
-.text-center h1 {
-    font-size: 2em;
-}
-
-.fa-arrow-left {
-    color: white;
-}
-
-.header {
-    text-align: center;
-    color: white;
-}
-
-.header>h1, i {
+.header>h1,
+i {
     margin-top: 10px;
 }
 
-#back {
-    float: left;
-}
+
+/* spinner custom for loading  */
 
 .notloaded img {
     width: 60%;
@@ -76,11 +103,15 @@
     margin-right: 40%;
 }
 
+
+/* wait text */
+
 .wait-text {
     text-align: center;
     margin-top: 45px;
 }
-hr{
+
+hr {
     margin-top: 1px;
     margin-bottom: 5px;
     border-width: 1.5px;
