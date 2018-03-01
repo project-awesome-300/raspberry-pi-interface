@@ -3,29 +3,20 @@
 
 /* hover: #00e676 */
 
+
+/* custom navbar */
+
 .navbar-info {
     background-color: #00c853;
     margin-bottom: 5px;
 }
 
+
+/* link to go back */
+
 a {
     color: #fff;
     font-weight: bold;
-}
-
-h1 {
-    color: #fff;
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-
-.main{
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-#map{
-  border-radius: 20px;
 }
 
 
@@ -36,18 +27,49 @@ h1 {
     padding-left: 22px;
 }
 
+
+/*  header title */
+
+h1 {
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+
+/* map component */
+
+.main {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+/* map id */
+
+#map {
+    border-radius: 20px;
+}
+
+
+/* search text */
+
 .text h1 {
-    /* clear: both; */
     display: inline-block;
     overflow: hidden;
     font-size: 2em;
-    /* white-space: nowrap; */
     word-wrap: break-word !important;
 }
+
+
+/* map custom */
 
 agm-map {
     height: 365px;
 }
+
+
+/* search  */
 
 .form-group {
     margin-bottom: 5px;
