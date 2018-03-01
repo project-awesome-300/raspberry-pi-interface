@@ -77,6 +77,7 @@ export class MapComponent implements OnInit {
             travelMode: google.maps.TravelMode.DRIVING
           }, function (response: any, status: any) {
             if (status === 'OK') {
+              // if ok draw route
               instance.map.setZoom(30);
               var point = response.routes[0].legs[0];
               var myRoute = response.routes[0].legs[0];

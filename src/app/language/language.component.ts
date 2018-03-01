@@ -10,24 +10,28 @@ import { AppService } from '../../providers/app.service';
   styleUrls: ['./language.component.css']
 })
 export class LanguageComponent implements OnInit {
-
+  
+  // set background image
   public background = 'assets/images/logo.png';
   private _event: AnalyticsEvent
+
   constructor(
-    private _googleAnalyticsEventsService: GoogleAnalyticsEventsService, 
-    private _router: Router, 
-    private _appService: AppService) { }
+    private _googleAnalyticsEventsService: GoogleAnalyticsEventsService,
+    private _router: Router,
+    private _appService: AppService
+  ) { }
 
   ngOnInit() {
     this._event = new AnalyticsEvent("language", "unknown");
   }
 
-  languageChosen(lang: string){
+  languageChosen(lang: string) {
     this._event.eventAction = lang;
     this._googleAnalyticsEventsService.emitEvent(this._event);
     this._appService.language = lang;
-    this._router.navigate(['/dashboard']);
     //router nagivate to dashboard
+    this._router.navigate(['/dashboard']);
+
   }
 
 }
